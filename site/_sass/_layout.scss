@@ -115,6 +115,9 @@
 
 .footer-col-wrapper {
     display: flex;
+    white-space: nowrap;
+    flex-wrap: wrap;
+    justify-content: space-between;
     font-size: 15px;
     color: $grey-color;
     margin-left: -$spacing-unit / 2;
@@ -130,34 +133,10 @@
 }
 
 .footer-col-2 {
-    white-space: nowrap;
 }
 
 .footer-col-3 {
-    flex: 1 1 auto;
-    width: -webkit-calc(50% - (#{$spacing-unit} / 2));
-    width:         calc(50% - (#{$spacing-unit} / 2));
 }
-
-@include media-query($on-laptop) {
-    .footer-col-wrapper {
-        flex-wrap: wrap;
-        justify-content: space-between;
-    }
-
-    .footer-col-3 {
-        width: -webkit-calc(100% - (#{$spacing-unit} / 2));
-        width:         calc(100% - (#{$spacing-unit} / 2));
-    }
-}
-
-@include media-query($on-palm) {
-    .footer-col {
-        width: -webkit-calc(100% - (#{$spacing-unit} / 2));
-        width:         calc(100% - (#{$spacing-unit} / 2));
-    }
-}
-
 
 
 /**
