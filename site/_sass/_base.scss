@@ -204,3 +204,26 @@ pre {
         }
     }
 }
+
+.projects {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.project {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0.2em;
+}
+
+.project-icon {
+    max-height: 8em;
+    max-width: 8em;
+}
+
+.project-title {
+    text-align: center;
+}
+

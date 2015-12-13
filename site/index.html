@@ -1,23 +1,38 @@
 ---
 layout: default
+projects:
+  - name: Stitch
+    link: http://get.stitchpic.us
+    icon: assets/stitch-icon.svg
+  - name: Fuel Econ
+    link: https://itunes.apple.com/us/app/fuel-econ/id974919816?mt=8
+    icon: assets/fuel-econ.png
+  - name: upthere
+    link: https://upthere.com
+    icon: assets/upthere-logo.svg
+  - name: Apple TV
+    link: https://en.wikipedia.org/wiki/Apple_TV#2nd_and_3rd_generation_2
+    icon: assets/appletv.jpg
+  - name: Remote Desktop
+    link: https://www.apple.com/remotedesktop/
+    icon: assets/remote-desktop.png
+  - name: DeliciousSafari
+    link: http://delicioussafari.com
+    icon: assets/delicioussafari-logo.png
+  - name: Orbital Express
+    link: https://en.wikipedia.org/wiki/Orbital_Express
+    icon: assets/orbital-express.jpg
 ---
 
 <div class="home">
-
-  <h1 class="page-heading">Posts</h1>
-
-  <ul class="post-list">
-    {% for post in site.posts %}
-      <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-
-        <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h2>
-      </li>
+    <div class="projects">
+    {% for project in page.projects %}
+    <a href="{{project.link}}">
+    <div class="project">
+        <span class="project-title">{{project.name}}</span>
+        <img class="project-icon" src="{{ project.icon }}">
+    </div>
+    </a>
     {% endfor %}
-  </ul>
-
-  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
-
+    </div>
 </div>
