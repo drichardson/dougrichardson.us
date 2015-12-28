@@ -15,7 +15,7 @@
    id="svg2"
    version="1.1"
    inkscape:version="0.91 r13725"
-   sodipodi:docname="blog-icon.svg">
+   sodipodi:docname="writings-icon.svg">
   <defs
      id="defs4" />
   <sodipodi:namedview
@@ -25,9 +25,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.4"
-     inkscape:cx="223.14694"
-     inkscape:cy="186.12968"
+     inkscape:zoom="1.979899"
+     inkscape:cx="294.10661"
+     inkscape:cy="157.43515"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -61,8 +61,8 @@
      transform="translate(0,-793.14701)">
     <path
        style="fill:#ff6600;fill-opacity:1;stroke:none;stroke-width:1.1556536;stroke-opacity:1"
-       d="M 37.435547 0 C 16.696681 0 0 16.470018 0 36.929688 L 0 184.62695 C 0 205.08661 16.69668 221.55664 37.435547 221.55664 L 48.675781 221.55664 L 95.359375 256 L 86.998047 221.55664 L 218.56641 221.55664 C 239.30527 221.55664 256 205.08661 256 184.62695 L 256 36.929688 C 256 16.470018 239.30527 0 218.56641 0 L 37.435547 0 z "
-       transform="translate(0,793.14701)"
-       id="rect4136" />
+       d="M 37.435547,793.14701 C 16.696681,793.14701 0,809.61701 0,830.07671 l 0,147.69724 c 0,20.45966 16.69668,36.92965 37.435547,36.92965 l 11.240234,0 46.683594,34.4434 -8.361328,-34.4434 131.568363,0 C 239.30527,1014.7036 256,998.23361 256,977.77395 l 0,-147.69724 c 0,-20.4597 -16.69473,-36.9297 -37.43359,-36.9297 l -181.130863,0 z"
+       id="rect4136"
+       inkscape:connector-curvature="0" />
   </g>
 </svg>
