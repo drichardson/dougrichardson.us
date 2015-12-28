@@ -9,6 +9,8 @@
 title: Doug Richardson's Projects
 email: dougie.richardson@gmail.com
 description: Doug Richardson's personal site.
+writings_title: Doug's Writings
+writings_description: Random collection of writings.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://dougrichardson.org" # the base hostname & protocol for your site
 realname: Doug Richardson

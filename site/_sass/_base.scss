@@ -208,9 +208,7 @@ pre {
 .projects {
     display: flex;
     flex-wrap: wrap;
-    @include media-query($on-laptop) {
-        justify-content: space-around;
-    }
+    align-items: center;
 }
 
 .project {
@@ -220,10 +218,6 @@ pre {
 }
 
 .project-icon {
-    max-height: 8em;
-}
-
-.project-title {
-    text-align: center;
+    max-width: 8em;
 }
 

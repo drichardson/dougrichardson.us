@@ -22,6 +22,9 @@ projects:
   - name: Orbital Express
     link: https://en.wikipedia.org/wiki/Orbital_Express
     icon: assets/orbital-express.jpg
+  - name: Writings
+    link: writings
+    icon: assets/writings-icon.svg
 ---
 
 <div class="home">
@@ -29,8 +32,7 @@ projects:
     {% for project in page.projects %}
     <a href="{{project.link}}">
     <div class="project">
-        <span class="project-title">{{project.name}}</span>
-        <img class="project-icon" src="{{ project.icon }}">
+        <img class="project-icon" src="{{ project.icon }}" alt="{{ project.name }}">
     </div>
     </a>
     {% endfor %}
