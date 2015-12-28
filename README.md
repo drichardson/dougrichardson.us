@@ -10,4 +10,7 @@ To serve locally:
     cd site
     jekyll serve
 
+If you're working on a draft (in the _drafts directory):
 
+    cd site
+    jekyll serve --drafts
