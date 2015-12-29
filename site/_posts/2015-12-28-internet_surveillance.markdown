@@ -52,21 +52,23 @@ if you visit https://embarrassing.com/somepage.html the eavesdropper would know 
 the IP address for embarrassing.com but not that you looked at somepage.html.
 
 # HTTP Traffic
-Web pages are transmitted to your computer using a protocol called HTTP (Hypertext Transport Protocol). HTTP has few security protections.
-An eavesdropper between your computer and the web site your viewing can also view what you're looking at. To address
-this deficiency, HTTPS was developed which ostensibly prevents anyone but you and the web page your viewing from monitoring
-your activity.
+Web pages are transmitted to your computer using a protocol called HTTP. HTTP has few security protections.
+An eavesdropper between your computer and the web site you're viewing can see everything that you see.
 
-However, even if you are using HTTPS, the internet traffic message addresses and lengths and DNS names
+# HTTPS Traffic
+HTTPS encrypts traffic between you and the web site you are visiting so that the contents of the pages are
+hidden from eavesdroppers. However, even with HTTPS, the internet traffic message addresses and lengths and DNS names
 previously discusses are still observabe.
 
-Additionally, HTTPS relies on a set of root certificates that are pre-installed on your computer. Every web site
-has to get their own certificate issued by an owner of one of the pre-installed root certificates. A quick look at my own
-computer shows 180 root certificates, many owned by private companies from around the world and some by government
-agencies such as the US Department of Defense. Any of these root certificate owners can generate a valid certificate
-for any web site on the internet. This gives any root certificate owner the ability to snoop on any web traffic, even
-encrypted over HTTPS, provided they get a device between your computer and the web site you're trying to view (which the
-US National Security Agency is [known to have been doing][nsa] for some time).
+HTTPS relies on a set of certificates pre-installed on your computer. The organizations that own these certificates
+are able to issue certificates to web site owners verifying they own the domain. When you visit a web site, the owner
+of the site presents their certificate to your web browser, which then checks that it was issued by an owner of one
+of the pre-installed certificates on your computer.
+
+A quick look at my own computer shows 180 pre-installed certificates, many owned by private companies from around the world and some by government
+agencies such as the US Department of Defense. Any of these pre-installed certificate owners can generate a valid certificate
+for any web site on the internet. This gives any pre-installed certificate owner the ability to snoop on any web traffic, even
+encrypted over HTTPS, provided they get a device between your computer and the web site you're trying to view.
 
 Regardless of the technical aspects of security, governmant agencies force web site owners to share the
 encryption keys that keep communications between you and the web site private[^lava], thus allowing agencies to
@@ -122,7 +124,6 @@ There are 5 easily identifiable entities in this trace:
 [ip]: https://www.browserleaks.com/whois
 [Panopticlick]: https://panopticlick.eff.org/
 [eff]: https://www.eff.org/
-[nsa]: https://en.wikipedia.org/wiki/Room_641A
 [selfsigned]: https://self-signed.badssl.com/
 [^lava]: [Lavabit on Wikipedia](https://en.wikipedia.org/wiki/Lavabit)
 [HTTPS Everywhere]: https://www.eff.org/https-everywhere
