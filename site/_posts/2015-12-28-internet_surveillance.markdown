@@ -36,8 +36,7 @@ to believe you are downloading pirated movies or software.
 
 Now suppose you visit a site and that your computer sends many short messages to the web site and the
 web site sends many short messages back to your computer. If the site is known to be a text or voice
-chat web site, an eavesdropper could infer you're communicating with someone. If the eavesdropper can also
-
+chat web site, an eavesdropper could infer you're communicating with someone. 
 
 # DNS Names
 Usually, when you go to a web site, you don't go their using the IP address. Rather, you use
