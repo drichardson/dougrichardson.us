@@ -6,11 +6,11 @@
 # 'jekyll serve'. If you change this file, please restart the server process.
 
 # Site settings
-title: Doug Richardson
+title: "Projects and Writings"
 email: dougie.richardson@gmail.com
-description: Doug Richardson's personal site.
-writings_title: Doug's Writings
-writings_description: Random collection of writings.
+description: Doug Richardson's projects, writings, and contact info.
+writings_title: Doug Richardson's Writings
+writings_description: Possibly occasional articles on topics to be determined.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://dougrichardson.org" # the base hostname & protocol for your site
 realname: Doug Richardson
@@ -18,7 +18,6 @@ github_username:  drichardson
 stackoverflow_userid: 196964
 stackoverflow_username: doug-richardson
 linkedin_username: douglasrichardson
-footer_heading: Contact Me
 
 # Build settings
 markdown: kramdown

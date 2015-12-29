@@ -209,7 +209,12 @@ pre {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
+
+    @include media-query($on-palm) {
+        justify-content: space-around;
+    }
 }
+
 
 .project {
     display: flex;
