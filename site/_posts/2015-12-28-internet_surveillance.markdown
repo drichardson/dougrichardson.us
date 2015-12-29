@@ -39,19 +39,17 @@ web site sends many short messages back to your computer. If the site is known t
 chat web site, an eavesdropper could infer you're communicating with someone. 
 
 # DNS Names
-Usually, when you go to a web site, you don't go their using the IP address. Rather, you use
+Usually, when you go to a web site, you don't go there using the site's IP address. Rather, you use
 a name. These names are converted into IP addresses by the Domain Name System. Ordinarily,
 your Internet Service Provider's DNS servers are used to convert names to IP addresses. Even
 if you use another DNS service, your Internet Service Provider can eavesdrop on all DNS requests
-your computer makes because DNS traffic is sent in the clear (meaning it is not encrypted).
+your computer makes because DNS traffic is sent in the clear (i.e., DNS traffic is not encrypted).
 
 What could an eavesdropper learn about you by looking at your computers DNS requests?
 
 * The names of the web sites you are visiting (though not the specific pages you are looking at). For example,
 if you visit https://embarrassing.com/somepage.html the eavesdropper would know your computer requested
 the IP address for embarrassing.com but not that you looked at somepage.html.
-* The kinds of devices you own. If a device on your network is making requests to Apple's iCloud services, for example, then
-any
 
 # HTTP Traffic
 Web pages are transmitted to your computer using a protocol called HTTP (Hypertext Transport Protocol). HTTP has few security protections.
