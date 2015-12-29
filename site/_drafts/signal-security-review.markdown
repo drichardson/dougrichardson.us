@@ -3,7 +3,8 @@ layout: post
 title:  Signal App Security Review
 ---
 Signal is a privacy focused text messaging and phone call application for Android and iOS developed by
-[Open Whisper Systems](https://whispersystems.org/).
+[Open Whisper Systems](https://whispersystems.org/). This review will examine some of these privacy
+features.
 
 # Marketing
 Signal's privacy is the main feature marketed on it's web page. It's also listed as a feature on
@@ -30,4 +31,6 @@ From the [iOS app](https://web.archive.org/web/20150910133610/https://itunes.app
 > Be Yourself - Signal uses your existing phone number and address book. There are no separate logins, usernames, passwords, or PINs to manage or lose.
 
 > Stay Secure - We cannot hear your conversations or see your messages, and no one else can either. No exceptions. You can even tap and hold on a contact's name to see advanced identity verification options. Everything in Signal is always end-to-end encrypted and painstakingly engineered in order to keep your communication safe.
+
+
 
