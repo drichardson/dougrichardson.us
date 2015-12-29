@@ -15,7 +15,7 @@ In order to transmit data between your computer and a web site, two addresses ar
 address of your computer, and the address of the web site you are trying to access. This pair of addresses
 is visible (and thus, can be tracked) by every device that sits between your computer and the web site you are trying
 to access. At a minimum, this includes your Internet Service Provider (e.g., Comcast) and the website's Internet
-Service Provider, but usually traffic passes through other organizations as well. *Appendix A* shows
+Service Provider, but usually traffic passes through other organizations as well. [Appendix B](#appendix-b-traceroute) shows
 an example route. These organizations see your traffic and thus have the capability to eavesdrop
 on your traffic.
 
