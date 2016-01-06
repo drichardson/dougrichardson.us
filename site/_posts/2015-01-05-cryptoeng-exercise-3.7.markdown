@@ -31,6 +31,6 @@ The attack is thus able to check 2 key candidates for each cryptographic operati
 on the $$2^{56}$$ possible DES keys in half to $$2^{55}$$.
 
 ### References
-The main idea for this answer is taken from fgrieu [answer](https://crypto.stackexchange.com/a/5493/25342)
+The main idea for this answer is taken from fgrieu's [answer](https://crypto.stackexchange.com/a/5493/25342)
 on [Cryptography Stack Exchange](https://crypto.stackexchange.com/).
 
