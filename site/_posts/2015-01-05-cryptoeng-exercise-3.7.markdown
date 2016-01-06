@@ -9,8 +9,8 @@ Exercise 3.7 from [Cryptography Engineering](https://www.schneier.com/books/cryp
 > utilize the DES complementation property.
 
 ### Complementation Property of DES
-The complementation property of DES says that $$\overline{E_k(x)}=E_\overline k(\overline x)$$,
-where $$E_k(x)$$ is the value of $$x$$ DES encrypted with key $$k$$.
+The complementation property of DES says that $$\overline{E_k(m)}=E_\overline k(\overline m)$$,
+where $$E_k(m)$$ is the value of $$m$$ DES encrypted with key $$k$$.
 
 ### Example System
 A multi-user file system where each file is DES encrypted with a single key, $$k$$.
