@@ -10,7 +10,7 @@ title: Projects
 writings_title: Notes
 writings_description: Notes on various topics.
 email: dougie.richardson@gmail.com
-pgp_key: assets/pgp_key.txt
+pgp_key: /assets/pgp_key.txt
 pgp_fingerprint: 888B FB79 8ABD EA67 6A9A 4F15 F9C3 F531 2F3D 29A7
 description: Doug Richardson's projects and contact info.
 baseurl: "" # the subpath of your site, e.g. /blog
