@@ -1,0 +1,21 @@
+---
+title: Notes
+layout: default
+---
+<div class="home">
+    
+    <div class="page-heading">
+        <h1>{{page.title}}</h1>
+        <a href="{{ "/feed.xml" | prepend: site.baseurl }}"><img class="rss-icon" src="/assets/rss-icon.svg" alt="RSS feed"></a>
+    </div>
+
+    <ul class="post-list">
+        {% for post in site.posts %}
+        <li>
+            <a class="post-link" href="{{ post.url }}">{{ post.title }}</a>
+            <span class="post-meta">{{ post.date | date: "%Y-%m-%d" }}</span>
+        </li>
+        {% endfor %}
+    </ul>
+
+</div>
