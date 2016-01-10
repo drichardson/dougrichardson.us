@@ -91,9 +91,9 @@ column) and column 3 (the ciphertext column). This can also be produced using
     abcdefghijklmnopqrstuvwxyz
     WAZPFEKHL?DJMOGC?BVQISRXY?
 
-Where the 3 ?s stand for the 3 characters unused by the ciphertext in question.
+Where the 3 *?*s stand for the 3 characters that don't appear in the ciphertext.
 
-**Step 3: Ciphertext Decrypt 1** Attempt to decrypt the ciphertext with the most probable key generated in the previous step.
+**Step 3: Ciphertext Decrypt 1** Decrypt the ciphertext with the most probable key generated in the previous step.
 
     tr 'WAZPFEKHL?DJMOGC?BVQISRXY?' abcdefghijklmnopqrstuvwxyz < ciphertext    
     lowmtnyohmsrlawatedahoeektoedecwgrffrlucttnpurcgiebeotseceaaf
@@ -101,7 +101,7 @@ Where the 3 ?s stand for the 3 characters unused by the ciphertext in question.
     eatshtaeedtntsedtnpednoeaeluoetshihiwntseoalsedeniehotstseuif
     notuihtetoutssnvebeoratshtaulsalsedeahoeuauhccwtorbrhctnpoehx
 
-Perhaps some of you savants can pattern recognize that in your head, but I got nowhere with it.
+If you're some sort of savant, perhaps you can pattern recognize that in your head, but I got nowhere with it.
 
 **Step 4: Digraph Frequencies** According to [this digraph frequency table](http://www.math.cornell.edu/~mec/2003-2004/cryptography/subs/digraphs.html),
 the 10 most common digraphs in English are:
@@ -228,50 +228,132 @@ between words:
 First try:
 
 	./analyze.sh ciphertext| tr 'WAZBFEKVL?DJMGOC?PHQISRXY?' abcdefghijklmnopqrstuvwxyz
-     at	4
-     en	5
-     ea	5
-     oi	5
-     re	5
-     to	6
-     ne	7
-     he	7
-     er	8
-     th	9
-     hst	2
-     asn	2
-     ath	2
-     lhe	3
-     top	3
-     ths	3
-     alh	3
-     ere	4
-     the	4
-     her	4
-     nwmt	2
-     lnwm	2
-     othe	2
-     thst	2
-     hsta	2
-     asne	2
-     aths	2
-     lher	3
-     here	3
-     alhe	3
-     lnwmt	2
-     thsta	2
-     herea	2
-     athst	2
-     lhere	3
-     alher	3
-     lherea	2
-     athsta	2
-     alhere	3
-     alherea	2
+    at	4
+    en	5
+    ea	5
+    oi	5
+    re	5
+    to	6
+    ne	7
+    he	7
+    er	8
+    th	9
+    hst	2
+    asn	2
+    ath	2
+    lhe	3
+    top	3
+    ths	3
+    alh	3
+    ere	4
+    the	4
+    her	4
+    nwmt	2
+    lnwm	2
+    othe	2
+    thst	2
+    ....
 
 *thst* is probably *that*, so swap *a* and *s* in the key. *oi* isn't common, and we're already pretty sure about *o*
 being in the right place, and *on* is high on the frequency list so switch *i* and *n*.
 
+    ./analyze.sh ciphertext| tr 'HAZBFEKVG?DJMLOC?PWQISRXY?' abcdefghijklmnopqrstuvwxyz
+    st	4
+    ei	5
+    es	5
+    on	5
+    re	5
+    to	6
+    ie	7
+    he	7
+    er	8
+    th	9
+    hat	2
+    sai	2
+    sth	2
+    lhe	3
+    top	3
+    tha	3
+    slh	3
+    ere	4
+    the	4
+    her	4
+	...
+
+**Decrypt 3**. 
+
+    tr 'HAZBFEKVG?DJMLOC?PWQISRXY?' abcdefghijklmnopqrstuvwxyz < ciphertext
+    liwmtoyiamhdlswstersaieektierecwgdffdlucttopudcgnebeithecessf
+    oisoreieasonranwnonekmeitsdnsdstongesdyndnynevenliwmtdonslher
+    esthatseertothertoperoieseluiethananwotheislhereoneaiththeunf
+    oitunatetiuthhovebeidsthatsulhslheresaieusuaccwtidbdactopieax
+
+Not sure if this is forward or backward progress, but I now notice a couple things that
+look like words: *unfoitunate* and *ieason*. Both would benefit from swapping *r* and *i*.
+
+
+    tr 'HAZBFEKVP?DJMLOC?GWQISRXY?' abcdefghijklmnopqrstuvwxyz < ciphertext
+    lrwmtoyramhdlswsteisareektreiecwgdffdlucttopudcgneberthecessf
+    orsoiereasonianwnonekmertsdnsdstongesdyndnynevenlrwmtdonslhei
+    esthatseeitotheitopeioreselurethananwotherslheieonearththeunf
+    ortunatetruthhoveberdsthatsulhslheiesareusuaccwtrdbdactopreax
+
+Breaking up by eyeball and we can see lots of words now.
+
+    lrwmtoyramhdlswsteisareektreiecwgdffdlucttopudcgneberthecess for
+    soie reason ianwnonekmertsdnsdstongesdyndnyn even lrwmtdonslhei
+    es that seei to the itopeioreselure than anwother slheie on earth the unf
+    ortunate truth hoveberds that sulhslheies are usuaccwtrdbdactopreax
+
+*for soie reason* is probably *for some reason*, so swap *i* and *m*. *are usuaccw* could be *are usually* so try
+swapping *c* for *l* and *w* for *y*.
+
+    tr 'HAJBFEKVM?DZPLOC?GWQISYXR?' abcdefghijklmnopqrstuvwxyz < ciphertext
+    cryitowraihdcsystemsareektremelygdffdculttopudlgneberthelessf
+    orsomereasonmanynonekiertsdnsdstongesdwndnwnevencryitdonschem
+    esthatseemtothemtopemoresecurethananyotherschemeonearththeunf
+    ortunatetruthhoveberdsthatsuchschemesareusuallytrdbdaltopreax
+
+Breaking up again:
+
+    cryitowraihdc systems are ektremely gdffdcult to pudlgneber theless for
+    some reason many none kiertsdnsdstongesdwndnwn even cry it don schemes
+    that seem to them to pe more secure than any other scheme on earth the
+    unfortunate truth hoveberds that such schemes are usually trdbdaltopreax
+
+*ektremely gdffdcult* looks like *extremely difficult*, so swap *k* for *x*, *d* for *g*, and *i* for *d*.
+*to pe more* looks like *to be more*, so swap *p* for *b*.
+
+    tr 'HCJKFEMVB?XZPLOA?GWQISYDR?' abcdefghijklmnopqrstuvwxyz < ciphertext
+    crygtowraghicsystemsareextremelydifficulttobuildneperthelessf
+    orsomereasonmanynonexgertsinsistondesiwninwnevencrygtionschem
+    esthatseemtothemtobemoresecurethananyotherschemeonearththeunf
+    ortunatetruthhoveperisthatsuchschemesareusuallytripialtobreak
+
+Breaking it up:
+
+    crygtowraghic systems are extremely difficult to build nepertheless for
+    some reason many non exgerts insist on desiwninwnev encrygtion schemes
+    that seem to them to be more secure than any other scheme on earth the
+	unfortunate truth hoveper is that such schemes are usually tripial to break
+
+OK, almost done now. *nepertheless* is *nevertheless*, so swap *p* for *v*. *crygtowraghic*
+is *cryptographic*, so swap *g* for *p* and *w* for *g*.
+
+    tr 'HCJKFEYVB?XZPLOM?GWQIASDR?' abcdefghijklmnopqrstuvwxyz < ciphertext
+    cryptographicsystemsareextremelydifficulttobuildneverthelessf
+    orsomereasonmanynonexpertsinsistondesigningnewencryptionschem
+    esthatseemtothemtobemoresecurethananyotherschemeonearththeunf
+    ortunatetruthhoweveristhatsuchschemesareusuallytrivialtobreak
+
+Broken up:
+
+    cryptographic systems are extremely difficult to build nevertheless
+	for some reason many non experts insist on designing new encryption
+	schemes that seem to them to be more secure than any other scheme on earth
+	the unfortunate truth however is that such schemes are usually trivial to break
+
+Tada!
 
 ### References
 * [Digraph Frequency](http://www.math.cornell.edu/~mec/2003-2004/cryptography/subs/digraphs.html)
