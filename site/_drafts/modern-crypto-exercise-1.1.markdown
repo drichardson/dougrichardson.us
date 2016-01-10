@@ -79,17 +79,199 @@ to the english text frequency table sorted by frequency:
     z   0.1
     q   0.1
 
-Some of the plaintext characters (j, z, and q) don't have corresponding ciphertext entries. That indicates that the cipher
-text didn't use the full set of 26 characters.
+Some of the characters (j, z, and q) don't have corresponding ciphertext entries. That indicates the plaintext
+that generated the ciphertext was also missing 3 letters (the most probable missing letters being j, z, and q).
+
 
 **Step 2** Build a probable key by sorting the table from step 1 by english plaintext letter, and then by selecting columns 1 (the plaintext
-column) and column 3 (the ciphertext column). This can also be produced using the `most_probable_key.sh` script in my github repo:
+column) and column 3 (the ciphertext column). This can also be produced using
+[`most_probable_key.sh`](https://github.com/drichardson/crypto_exercises/blob/master/intro-modern-crypto/1.1/most_probable_key.sh):
 
     ./most_probable_key.sh < ciphertext
     abcdefghijklmnopqrstuvwxyz
     WAZPFEKHL?DJMOGC?BVQISRXY?
 
 Where the 3 ?s stand for the 3 characters unused by the ciphertext in question.
+
+**Step 3: Ciphertext Decrypt 1** Attempt to decrypt the ciphertext with the most probable key generated in the previous step.
+
+    tr 'WAZPFEKHL?DJMOGC?BVQISRXY?' abcdefghijklmnopqrstuvwxyz < ciphertext    
+    lowmtnyohmsrlawatedahoeektoedecwgrffrlucttnpurcgiebeotseceaaf
+    noandeoehanidhiwiniekmeotariaratnigearyiriyieveilowmtrnialsed
+    eatshtaeedtntsedtnpednoeaeluoetshihiwntseoalsedeniehotstseuif
+    notuihtetoutssnvebeoratshtaulsalsedeahoeuauhccwtorbrhctnpoehx
+
+Perhaps some of you savants can pattern recognize that in your head, but I got nowhere with it.
+
+**Step 4: Digraph Frequencies** According to [this digraph frequency table](http://www.math.cornell.edu/~mec/2003-2004/cryptography/subs/digraphs.html),
+the 10 most common digraphs in English are:
+
+|--------------------
+| Digraph | Frequency
+|-|-
+| th | 1.52
+| he | 1.28
+| in | 0.94
+| er | 0.94
+| an | 0.82
+| re | 0.68
+| nd | 0.63
+| at | 0.59
+| on | 0.57
+|===================
+
+Using the [`pattern_frequency.go`](https://github.com/drichardson/crypto_exercises/blob/master/tools/pattern_frequency.go) tool, I
+built a table of the top 10 ciphertext digraphs:
+
+	tr -d '\n' < ciphertext | \
+		go run pattern_frequency.go -length 2 | \
+		sort -k2 -nr | head -n 10
+	QV	9
+    FP	8
+    VF	7
+    GF	7
+    QO	6
+    PF	5
+    OL	5
+    FW	5
+    FG	5
+    WQ	4
+
+At this point, I started at the top of both tables and then filled out the rest. For example, $$th=QV$$ implies $$at=?V$$.
+
+Iteration 1, assume $$QV=th$$:
+
+|--------------------
+| Plaintext | Frequency | Ciphertext
+|-|-|-
+| th | 1.52 | QV
+| he | 1.28 | V?
+| in | 0.94 | ??
+| er | 0.94 | ??
+| an | 0.82 | ??
+| re | 0.68 | ??
+| nd | 0.63 | ??
+| at | 0.59 | ?V
+| on | 0.57 | ??
+|===================
+
+Iteration 2, assume $$F=e$$. This wasn't a guess; the probable key generator suggested this relationship.
+
+|--------------------
+| Plaintext | Frequency | Ciphertext
+|-|-|-
+| th | 1.52 | QV
+| he | 1.28 | VF
+| in | 0.94 | ??
+| er | 0.94 | F?
+| an | 0.82 | ??
+| re | 0.68 | ?F
+| nd | 0.63 | ??
+| at | 0.59 | ?V
+| on | 0.57 | ??
+|===================
+
+Iteration 3, assume $$P=r$$. I choose this because I need *er* and *re* and have *PF* and *FP*:
+
+|--------------------
+| Plaintext | Frequency | Ciphertext
+|-|-|-
+| th | 1.52 | QV
+| he | 1.28 | VF
+| in | 0.94 | ??
+| er | 0.94 | FP
+| an | 0.82 | ??
+| re | 0.68 | PF
+| nd | 0.63 | ??
+| at | 0.59 | ?V
+| on | 0.57 | ??
+|===================
+
+
+Iteration 5, one digraph on my ciphertext list is *QO*. I've already assumed the $$Q=t$$, and the most common English
+digraph on the full table (not the top 10 I'm using here) shows the most second most common digraph beginning with a *t* (after *th*)
+is *to*, so I'll make $$O=o$$.
+
+|--------------------
+| Plaintext | Frequency | Ciphertext
+|-|-|-
+| th | 1.52 | QV
+| he | 1.28 | VF
+| in | 0.94 | ??
+| er | 0.94 | FP
+| an | 0.82 | ??
+| re | 0.68 | PF
+| nd | 0.63 | ??
+| at | 0.59 | ?V
+| on | 0.57 | O?
+| to | 0.52 | QO
+|===================
+
+
+
+**Step 5: Decrypt 2**. Try decrypting with the probable key, modified with the digraph analysis:
+
+	tr 'WAZBFEKVL?DJMGOC?PHQISRXY?' abcdefghijklmnopqrstuvwxyz < ciphertext
+	lnwmtoynsmhdlawaterasneektnerecwgdffdlucttopudcgiebentheceaaf
+	onaorenesaoirsiwioiekmentadiadatoigeadyidiyieveilnwmtdoialher
+	eathstaeertothertoperoneaelunethsisiwothenalhereoiesnththeuif
+	ontuistetnuthhovebendathstaulhalhereasneuausccwtndbdsctopnesx
+
+*the* appear 4 times. Might be on the right track.
+
+**Step 6: Iterate on longer words.** Use `pattern_frequency.go` to look for patterns in ciphertext that appear
+multiple times. This process is automated for patterns 2--10 characters in length in
+[`analyze.sh`](https://github.com/drichardson/crypto_exercises/blob/master/intro-modern-crypto/1.1/analyze.sh).
+Iterating on this output is a bit easier than the raw ciphertext, because its easier to see separation
+between words:
+
+First try:
+
+	./analyze.sh ciphertext| tr 'WAZBFEKVL?DJMGOC?PHQISRXY?' abcdefghijklmnopqrstuvwxyz
+     at	4
+     en	5
+     ea	5
+     oi	5
+     re	5
+     to	6
+     ne	7
+     he	7
+     er	8
+     th	9
+     hst	2
+     asn	2
+     ath	2
+     lhe	3
+     top	3
+     ths	3
+     alh	3
+     ere	4
+     the	4
+     her	4
+     nwmt	2
+     lnwm	2
+     othe	2
+     thst	2
+     hsta	2
+     asne	2
+     aths	2
+     lher	3
+     here	3
+     alhe	3
+     lnwmt	2
+     thsta	2
+     herea	2
+     athst	2
+     lhere	3
+     alher	3
+     lherea	2
+     athsta	2
+     alhere	3
+     alherea	2
+
+*thst* is probably *that*, so swap *a* and *s* in the key. *oi* isn't common, and we're already pretty sure about *o*
+being in the right place, and *on* is high on the frequency list so switch *i* and *n*.
+
 
 ### References
 * [Digraph Frequency](http://www.math.cornell.edu/~mec/2003-2004/cryptography/subs/digraphs.html)
