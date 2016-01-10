@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Cryptography Engineering Solution for Exercise 3.7"
+title: "Cryptography Engineering: Exercise 3.7"
 ---
 Exercise 3.7 from [Cryptography Engineering](https://www.schneier.com/books/cryptography_engineering/):
 
