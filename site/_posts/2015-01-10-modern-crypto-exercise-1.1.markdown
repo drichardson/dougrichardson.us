@@ -357,4 +357,5 @@ Tada!
 
 ### References
 * [Digraph Frequency](http://www.math.cornell.edu/~mec/2003-2004/cryptography/subs/digraphs.html)
-* [Tools](https://github.com/drichardson/crypto_exercises/tree/master/intro-modern-crypto/1.1) I made to help me solve the problem.
+* [Probablem Specific Tools](https://github.com/drichardson/crypto_exercises/tree/master/intro-modern-crypto/1.1)
+* [More Generic Tools](https://github.com/drichardson/crypto_exercises/tree/master/tools)
