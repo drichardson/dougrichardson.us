@@ -58,7 +58,7 @@ scope of the function and therefore cannot be allocated on the stack (because it
 allocated in the data segment (because the data segment cannot grow at runtime),
 thus it must be allocated on the heap -- although inlining can remove some of these heap allocations.
 
-### Escape Analysis
+## Escape Analysis
 [Escape analysis](https://en.wikipedia.org/wiki/Escape_analysis) is used to determine whether
 an item can be allocated on the stack. It determines if an item created in a function (e.g., a local variable)
 can escape out of that function or to other goroutines. For example, in the following function, x escapes from
