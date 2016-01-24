@@ -104,7 +104,7 @@ reduce the number of allocations -- especially heap allocations.
 1. Reuse memory you've already allocated.
 2. Restructure your code so the compiler can make stack allocations instead of heap allocations. Use `go tool compile -m`
 to help you identify escaped variables that will be heap allocated and then rewrite your code so that they can be stack allocated.
-3. Restructure your CPU bound code to pre-allocate memory upfront in big chunks rather than many small chunks on an ongoing basis.
+3. Restructure your CPU bound code to pre-allocate memory in a few big chunks rather than continuously allocating small chunks.
 
 # References
 - [Go 1.4+ Garbage Collection (GC) Plan and Roadmap -- 2014-8-6](https://docs.google.com/document/d/16Y4IsnNRCN43Mx0NZc5YXZLovrHvvLhK_h0KN8woTO4/edit)
