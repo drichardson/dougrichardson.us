@@ -71,7 +71,7 @@ the function that defines it:
          return &x
      }
 
-Items that escape must be allocated on the heap. Thus *x* would be allocated on the heap.[^2]
+Items that escape must be allocated on the heap. Thus *x* would be allocated on the heap.[^1]
 
 The exact escape analysis algorithm can change between Go versions. However, you can
 use `go tool compile -m` to print optimization decisions, which include the escape analysis. For example, on the previous
@@ -115,7 +115,5 @@ to help you identify escaped variables that will be heap allocated and then rewr
 
 # Footnotes
 
-[^1]:Perhaps $$g(n)=n$$ if the free list is a linked list or perhaps $$g(n)=n \cdot lg(n)$$ if the free list is a balanced binary search tree. Note, I have no experience building memory allocators, and I doubt either of these methods are used in production grade allocators, but the point is they aren't $$O(1)$$.
-
-[^2]:Other optimizations (like inlining) could allow the compiler to allocate seemingly escaped variables on the stack.
+[^1]:Other optimizations (like inlining) could allow the compiler to allocate seemingly escaped variables on the stack.
 
