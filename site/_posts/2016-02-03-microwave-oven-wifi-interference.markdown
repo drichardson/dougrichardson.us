@@ -2,7 +2,7 @@
 layout: post
 title: "Measuring Microwave Oven Wi-Fi Interference"
 ---
-I have noticed that when my microwave oven is turned on my Wi-Fi performance sometimes suffers.
+When my microwave oven is turned on my Wi-Fi performance sometimes suffers.
 
 - Is the microwave oven interfering with my Wi-Fi network?
 - Is the microwave oven safe?
@@ -14,7 +14,6 @@ The second question is more difficult to answer. Even defining the level of safe
 # File Transfer Test
 The first test transfers a 1GB[^1] file over Wi-Fi. First setting a baseline with the microwave oven
 off and then trying again with the microwave oven on.
-
 
 ## Setup
 
