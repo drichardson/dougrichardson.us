@@ -33,6 +33,10 @@ USB hard drive is mounted on my laptop using [AFP](https://en.wikipedia.org/wiki
 The Wi-Fi router's 2.4GHz is on channel 9, since channel 9s center frequency (2.452GHz) is the closest
 to my microwaves specified operating frequency (2.45GHz).
 
+Change the working directory to the mounted AFP drive:
+
+    cd <PATH_TO_MOUNTED_AFP_DRIVE>
+
 ## Test 1: Microwave Oven Off
 
 ### 1GB File
