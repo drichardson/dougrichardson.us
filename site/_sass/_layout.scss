@@ -110,6 +110,14 @@
 .social-media-list {
     list-style: none;
     margin-left: 0;
+
+    a {
+        text-decoration: none;
+
+        &:hover span.username {
+            text-decoration: underline;
+        }
+    }
 }
 
 .footer-col-wrapper {
