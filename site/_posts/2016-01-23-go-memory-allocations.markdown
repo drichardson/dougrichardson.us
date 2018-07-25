@@ -7,8 +7,8 @@ This article discusses some memory management concepts used by the [Go programmi
 This article is written for programmers familiar with basic memory management concepts
 but unfamiliar with Go memory management in particular.
 
-# Stack, Heap, and Data Segement
-There are 3 places memory can be allocated: the stack, the heap, and the data segment.
+# Stack, Heap, Data Segment, and Code Segment
+There are four places memory can be allocated: the stack, the heap, the data segment, and the code segment.
 
 ## Stack
 Some memory allocations are done on [the stack](https://en.wikipedia.org/wiki/Stack-based_memory_allocation).
@@ -38,8 +38,13 @@ in the heap requires synchronization (e.g., locking).
 
 ## Data Segment
 Memory can also be allocated in the [data segment](https://en.wikipedia.org/wiki/Data_segment). This
-is where global variables are stored. The data segement is defined at compile time and therefore does not grow
+is where global variables are stored. The data segment is defined at compile time and therefore does not grow
 and shrink at runtime.
+
+## Code Segment
+The [code segment](https://en.wikipedia.org/wiki/Code_segment) contains executable instructions. Instructions
+can contain [immediate values](https://en.wikichip.org/wiki/immediate_value), where the data is stored
+in the instruction itself. Like the data segment, the code segment does not grow and shrink at runtime.[^2]
 
 # What Goes Where?
 [The Go Programming Language Specification](https://golang.org/ref/spec) does not define
@@ -109,11 +114,11 @@ to help you identify escaped variables that will be heap allocated and then rewr
 # References
 - [Go 1.4+ Garbage Collection (GC) Plan and Roadmap -- 2014-8-6](https://docs.google.com/document/d/16Y4IsnNRCN43Mx0NZc5YXZLovrHvvLhK_h0KN8woTO4/edit)
 - [Go Escape Analysis Flaws -- 2015-2-10](https://docs.google.com/document/d/1CxgUBPlx9iJzkz9JWkb6tIpTe5q32QDmz8l0BouG0Cw/preview)
-- [Golang Escape Analysis -- 2015-11-11](http://blog.rocana.com/golang-escape-analysis)
+- [Golang Escape Analysis -- 2015-11-11](https://web.archive.org/web/20170930011137/http://blog.rocana.com/golang-escape-analysis)
 - [Profiling Go Programs -- 2011-6-24](https://blog.golang.org/profiling-go-programs)
 - [The Go Programming Language Specification](https://golang.org/ref/spec)
 
 # Footnotes
 
 [^1]:Other optimizations (like inlining) could allow the compiler to allocate seemingly escaped variables on the stack.
-
+[^2]:Thank you to K. Richard Pixley (former developer of GNU ld, GNU as, GNU BFD) for pointing out that data can also be stored in the code segment.
