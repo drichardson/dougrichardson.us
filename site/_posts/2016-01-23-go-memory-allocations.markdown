@@ -7,12 +7,12 @@ This article discusses some memory management concepts used by the [Go programmi
 This article is written for programmers familiar with basic memory management concepts
 but unfamiliar with Go memory management in particular.
 
-# Stack, Heap, Data Segment, and Code Segment
-There are four places memory can be allocated: the stack, the heap, the data segment, and the code segment.
+# Stack, Heap, and Fixed Size Segments
+For the purposes of this article, there are three ways to allocate memory: the stack, the heap, and fixed size segments.
 
 ## Stack
-Some memory allocations are done on [the stack](https://en.wikipedia.org/wiki/Stack-based_memory_allocation).
-The stack has a top that can move up and down. Space is allocated on the stack by moving the
+[The stack](https://en.wikipedia.org/wiki/Stack-based_memory_allocation) has a top that moves up and down.
+Space is allocated on the stack by moving the
 top up (i.e. pushing items on the stack) and space is deallocated by moving the top down
 (i.e. popping items off the stack). The top is an address that can be incremented and
 decremented with fast arithmetic operations.
@@ -27,8 +27,8 @@ Goroutine stacks are allocated on the heap. If the stack needs to grow beyond th
 then heap operations (allocate new, copy old to new, free old) will occur.
 
 ## Heap
-Some memory allocations are put on [the heap](https://en.wikipedia.org/wiki/Memory_management#DYNAMIC).
-Unlike the stack, the heap does not have a single partition of allocated and free regions.
+Unlike the stack, [the heap](https://en.wikipedia.org/wiki/Memory_management#DYNAMIC)
+does not have a single partition of allocated and free regions.
 Rather, there is a set of of free regions. A data structure must be used to implement this
 set of free regions. When an item is allocated, it is removed from the free regions. When an item
 is freed, it is added back to the set of free regions.
@@ -36,15 +36,14 @@ is freed, it is added back to the set of free regions.
 Unlike the stack, the heap is not owned by one goroutine, so manipulating the set of free regions
 in the heap requires synchronization (e.g., locking).
 
-## Data Segment
-Memory can also be allocated in the [data segment](https://en.wikipedia.org/wiki/Data_segment). This
-is where global variables are stored. The data segment is defined at compile time and therefore does not grow
-and shrink at runtime.
+## Fixed Sized Segments
+Memory can also be allocated in one of the fixed sized segments, such as the 
+[data segment](https://en.wikipedia.org/wiki/Data_segment)
+and
+[code segment](https://en.wikipedia.org/wiki/Code_segment). Fixed sized segments are defined at compile
+time and do not change size at runtime. Read-write fixed size segments (e.g., the data segment) contain global variables
+while read-only segments (e.g., code segment and rodata segment) contain constant values and instructions.[^2]
 
-## Code Segment
-The [code segment](https://en.wikipedia.org/wiki/Code_segment) contains executable instructions. Instructions
-can contain [immediate values](https://en.wikichip.org/wiki/immediate_value), where the data is stored
-in the instruction itself. Like the data segment, the code segment does not grow and shrink at runtime.[^2]
 
 # What Goes Where?
 [The Go Programming Language Specification](https://golang.org/ref/spec) does not define
