@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -e
+set -xeuo pipefail
 
 echo "Deploying..."
 echo "Make sure your google compute SSH identity is added. If not, use:"
