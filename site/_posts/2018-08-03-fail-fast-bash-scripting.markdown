@@ -4,9 +4,7 @@ title: "Fail Fast Bash Scripting"
 ---
 [Fail-fast](https://en.wikipedia.org/wiki/Fail-fast) code makes errors apparent and therefore easier to fix.
 Bash's [set builtin](https://www.gnu.org/software/bash/manual/html_node/The-Set-Builtin.html)
-allows script writers to terminate Bash when an error occurs.
-
-However, there are some gotchas.
+has a few options to help you write fail-fast scripts.
 
 # set -e
 
@@ -20,13 +18,13 @@ before `cut`, since `ls` returns a non-zero status when given an invalid directo
     ls /invalidDirectory  > out.txt
     cut -c 1 out.txt
 
-Output
+Output:
 
     $ ./example1.sh
     ls: cannot access '/invalidDirectory': No such file or directory
 
 
-### Pipeline Gotcha
+### Gotcha: Pipelines
 
 However, in a [pipeline](https://www.gnu.org/software/bash/manual/html_node/Pipelines.html), `set -e` might not
 behave as you expect.
@@ -37,16 +35,15 @@ behave as you expect.
     ls /invalidDirectory | cut -c 1
     echo COMPLETE
 
-Output
+Output:
 
     $ ./pipeline1.sh
     ls: cannot access '/invalidDirectory': No such file or directory
     COMPLETE
 
-Why does pipeline1.sh run to completion? After all, `ls` returned a non-zero status. The answer is that `cut` returned
-a zero status and Bash uses the status of the last command in the pipeline as the status for the entire pipeline.
+Why does pipeline1.sh run to completion? After all, `ls` returned a non-zero status. The answer is that Bash uses the status of the *last* command in the pipeline as the status for the entire pipeline. In this case, the last command in the pipeline is `cut`, which returns status zero.
 
-You can view each individual pipeline command's status using the [PIPESTATUS](https://www.gnu.org/software/bash/manual/html_node/Bash-Variables.html#Bash-Variables) array variable. For example, changing pipeline1.sh to print out the
+Each individual pipeline command's status is stored [PIPESTATUS](https://www.gnu.org/software/bash/manual/html_node/Bash-Variables.html#Bash-Variables). Changing pipeline1.sh to print out the
 PIPESTATUS:
 
     #!/bin/bash
@@ -55,7 +52,7 @@ PIPESTATUS:
     ls /invalidDirectory | cut -c 1
     echo COMPLETE pipeline_status=$? ls_status=${PIPESTATUS[0]} cut_status=${PIPESTATUS[1]}
 
-Output
+Output:
 
     $ ./pipeline1-with-status.sh
     ls: cannot access '/invalidDirectory': No such file or directory
@@ -73,7 +70,7 @@ To change the default behavior of Bash so that it treats any non-zero status in 
     ls /invalidDirectory | cut -c 1
     echo COMPLETE
 
-produces the following output:
+Output:
 
     $ ./pipeline2.sh
     ls: cannot access '/invalidDirectory': No such file or directory
@@ -87,14 +84,14 @@ Using `set -u` causes Bash to exit if you use an unbound variable. For example, 
     echo Print Unbound $MYUNBOUNDVARIABLE
     echo COMPLETE
 
-produces:
+Output:
 
     $ ./unbound.sh
     ./unbound.sh: line 4: MYUNBOUNDVARIABLE: unbound variable
 
 ### Gotcha: Testing Positional Parameters
 
-While useful, this does cause some headaches, most notibly when testing positional parameters. For example, positional-unbound1.sh below, I'd like to provide a useful error message to the script user if they forgot to supply a positional parameter:
+While useful, terminating on unbound variables does cause some headaches, most notably when testing positional parameters. For example, in positional-unbound1.sh below, I'd like to provide a useful error message to the script user if they forget to supply a positional parameter:
 
 
     #!/bin/bash
@@ -111,14 +108,14 @@ While useful, this does cause some headaches, most notibly when testing position
     
     echo "COMPLETE ARG1=$ARG1"
 
-running with no arguments produces:
+Output:
 
     $ ./positional-unbound.sh
     ./positional-unbound.sh: line 5: $1: unbound variable
 
 
 To get around this, you can temporarily disable `set -u` with `set +u` or you can change your code to test the number of
-remaining positional parameters.
+remaining positional parameters, like so:
 
 
     #!/bin/bash
@@ -145,17 +142,26 @@ remaining positional parameters.
     
     echo "COMPLETE ARG1=$ARG1 ARG2=$ARG2"
 
-Now running with no arguments outputs the error message:
+Output:
 
     $ ./positional-unbound-fixed.sh
     Missing ARG1
     Usage: command <ARG1> <ARG2>
 
 
+# Summary
+
+Put this at the top of your fail-fast Bash scripts:
+
+    #!/bin/bash
+    set -euo pipefail
+
+
+Use `[[ $# -gt 0 ]]` or `set +u` to test existence of positional parameters.
 
 
 
-## See Also
+# References
 
 - [Bash Reference Manual: The Set Builtin](https://www.gnu.org/software/bash/manual/html_node/The-Set-Builtin.html)
 - [Bash Reference Manual: Special Parameters](https://www.gnu.org/software/bash/manual/html_node/Special-Parameters.html#Special-Parameters)
