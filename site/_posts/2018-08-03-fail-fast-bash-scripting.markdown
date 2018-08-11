@@ -23,10 +23,12 @@ Output:
     $ ./example1.sh
     ls: cannot access '/invalidDirectory': No such file or directory
 
+However, `set -e` is complicated[^1]. The next sections will try to deal with some of the gotchas.
+
 
 ### Gotcha: Pipelines
 
-However, in a [pipeline](https://www.gnu.org/software/bash/manual/html_node/Pipelines.html), `set -e` might not
+In a [pipeline](https://www.gnu.org/software/bash/manual/html_node/Pipelines.html), `set -e` might not
 behave as you expect.
 
     #!/bin/bash
@@ -57,7 +59,27 @@ Output:
     $ ./pipeline1-with-status.sh
     ls: cannot access '/invalidDirectory': No such file or directory
     COMPLETE pipeline_status=0 ls_status=2 cut_status=0
-    
+
+
+### Gotcha: Command Substitution
+
+`set -e` does not affect subshells created by [Command Substitution](https://www.gnu.org/software/bash/manual/html_node/Command-Substitution.html). This rule is stated in [Command Execution Environment](https://www.gnu.org/software/bash/manual/html_node/Command-Execution-Environment.html):
+
+> Subshells spawned to execute command substitutions inherit the value of the -e option from the parent shell. When not in POSIX mode, Bash clears the -e option in such subshells.
+
+This rule means that the following script will run to completion, in spite of INVALIDCOMMAND.
+
+    #!/bin/bash
+    # command-substitution.sh
+    set -e
+    MYVAR=$(echo -n Start; INVALIDCOMMAND; echo -n End)
+    echo "MYVAR is $MYVAR"
+
+Output:
+
+    ./command-substitution.sh: line 4: INVALIDCOMMAND: command not found
+    MYVAR is StartEnd
+ 
 
 # set -o pipefail
 
@@ -74,6 +96,31 @@ Output:
 
     $ ./pipeline2.sh
     ls: cannot access '/invalidDirectory': No such file or directory
+
+
+# shopt -s inherit_errexit
+
+`shopt -s inherit_errexit`, [added in Bash 4.4](https://lists.gnu.org/archive/html/bug-bash/2016-09/msg00018.html)
+allows you to have command substitution parameters inherit your `set -e` from the parent script.
+
+From the [Shopt Builtin documentation](https://www.gnu.org/software/bash/manual/html_node/The-Shopt-Builtin.html):
+
+> If set, command substitution inherits the value of the errexit option, instead of unsetting it in the subshell environment. This option is enabled when POSIX mode is enabled.
+
+So, modifying command-substitution.sh above, we get:
+
+
+    #!/bin/bash
+    # command-substitution-inherit_errexit.sh
+    set -e
+    shopt -s inherit_errexit
+    MYVAR=$(echo -n Start; INVALIDCOMMAND; echo -n End)
+    echo "MYVAR is $MYVAR"
+
+Output:
+
+    ./command-substitution-inherit_errexit.sh: line 5: INVALIDCOMMAND: command not found
+
 
 # set -u
 Using `set -u` causes Bash to exit if you use an unbound variable. For example, the following script:
@@ -155,21 +202,20 @@ Put this at the top of your fail-fast Bash scripts:
 
     #!/bin/bash
     set -euo pipefail
+    shopt -s inherit_errexit
 
 
-Use `[[ $# -gt 0 ]]` or `set +u` to test existence of positional parameters.
-
+Use `[[ $# -gt 0 ]]` to test existence of positional parameters.
 
 
 # References
-
-- [Bash Reference Manual: The Set Builtin](https://www.gnu.org/software/bash/manual/html_node/The-Set-Builtin.html)
-- [Bash Reference Manual: Special Parameters](https://www.gnu.org/software/bash/manual/html_node/Special-Parameters.html#Special-Parameters)
+- [Bash Reference Manual: Special Parameters](https://www.gnu.org/software/bash/manual/html_node/Special-Parameters.html)
+- [Command substitution is stripping set -e from options](https://lists.gnu.org/archive/html/bug-bash/2015-10/msg00003.html)
 - [Safer bash scripts with 'set -euxo pipefail'](https://vaneyckt.io/posts/safer_bash_scripts_with_set_euxo_pipefail/)
-- [What is the difference between test, \[ and \[\[ ?](https://mywiki.wooledge.org/BashFAQ/031)
-- [Why doesn't set -e (or set -o errexit, or trap ERR) do what I expected?](https://mywiki.wooledge.org/BashFAQ/105)
+- [Why doesn't set -e (or set -o errexit, or trap ERR) do what I expected?](https://mywiki.wooledge.org/BashFAQ/105)..
 
 
+# Footnotes
 
-
+[^1]: Some bash scripters recommend against using `set -e` and instead suggest scripts check every status code they're interested in.
 
