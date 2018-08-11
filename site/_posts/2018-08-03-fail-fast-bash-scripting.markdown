@@ -167,6 +167,7 @@ Use `[[ $# -gt 0 ]]` or `set +u` to test existence of positional parameters.
 - [Bash Reference Manual: Special Parameters](https://www.gnu.org/software/bash/manual/html_node/Special-Parameters.html#Special-Parameters)
 - [Safer bash scripts with 'set -euxo pipefail'](https://vaneyckt.io/posts/safer_bash_scripts_with_set_euxo_pipefail/)
 - [What is the difference between test, \[ and \[\[ ?](https://mywiki.wooledge.org/BashFAQ/031)
+- [Why doesn't set -e (or set -o errexit, or trap ERR) do what I expected?](https://mywiki.wooledge.org/BashFAQ/105)
 
 
 
