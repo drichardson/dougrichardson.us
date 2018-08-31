@@ -2,9 +2,24 @@
 layout: post
 title: "Fail Fast Bash Scripting"
 ---
+
 [Fail-fast](https://en.wikipedia.org/wiki/Fail-fast) code makes errors apparent and therefore easier to fix.
 Bash's [set builtin](https://www.gnu.org/software/bash/manual/html_node/The-Set-Builtin.html)
 has a few options to help you write fail-fast scripts.
+
+# Summary
+
+Put this at the top of your fail-fast Bash scripts:
+
+    #!/bin/bash
+    set -euo pipefail
+    shopt -s inherit_errexit
+
+
+Use `[[ $# -gt 0 ]]` to test existence of positional parameters.
+
+To understand why, read on.
+
 
 # set -e
 
@@ -194,18 +209,6 @@ Output:
     $ ./positional-unbound-fixed.sh
     Missing ARG1
     Usage: command <ARG1> <ARG2>
-
-
-# Summary
-
-Put this at the top of your fail-fast Bash scripts:
-
-    #!/bin/bash
-    set -euo pipefail
-    shopt -s inherit_errexit
-
-
-Use `[[ $# -gt 0 ]]` to test existence of positional parameters.
 
 
 # References
