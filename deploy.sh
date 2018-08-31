@@ -1,6 +1,7 @@
 #!/bin/bash
 
-set -xeuo pipefail
+set -euo pipefail
+shopt -s inherit_errexit
 
 echo "Deploying..."
 echo "Make sure your google compute SSH identity is added. If not, use:"
