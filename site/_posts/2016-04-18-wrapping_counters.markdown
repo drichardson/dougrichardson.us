@@ -153,6 +153,6 @@ bitwise-AND, if you are wrapping around a power of 2, and use compare/reset othe
 # References
 * [Circular Buffers (Linux Kernel)](https://www.kernel.org/doc/Documentation/circular-buffers.txt)
 * [Comparing the performance of Intel's cmov instruction with a conditional branch + mov pair](https://github.com/xiadz/cmov)
-* [Fast algorithm to find a number modulo a power of two](https://en.wikipedia.org/wiki/Power_of_two#Fast_algorithm_to_find_a_number_modulo_a_power_of_two)
+* [Fast algorithm to find a number modulo a power of two](https://en.wikipedia.org/w/index.php?title=Power_of_two&oldid=713006569#Fast_algorithm_to_check_if_a_positive_number_is_a_power_of_two)
 * [Modulo operation: Performance Issues](https://en.wikipedia.org/wiki/Modulo_operation#Performance_issues)
 * [Wrapping Counters Test Source Code](https://github.com/drichardson/wrapping_counters/)
