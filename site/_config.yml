@@ -23,3 +23,6 @@ twitter_username: dougrichardson_
 
 # Build settings
 markdown: kramdown
+
+plugins:
+  - jekyll-sitemap

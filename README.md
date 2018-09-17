@@ -1,9 +1,21 @@
 # dougrichardson.org
 Personal web site built using [jekyll](https://jekyllrb.com/).
 
-To deploy:
+## Pre-requisites
+
+Install muffet for dead link checking and ruby gems defined in site/Gemfile
+which is used to generate the sitemap.
+
+  go get github.com/raviqqe/muffet
+  cd site
+  bundle
+
+
+## To deploy
 
     ./deploy.sh
+
+## Development
 
 To serve locally:
 
