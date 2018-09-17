@@ -207,10 +207,10 @@ the Wi-Fi signal and [noise floor](https://en.wikipedia.org/wiki/Noise_floor).
 ![Wireless Diagnostics Window Menu](/assets/posts/microwave-oven/wireless-diagnostics-window-menu.png)
 
 # References
-* [Channel spacing within the 2.4 GHz band](https://en.wikipedia.org/wiki/IEEE_802.11#Channel_spacing_within_the_2.4.C2.A0GHz_band)
+* [Channel spacing within the 2.4 GHz band](https://en.wikipedia.org/w/index.php?title=IEEE_802.11&oldid=859832212#Channel_spacing_within_the_2.4_GHz_band)
 * [Panasonic NN-H624BF Microwave Oven](http://shop.panasonic.com/support-only/NN-H624BF.html?t=specs&support)
 * [Panasonic NN-H624 Microwave Oven Operating Instructions](ftp://ftp.panasonic.com/microwaveoven/om/nn-h624_en_om.pdf)
-* [802.11b/g/n channel drawing](https://commons.wikimedia.org/wiki/File:2.4_GHz_Wi-Fi_channels_(802.11b,g_WLAN).svg#/media/File:2.4_GHz_Wi-Fi_channels_(802.11b,g_WLAN).svg) by <a href="//commons.wikimedia.org/w/index.php?title=User:Gauthierm&amp;action=edit&amp;redlink=1" class="new" title="User:Gauthierm (page does not exist)">Michael Gauthier</a>, Wireless Networking in the Developing World - I created this work based on <a href="//commons.wikimedia.org/wiki/File:2.4_GHz_Wi-Fi_channels_(802.11b,g_WLAN).png" title="File:2.4 GHz Wi-Fi channels (802.11b,g WLAN).png">Image:2.4_GHz_Wi-Fi_channels_(802.11b,g_WLAN).png</a>, <a href="http://creativecommons.org/licenses/by-sa/3.0" title="Creative Commons Attribution-Share Alike 3.0">CC BY-SA 3.0</a>, $3
+* [802.11b/g/n channel drawing](https://commons.wikimedia.org/wiki/File:2.4_GHz_Wi-Fi_channels_(802.11b,g_WLAN).svg)
 
 # Footnotes
 

@@ -17,16 +17,14 @@ echo "Make sure your google compute SSH identity is added. If not, use:"
 echo "   ssh-add ~/.ssh/google_compute_engine" 
 echo "   ssh-add ~/.ssh/google_compute_engine_PERSONAL"
 
-cd site
+pushd site
 jekyll build
 rsync -av _site dougrichardson.org:/home/doug
-
-echo "Running link checker"
+popd
 
 SITE="https://dougrichardson.org"
 
-echo "LINK CHECKING DISABLED"
-# muffet "$SITE"
+./deadlink_check.sh "$SITE"
 
 echo "Telling Google to check out the sitemap again..."
 curl "https://google.com/ping?sitemap=$SITE/sitemap.xml"

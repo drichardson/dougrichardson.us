@@ -60,7 +60,7 @@ Output:
 
 Why does pipeline1.sh run to completion? After all, `ls` returned a non-zero status. The answer is that Bash uses the status of the *last* command in the pipeline as the status for the entire pipeline. In this case, the last command in the pipeline is `cut`, which returns status zero.
 
-Each individual pipeline command's status is stored [PIPESTATUS](https://www.gnu.org/software/bash/manual/html_node/Bash-Variables.html#Bash-Variables). Changing pipeline1.sh to print out the
+Each individual pipeline command's status is stored [PIPESTATUS](https://www.gnu.org/software/bash/manual/html_node/Bash-Variables.html). Changing pipeline1.sh to print out the
 PIPESTATUS:
 
     #!/bin/bash
