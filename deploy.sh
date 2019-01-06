@@ -25,7 +25,13 @@ popd
 
 SITE="https://dougrichardson.org"
 
+set +e
 ./deadlink_check.sh "$SITE"
+if [[ $? != 0 ]]; then
+  echo Dead link check failed
+  exit 1
+fi
+set -e
 
 echo "Telling Google to check out the sitemap again..."
 curl "https://google.com/ping?sitemap=$SITE/sitemap.xml"
