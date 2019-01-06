@@ -6,11 +6,9 @@
 # 'jekyll serve'. If you change this file, please restart the server process.
 
 # Site settings
-title: Projects
-writings_title: Notes
-writings_description: Notes on various topics.
+title: Doug Richardson's Blog
 email: doug@rekt.email
-description: Doug Richardson makes video games at Reckless Cowboys. Here you'll find Doug's contact info and projects he's worked on.
+description: Doug Richardson's blog on technical topics, usually about programming.
 
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://dougrichardson.org" # the base hostname & protocol for your site
@@ -20,6 +18,7 @@ stackoverflow_userid: 196964
 stackoverflow_username: doug-richardson
 linkedin_username: douglasrichardson
 twitter_username: dougrichardson_
+artstation_username: drichardson
 
 # Build settings
 markdown: kramdown

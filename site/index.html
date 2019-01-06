@@ -1,37 +1,5 @@
 ---
-title: Projects
 layout: default
-projects:
-  - name: Reckless Cowboys
-    link: https://recklesscowboys.com
-    icon: assets/reckless-cowboys.svg
-  - name: Caffeine
-    link: https://caffeine.tv
-    icon: assets/caffeine.png
-  - name: Stitch
-    link: https://bitbucket.org/truelabs/
-    icon: assets/stitch-icon.svg
-  - name: Fuel Econ
-    link: https://bitbucket.org/dichardson/mpg
-    icon: assets/fuel-econ.png
-  - name: upthere
-    link: https://upthere.com
-    icon: assets/upthere-logo.svg
-  - name: Apple TV
-    link: https://www.apple.com/tv
-    icon: assets/appletv.jpg
-  - name: Remote Desktop
-    link: https://www.apple.com/remotedesktop/
-    icon: assets/remote-desktop.png
-  - name: DeliciousSafari
-    link: http://delicioussafari.com
-    icon: assets/delicioussafari-logo.png
-  - name: Orbital Express
-    link: https://en.wikipedia.org/wiki/Orbital_Express
-    icon: assets/orbital-express.jpg
-  - name: Project Slide Deck
-    link: https://docs.google.com/presentation/d/1gDIqPbQ0270Dkv_xSBu6ldJcRhBmEJJ9UBzXml6XGbM/pub?start=false&loop=false&delayms=3000
-    icon: assets/presentation-icon.svg
 ---
 
 <script type="application/ld+json">
@@ -51,14 +19,19 @@ projects:
 }
 </script>
 
+
 <div class="home">
-    <div class="projects">
-    {% for project in page.projects %}
-    <a href="{{project.link}}">
-    <div class="project">
-        <img class="project-icon" src="{{ project.icon }}" alt="{{ project.name }}">
-    </div>
-    </a>
-    {% endfor %}
-    </div>
+    
+    <ul class="post-list">
+        {% for post in site.posts %}
+        <li>
+            <a class="post-link" href="{{ post.url }}">{{ post.title }}</a>
+            <span class="post-meta">{{ post.date | date: "%Y-%m-%d" }}</span>
+        </li>
+        {% endfor %}
+    </ul>
+
+
+    <a href="{{ "/feed.rss" | prepend: site.baseurl }}"><img class="rss-icon" src="/assets/rss-icon.svg" alt="RSS feed"></a>
+
 </div>
