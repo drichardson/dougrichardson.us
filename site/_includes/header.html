@@ -1,9 +1,15 @@
 <header class="site-header">
 
   <div class="wrapper">
+    <div class="header-col-wrapper">
+      <div class="header-col header-col-1">
+        <a class="site-title" href="{{ site.baseurl }}/">{{ site.title }}</a>
+      </div>
 
-    <a class="site-title" href="{{ site.baseurl }}/">{{ site.title }}</a>
+      <div class="header-col header-col-2">
+        <a href="{{ "/feed.rss" | prepend: site.baseurl }}"><img class="rss-icon" src="/assets/rss-icon.svg" alt="RSS feed"></a>
+      </div>
 
-  </div>
+    </div>
 
 </header>
