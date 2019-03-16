@@ -64,7 +64,6 @@ To limit Visual Studio, go to Main Menu > Tools > Options, and then set *maximum
 - [Build Tools](https://docs.unrealengine.com/en-us/Programming/BuildTools)
 - [Epic UE4 Source Code Access Registration](https://www.unrealengine.com/en-US/ue4-on-github) - you must register with Epic to access any of the github links to the UE4 source code.
 - [Understanding Unreal Build Tool](https://ericlemes.com/2018/11/23/understanding-unreal-build-tool/)
-- [Understanding Unreal's Build System](https://wiki.unrealengine.com/Understanding_Unreal%27s_Build_System)
 - [Unreal Build Tool Source Code](https://github.com/EpicGames/UnrealEngine/tree/master/Engine/Source/Programs/UnrealBuildTool)
 - [Unreal Build Tool](https://docs.unrealengine.com/en-US/Programming/BuildTools/UnrealBuildTool) - Responsible for building the engine.
 - [Unreal Header Tool](https://docs.unrealengine.com/en-US/Programming/BuildTools/UnrealHeaderTool) - Reads UE4 C++ code generates .generated.h headers.
