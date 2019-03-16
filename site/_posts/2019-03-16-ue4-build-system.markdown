@@ -6,11 +6,6 @@ This post contains information about Unreal Build Tool, the Unreal Engine 4 buil
 can be found in the links below to Epic's official documentation. The notes here shed light on aspects that are
 less documented.
 
-# Components
-
-- [Unreal Build Tool](https://docs.unrealengine.com/en-US/Programming/BuildTools/UnrealBuildTool) - Responsible for building the engine.
-- [Unreal Header Tool](https://docs.unrealengine.com/en-US/Programming/BuildTools/UnrealHeaderTool) - Reads UE4 C++ code generates .generated.h headers.
-
 
 # Unreal Build Tool
 Unreal Build Tool (UBT) reads C# .build.cs and .target.cs files as input to describe what to build. As part of the build process, these C# files are actually themselves compiled into a Rules assembly (a shared library). This 3 steps process of *build.cs > Rules assembly > build* has an extra step than more common build system like [make](https://www.gnu.org/software/make/) which goes from *Makefile > build*.
@@ -65,11 +60,11 @@ To limit Visual Studio, go to Main Menu > Tools > Options, and then set *maximum
 
 
 # References
-
 - [Build Configuration](https://docs.unrealengine.com/en-us/Programming/BuildTools/UnrealBuildTool/BuildConfiguration)
 - [Build Tools](https://docs.unrealengine.com/en-us/Programming/BuildTools)
+- [Epic UE4 Source Code Access Registration](https://www.unrealengine.com/en-US/ue4-on-github) - you must register with Epic to access any of the github links to the UE4 source code.
 - [Understanding Unreal Build Tool](https://ericlemes.com/2018/11/23/understanding-unreal-build-tool/)
 - [Understanding Unreal's Build System](https://wiki.unrealengine.com/Understanding_Unreal%27s_Build_System)
 - [Unreal Build Tool Source Code](https://github.com/EpicGames/UnrealEngine/tree/master/Engine/Source/Programs/UnrealBuildTool)
-- [Epic UE4 Source Code Access Registration](https://www.unrealengine.com/en-US/ue4-on-github) - you must register with Epic to access any of the github links to the UE4 source code.
-
+- [Unreal Build Tool](https://docs.unrealengine.com/en-US/Programming/BuildTools/UnrealBuildTool) - Responsible for building the engine.
+- [Unreal Header Tool](https://docs.unrealengine.com/en-US/Programming/BuildTools/UnrealHeaderTool) - Reads UE4 C++ code generates .generated.h headers.
