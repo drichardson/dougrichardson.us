@@ -36,13 +36,13 @@ Build systems like UBT that rely on timestamps can have problems when files are 
 - Install version N of HoudiniEngine plugin. This copies files (including a build.cs) to my UE4 engine directory.
 - Build my project. At this point UE4Rules.dll is built because the list of build.cs files changed (rule 2 above). Assume the timestamp on UE4Rules.dll is 2019-03-01T00:00:00.
 - Update to version N+1 of HoudiniEngine plugin. This again copies files (including a build.cs) to my UE4 engine directory, overriding the previous version. Now assume here the build.cs timestamp is 2019-02-01T00:00:00 (less recent than the UE4Rules.dll timestamp).
-- Build my project. At this point UE4Rules.dll IS NOT BUILT because the list of build.cs files has not changed (I already had the houdini build.cs from my previuos install) and the timestamp of UE4Rules.dll was already more recent than the houdini build.cs. That is, rule 3 above is NOT triggered as you might expect.
+- Build my project. At this point UE4Rules.dll IS NOT BUILT because the list of build.cs files has not changed (I already had the houdini build.cs from my previous install) and the timestamp of UE4Rules.dll was already more recent than the houdini build.cs. That is, rule 3 above is NOT triggered as you might expect.
 
 I reported this bug, in particular, to Side FX, but it's a general weakness with UBT, or any build system that relies on filesystem timestamps to invalidate caches. Side FX will have to do something like update the timestamp of the build.cs file after copying it into the UE4 directory in order to force a UE4Rules re-build.
 
 # Build Configuration
 
-If you're [building the engine from source](https://github.com/EpicGames/UnrealEngine) and you want to work on your machine while this is going on, you may want to limit the number of compilation processes on your system. This is done by modifying the BuildConfiguration.xml, which should be placed in `Engine\Saved\UnrealBuildTool\BuildConfiguration.xml`.
+If you're [building the engine from source](https://github.com/EpicGames/UnrealEngine) and you want to work on your machine while this is going on, you may want to limit the number of compilation processes on your system. This is done by modifying BuildConfiguration.xml, which should be placed in `Engine\Saved\UnrealBuildTool\BuildConfiguration.xml`.
 
 Here is the BuildConfiguration.xml I used to limit the number of processes:
 
