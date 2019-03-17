@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "Unreal Engine 4 Build System Notes"
+title: "Unreal Build Tool Notes"
 ---
-This post contains information about Unreal Build Tool, the Unreal Engine 4 build system. Most of the information you need to know
+This post contains information about [Unreal Build Tool](https://docs.unrealengine.com/en-US/Programming/BuildTools/UnrealBuildTool), the Unreal Engine 4 build system. Most of the information you need to know
 can be found in the links below to Epic's official documentation. The notes here shed light on aspects that are
 less documented.
 
