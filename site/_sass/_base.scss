@@ -1,6 +1,6 @@
-/**
- * Reset some basic elements
- */
+//
+// Reset some basic elements
+//
 body, h1, h2, h3, h4, h5, h6,
 p, blockquote, pre, hr,
 dl, dd, ol, ul, figure {
@@ -10,9 +10,9 @@ dl, dd, ol, ul, figure {
 
 
 
-/**
- * Basic styling
- */
+//
+// Basic styling
+//
 body {
     font: $base-font-weight #{$base-font-size}/#{$base-line-height} $base-font-family;
     color: $text-color;
@@ -25,59 +25,6 @@ body {
     font-kerning: normal;
 }
 
-
-
-/**
- * Images
- */
-img {
-    max-width: 100%;
-    vertical-align: middle;
-}
-
-
-
-/**
- * Figures
- */
-figure > img {
-    display: block;
-}
-
-figcaption {
-    font-size: $small-font-size;
-}
-
-
-
-/**
- * Lists
- */
-ul, ol {
-    margin-left: $spacing-unit;
-}
-
-li {
-    > ul,
-    > ol {
-         margin-bottom: 0;
-    }
-}
-
-
-
-/**
- * Headings
- */
-h1, h2, h3, h4, h5, h6 {
-    font-weight: $base-font-weight;
-}
-
-
-
-/**
- * Links
- */
 a {
     color: $brand-color;
     text-decoration: none;
@@ -92,57 +39,77 @@ a {
     }
 }
 
-
-
-/**
- * Blockquotes
- */
-blockquote {
-    color: $grey-color;
-    border-left: 4px solid $grey-color-light;
-    padding-left: $spacing-unit / 2;
-    font-size: 18px;
-    letter-spacing: -1px;
-    font-style: italic;
-
-    > :last-child {
-        margin-bottom: 0;
-    }
+h1, h2, h3, h4, h5, h6 {
+  font-weight: $base-font-weight;
 }
 
 
+// Posts
+.post-content {
 
-/**
- * Code formatting
- */
-pre,
-code {
-    font-size: 15px;
-    border: 1px solid $grey-color-light;
-    border-radius: 3px;
-    background-color: #eef;
+   img {
+     max-width: 100%;
+     vertical-align: middle;
+   }
+   
+   figure > img {
+     display: block;
+   }
+   
+   figcaption {
+     font-size: $small-font-size;
+   }
+   
+   
+   ul, ol {
+     margin-left: $spacing-unit;
+   }
+   
+   li {
+     > ul,
+     > ol {
+       margin-bottom: 0;
+     }
+   }    
+  
+   blockquote {
+     color: $grey-color;
+     border-left: 4px solid $grey-color-light;
+     padding-left: $spacing-unit / 2;
+     font-size: 18px;
+     letter-spacing: -1px;
+     font-style: italic;
+
+     > :last-child {
+       margin-bottom: 0;
+     }
+   }
+
+   // Code formatting
+   pre,
+   code {
+     font-size: 15px;
+     border: 1px solid $grey-color-light;
+     border-radius: 3px;
+     background-color: #eef;
+   }
+
+   code {
+     padding: 1px 5px;
+   }
+
+   pre {
+     padding: 8px 12px;
+     overflow-x: auto;
+
+     code {
+       border: 0;
+       padding-right: 0;
+       padding-left: 0;
+     }
+   }
 }
 
-code {
-    padding: 1px 5px;
-}
-
-pre {
-    padding: 8px 12px;
-    overflow-x: auto;
-
-    > code {
-        border: 0;
-        padding-right: 0;
-        padding-left: 0;
-    }
-}
-
-
-
-/**
- * Wrapper
- */
 .wrapper {
     max-width: -webkit-calc(#{$content-width} - (#{$spacing-unit} * 2));
     max-width:         calc(#{$content-width} - (#{$spacing-unit} * 2));
@@ -161,10 +128,6 @@ pre {
 }
 
 
-
-/**
- * Clearfix
- */
 %clearfix {
 
     &:after {
@@ -175,13 +138,8 @@ pre {
 }
 
 
-
-/**
- * Icons
- */
 .icon {
-
-    > svg {
+    svg {
         display: inline-block;
         width: 16px;
         height: 16px;
@@ -193,22 +151,9 @@ pre {
     }
 }
 
-.projects {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-
-    @include media-query($on-palm) {
-        justify-content: space-around;
-    }
-}
-
-
-.project {
-    margin: 0.2em;
-}
-
-.project-icon {
-    max-width: 8em;
+.site-footer {
+  .headshot {
+    width: 6em;
+  }
 }
 
