@@ -45,7 +45,7 @@ h1, h2, h3, h4, h5, h6 {
 
 
 // Posts
-.post-content {
+article {
 
    img {
      max-width: 100%;
@@ -81,7 +81,7 @@ h1, h2, h3, h4, h5, h6 {
      font-style: italic;
 
      > :last-child {
-       margin-bottom: 0;
+       margin-bottom: 1em;
      }
    }
 
@@ -139,7 +139,7 @@ h1, h2, h3, h4, h5, h6 {
 
 
 .icon {
-    svg {
+    > svg {
         display: inline-block;
         width: 16px;
         height: 16px;
@@ -149,6 +149,11 @@ h1, h2, h3, h4, h5, h6 {
             fill: $grey-color;
         }
     }
+}
+
+.rss-icon {
+  max-width: 100%;
+  vertical-align: middle;
 }
 
 .site-footer {
