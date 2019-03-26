@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Memory Management in Go"
+title: "Go Memory Management"
 ---
 All computing environments must deal with [memory management](https://en.wikipedia.org/wiki/Memory_management).
 This article discusses some memory management concepts used by the [Go programming language](https://golang.org/).
