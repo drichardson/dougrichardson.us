@@ -18,8 +18,8 @@ echo "   ssh-add ~/.ssh/google_compute_engine"
 echo "   ssh-add ~/.ssh/google_compute_engine_PERSONAL"
 
 pushd site
-jekyll clean
-jekyll build
+bundle exec jekyll clean
+bundle exec jekyll build
 rsync -av --delete _site dougrichardson.org:/home/doug
 popd
 

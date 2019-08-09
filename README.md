@@ -20,17 +20,17 @@ which is used to generate the sitemap.
 To serve locally:
 
     cd site
-    jekyll serve
+    bundle exec jekyll serve
 
 or if you're running from a VM and viewing from a browser on another computer:
 
     cd site
-    jekyll serve -H 0.0.0.0
+    bundle exec jekyll serve -H 0.0.0.0
 
 If you're working on a draft (in the _drafts directory):
 
     cd site
-    jekyll serve --drafts
+    bundle exec jekyll serve --drafts
 
 ## TLS Setup with Let's Encrypt
 TLS is setup using [Let's Encrypt](https://letsencrypt.org/).
