@@ -141,22 +141,20 @@ to know or infer:
 
 # Reference
 
-## Organizations
+## Privacy Advocates
 - [Electronic Frontier Foundation](https://www.eff.org/issues/privacy)
 - [American Civil Liberties Union](https://www.aclu.org/issues/privacy-technology)
-
-# Individuals
 - [Bruce Schneier](https://www.schneier.com/) - well known computer security professional and privacy specialist
 
-# Privacy Laws
+## Privacy Laws
 
-## Europe
+### Europe
 - [EU GDRP | European Union General Data Protection Regulation](https://eugdpr.org/)
 
-## United States
+### United States
 - [Privacy Act of 1974](https://www.justice.gov/opcl/privacy-act-1974)
+- [California Consumer Privacy Act of 2018 (CCPA)](https://www.oag.ca.gov/privacy/ccpa)
+- [Health Insurance Portability and Accountability Act of 1996 (HIPPA)](https://www.hhs.gov/hipaa/for-professionals/security/laws-regulations/index.html)
 
-### California
-- [CCPA | California Consumer Privacy Act](https://www.oag.ca.gov/privacy/ccpa)
-
-
+### Canada
+- [Summary of privacy laws in Canada](https://www.priv.gc.ca/en/privacy-topics/privacy-laws-in-canada/02_05_d_15/)
