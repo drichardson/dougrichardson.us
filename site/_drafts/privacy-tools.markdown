@@ -3,12 +3,26 @@ layout: post
 title: "Privacy Tutorial"
 ---
 This is an attempt to share knowledge and tips on how to keep your personal data
-private.
+private. After reading this, you will know:
 
-Even if you aren't worried yourself about what governments and corporations know about you
-now, it's still a good idea exercise your rights to privacy, for the same reason the US Navy
-conducts freedom of navigation exercises and UK citizens exercise their right to roam: if you
-don't regularly exercise your rights and freedoms, they can go away without you realizing it.
+- how your data is collected
+- what data is collected
+- who collects your data
+- why your data is collected
+- how you can protect your data
+
+Even if you aren't worried about your privacy now, it's still worthwhile to make choices now that protect your
+privacy and exercise your privacy rights, for the same reason the US Navy
+conducts freedom of navigation exercises and UK citizens exercise their right to roam: regularly
+exercising these freedoms ensures they are still there and also protects the privacy rights
+of others who do need them now.
+
+At the moment, there are also good reasons to worry about abuse of power and limits on speech. Keeping
+your personal data private will help hinder these abuses, especially those involving dragnet operations.
+
+  - [Freedom in the World 2018 Report](https://freedomhouse.org/report/freedom-world/freedom-world-2018) - shows a decade long deterioration of freedoms globally.
+  - [Facebook's 5 billion fine for Privacy Violations](https://www.cnbc.com/2019/07/24/facebook-to-pay-5-billion-for-privacy-lapses-ftc-announces.html)
+  - 
 
 First, I'm going to discuss some of the technical details required to better understand
 the mechanisms corporations and and governments use to collection information about you.
@@ -27,7 +41,13 @@ Second, I'm going to discuss
         1. Trackers
         1. Search Engines
         1. Social Networks
-  1. ISPs, Cloud Providers, Governments
+  1. Infrastructure: ISPs, Cloud Providers, Governments
+  1. Personal Information Users
+      1. Corporations
+      1. Governments
+      1. Criminals
+          1. Organized Crime - extortion, blackmail, ransomware, botnets, identity theft
+      1. Hacktivists
   1. Ancestry and DNS Testing Companies
   1. Information Seen
      1. IP messages (sender, receiver, payload). Seen by anyone between sender and receiver.
@@ -77,6 +97,7 @@ feature to see some of the data they have on you. You can also choose to delete 
 - Google Hangouts - messaging service
 - Google Cloud Platform - Google's cloud platform, used by many internet companies
 - Android - Google's smart phone operating system
+- [Google WiFi](https://store.google.com/product/google_wifi)
 - Nest - internet connected home automation products
 
 Let's assume you:
@@ -117,6 +138,37 @@ to know or infer:
 
 ## Apple Properties
 
+# Amazon
+
+## Amazon Properties
+
+- [Amazon.com](https://amazon.com)
+- [Amazon Web Services (AWS)](https://aws.amazon.com/)
+- Twitch
+- [Eero WiFi](https://eero.com/) - mesh WiFi company
+- Kindle
+- Alexa
+- Whole Foods
+- Goodreads
+- Zappos
+- Audible
+- IMDb (Internet Movie Database)
+
+Jeff Bezos (Founder, Chairman, and CEO of Amazon) also owns The Washington Post.
+
+# Microsoft
+
+- Azure
+- Bing
+- Microsoft Office
+- Microsoft Windows
+- LinkedIn
+- Xbox
+- Github
+- Beam
+- Yammer
+- Skype
+
 # Government Actors
 
 
@@ -137,6 +189,10 @@ to know or infer:
 - [DuckDuckGo Privacy Essentials](https://addons.mozilla.org/en-US/firefox/addon/duckduckgo-for-firefox/)
 - [Signal](https://www.signal.org/)
 - [1Password](https://1password.com)
+- [2-factor/multi-factor authentication](https://en.wikipedia.org/wiki/Multi-factor_authentication) tools
+  - [Google Authenticator]()
+  - [Microsoft Authenticator]()
+  - [Yubikey](https://www.yubico.com/products/yubikey-hardware/)
 
 
 # Reference
