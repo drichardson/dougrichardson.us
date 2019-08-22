@@ -181,17 +181,17 @@ Jeff Bezos (Founder, Chairman, and CEO of Amazon) also owns The Washington Post.
 - [China \| Ministry of State Security](https://en.wikipedia.org/wiki/Ministry_of_State_Security_(China))
 
 # Tools I'm Using
-- [ProtonMail](https://protonmail.com/)
+- [ProtonMail](https://protonmail.com/) - [ProtonMail Privacy Policy](https://protonmail.com/privacy-policy)
 - [ProtonVPN](https://protonvpn.com/)
-- [Firefox](https://www.mozilla.org/en-US/firefox/)
-- [DuckDuckGo](https://duckduckgo.com/)
+- [Firefox](https://www.mozilla.org/en-US/firefox/) - [Firefox Privacy Notice](https://www.mozilla.org/en-US/privacy/firefox/)
+- [DuckDuckGo](https://duckduckgo.com/) - [DuckDuckGo Privacy Policy](https://duckduckgo.com/privacy)
 - [Privacy Badger](https://www.eff.org/privacybadger)
 - [DuckDuckGo Privacy Essentials](https://addons.mozilla.org/en-US/firefox/addon/duckduckgo-for-firefox/)
-- [Signal](https://www.signal.org/)
+- [Signal](https://www.signal.org/) - [Signal Terms & Privacy Policy](https://www.signal.org/legal/)
 - [1Password](https://1password.com)
 - [2-factor/multi-factor authentication](https://en.wikipedia.org/wiki/Multi-factor_authentication) tools
   - [Google Authenticator]()
-  - [Microsoft Authenticator]()
+  - [Microsoft Authenticator](https://www.microsoft.com/en-us/account/authenticator)
   - [Yubikey](https://www.yubico.com/products/yubikey-hardware/)
 
 
