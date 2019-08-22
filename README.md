@@ -19,8 +19,7 @@ which is used to generate the sitemap.
 
 To serve locally:
 
-    cd site
-    bundle exec jekyll serve
+    ./serve.sh
 
 or if you're running from a VM and viewing from a browser on another computer:
 
