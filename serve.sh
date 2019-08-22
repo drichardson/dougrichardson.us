@@ -4,5 +4,5 @@ set -euo pipefail
 shopt -s inherit_errexit
 
 cd site
-bundle exec jekyll serve
+bundle exec jekyll serve --drafts
 
