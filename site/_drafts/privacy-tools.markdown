@@ -41,7 +41,7 @@ Second, I'm going to discuss
         1. Trackers
         1. Search Engines
         1. Social Networks
-  1. Infrastructure: ISPs, Cloud Providers, Governments
+  1. Infrastructure: ISPs, Financial Transaction Processors (Credit Cards, PayPal), Cloud Providers, Governments
   1. Personal Information Users
       1. Corporations
       1. Governments
