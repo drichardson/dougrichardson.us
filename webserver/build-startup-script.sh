@@ -45,7 +45,7 @@ cd $SCRIPTDIR
 addsite() {
     local SITE=$1
     echo
-    echo "echo BEGIN: Install nginx configuration for $SITE"
+    echo echo BEGIN: Install nginx configuration for $SITE
     # Use quoted here document delimiters to prevent any variable expansion in
     # nginx config files in the built script.
     local HEREDOCDELIM=$(uuidgen)
@@ -56,8 +56,8 @@ addsite() {
 
     cat <<EOF
 
-ln -sf /etc/nginx/sites-available/$SITE /etc/nginx/sites-enabled/$SITE"
-echo DONE: Install nginx configuration for $SITE"
+ln -sf /etc/nginx/sites-available/$SITE /etc/nginx/sites-enabled/$SITE
+echo DONE: Install nginx configuration for $SITE
 
 if [[ ! -f /etc/letsencrypt/live/$SITE/fullchain.pem ]]; then
     echo "Missing let's encrypt certificate for $SITE. Need to run certbot."
@@ -74,6 +74,9 @@ for SITE in $SITES; do
 done
 
 cat <<'EOF'
+
+echo Give everyone permission to update /var/www
+chmod 777 /var/www
 
 #
 # Check for reboot last, so that we make sure to reboot if anything 

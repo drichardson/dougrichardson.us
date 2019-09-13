@@ -17,7 +17,7 @@ server {
     add_header Strict-Transport-Security "max-age=31536000;";
     expires 5m;
 
-    root /var/www/html;
+    root /var/www/dougrichardson.org;
 
     index index.html;
 
