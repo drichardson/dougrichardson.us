@@ -1,0 +1,35 @@
+server {
+    listen 80 default_server;
+    listen [::]:80 default_server;
+    server_name dougrichardson.org;
+    return 301 https://$server_name$request_uri;
+}
+
+server {
+    # for debugging only
+    # error_log	/var/log/nginx/dougrichardson.org.error.log debug;
+
+    #
+    # SSL configuration
+    #
+    listen 443 ssl default_server;
+    listen [::]:443 ssl default_server;
+    add_header Strict-Transport-Security "max-age=31536000;";
+    expires 5m;
+
+    root /var/www/html;
+
+    index index.html;
+
+    server_name dougrichardson.org;
+
+    location / {
+        # First attempt to serve request as file, then
+        # as directory, then fall back to displaying a 404.
+        try_files $uri $uri/ =404;
+    }
+
+    ssl_certificate /etc/letsencrypt/live/dougrichardson.org/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/dougrichardson.org/privkey.pem;
+}
+

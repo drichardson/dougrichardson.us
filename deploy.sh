@@ -20,7 +20,7 @@ echo "   ssh-add ~/.ssh/google_compute_engine_PERSONAL"
 pushd site
 bundle exec jekyll clean
 bundle exec jekyll build
-rsync -av --delete _site dougrichardson.org:/home/doug
+rsync -av --delete _site dougrichardson.org:/var/www/dougrichardson.org
 popd
 
 SITE="https://dougrichardson.org"

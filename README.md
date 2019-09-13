@@ -3,6 +3,12 @@ Personal web site built using [jekyll](https://jekyllrb.com/).
 
 ## Pre-requisites
 
+### Website Compute Engine Instance
+
+See webserver/README.md for information on instance setup.
+
+### Muffet
+
 Install muffet for dead link checking and ruby gems defined in site/Gemfile
 which is used to generate the sitemap.
 
