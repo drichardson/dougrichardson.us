@@ -3,7 +3,7 @@
 set -e
 
 REGION=us-central1
-ZONE=us-central1-d
+ZONE=us-central1-f
 SUBNET=public-us-central1
 PROJECT=doug-richardson
 ADDRESS_NAME=webserver
