@@ -18,7 +18,7 @@ echo "Static IP address $ADDRESS is $IP_ADDRESS"
 
 # Build the startup script
 STARTUP_SCRIPT=$(mktemp)
-./website/build-startup-script.sh > "$STARTUP_SCRIPT"
+./build-startup-script.sh > "$STARTUP_SCRIPT"
 
 
 gcloud compute --project $PROJECT \
