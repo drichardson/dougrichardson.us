@@ -4,6 +4,7 @@ set -e
 
 REGION=us-central1
 ZONE=us-central1-d
+SUBNET=public-us-central1
 PROJECT=doug-richardson
 ADDRESS_NAME=webserver
 INSTANCE_NAME=webserver
@@ -12,23 +13,22 @@ INSTANCE_NAME=webserver
 # echo "Reserving Static IP Address..."
 # gcloud compute --project $PROJECT addresses create $ADDRESS_NAME --region $REGION
 
-echo "Retreiving address..."
+echo Retreiving address...
 IP_ADDRESS=$(gcloud --format 'value(address)' compute --project $PROJECT addresses describe $ADDRESS_NAME --region $REGION)
-echo "Static IP address $ADDRESS is $IP_ADDRESS"
+echo Static IP address $ADDRESS is $IP_ADDRESS
 
 # Build the startup script
 STARTUP_SCRIPT=$(mktemp)
 ./build-startup-script.sh > "$STARTUP_SCRIPT"
 
-
 gcloud compute --project $PROJECT \
     instances create $INSTANCE_NAME \
     --zone $ZONE \
-    --machine-type "f1-micro" \
+    --machine-type f1-micro \
     --subnet $SUBNET \
-    --maintenance-policy "MIGRATE" \
+    --maintenance-policy MIGRATE \
     --no-service-account --no-scopes \
-    --tags "$HTTPS_SERVER_FIREWALL_TAG,$HTTP_SERVER_FIREWALL_TAG,$SSH_SERVER_FIREWALL_TAG" \
+    --tags http-server,https-server,ssh-server \
     --image-family ubuntu-1804-lts --image-project gce-uefi-images \
     --shielded-secure-boot --shielded-vtpm --shielded-integrity-monitoring \
     --boot-disk-size 10GB  --boot-disk-type pd-standard \
