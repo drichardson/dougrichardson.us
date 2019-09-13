@@ -2,7 +2,7 @@
 set -euo pipefail
 shopt -s inherit_errexit
 
-SITES="dougrichardson.org delicioussafari.com gamedevelopment.wiki"
+SITES="dougrichardson.org delicioussafari.com"
 
 cat <<'EOF'
 #!/bin/bash
