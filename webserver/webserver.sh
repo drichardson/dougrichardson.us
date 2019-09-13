@@ -7,7 +7,7 @@ ZONE=us-central1-f
 SUBNET=public-us-central1
 PROJECT=doug-richardson
 ADDRESS_NAME=webserver
-INSTANCE_NAME=webserver
+INSTANCE_NAME=webserver2
 
 # Only need to do this once"
 # echo "Reserving Static IP Address..."
@@ -32,7 +32,7 @@ gcloud compute --project $PROJECT \
     --image-family ubuntu-1804-lts --image-project gce-uefi-images \
     --shielded-secure-boot --shielded-vtpm --shielded-integrity-monitoring \
     --boot-disk-size 10GB  --boot-disk-type pd-standard \
-    --metadata-from-file startup-script="$STARTUP_SCRIPT"
+    --metadata-from-file startup-script="$STARTUP_SCRIPT" \
     --address $IP_ADDRESS
 
 cat <<EOF
