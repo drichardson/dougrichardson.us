@@ -11,6 +11,12 @@ shopt -s inherit_errexit
 
 echo Entering build-startup-script.sh
 
+# Give everyone permission to /var/www so the deploy.sh script can run
+# as any user.
+echo Setup /var/www
+mkdir -p /var/www
+chmod 777 /var/www
+
 echo Installing packages
 apt-get update
 apt-get upgrade -y
@@ -75,8 +81,21 @@ done
 
 cat <<'EOF'
 
-echo Give everyone permission to update /var/www
-chmod 777 /var/www
+#
+# Stackdriver Agents
+#
+echo Install Stackdriver Monitoring agent...
+curl -sSO https://dl.google.com/cloudagents/install-monitoring-agent.sh
+bash install-monitoring-agent.sh
+
+echo Install Stackdriver Logging agent...
+curl -sSO https://dl.google.com/cloudagents/install-logging-agent.sh
+bash install-logging-agent.sh --structured
+
+#
+# Remove anything unused
+#
+apt-get autoremove
 
 #
 # Check for reboot last, so that we make sure to reboot if anything 
