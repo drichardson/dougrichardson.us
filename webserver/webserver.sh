@@ -7,7 +7,7 @@ ZONE=us-central1-f
 SUBNET=public-us-central1
 PROJECT=doug-richardson
 ADDRESS_NAME=webserver
-INSTANCE_NAME=webserver2
+INSTANCE_NAME=webserver
 
 # Only need to do this once"
 # echo "Reserving Static IP Address..."
