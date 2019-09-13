@@ -95,7 +95,7 @@ bash install-logging-agent.sh --structured
 #
 # Remove anything unused
 #
-apt-get autoremove
+apt-get autoremove -y
 
 #
 # Check for reboot last, so that we make sure to reboot if anything 
