@@ -44,7 +44,7 @@ SSH into the instance with:
 
     gcloud compute ssh --project=$PROJECT $INSTANCE_NAME
 
-Deplay the sites with the deploy.sh scripts in ../www.
+Deploy the sites with the deploy.sh scripts in ../www.
 
 website.sh OK
 EOF
