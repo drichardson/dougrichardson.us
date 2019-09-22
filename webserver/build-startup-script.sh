@@ -82,17 +82,6 @@ done
 cat <<'EOF'
 
 #
-# Stackdriver Agents
-#
-echo Install Stackdriver Monitoring agent...
-curl -sSO https://dl.google.com/cloudagents/install-monitoring-agent.sh
-bash install-monitoring-agent.sh
-
-echo Install Stackdriver Logging agent...
-curl -sSO https://dl.google.com/cloudagents/install-logging-agent.sh
-bash install-logging-agent.sh --structured
-
-#
 # Remove anything unused
 #
 apt-get autoremove -y
