@@ -1,0 +1,31 @@
+#
+# Redirect to dougrichardson.org
+#
+server {
+    listen 80;
+    listen [::]:80;
+    server_name rekt.email;
+    return 301 https://dougrichardson.org;
+}
+
+server {
+    # for debugging only
+    # error_log	/var/log/nginx/rekt.email.error.log debug;
+
+    #
+    # SSL configuration
+    #
+    listen 443 ssl;
+    listen [::]:443 ssl;
+
+    server_name rekt.email;
+
+    add_header Strict-Transport-Security "max-age=31536000;";
+    expires 5m;
+
+    return 301 https://dougrichardson.org;
+
+    ssl_certificate /etc/letsencrypt/live/rekt.email/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/rekt.email/privkey.pem;
+}
+
