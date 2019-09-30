@@ -3,6 +3,8 @@
 set -euo pipefail
 shopt -s inherit_errexit
 
+./update-mathjax.sh
+
 set +e
 which muffet
 if [[ $? != 0 ]]; then
