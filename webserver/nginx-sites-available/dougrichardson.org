@@ -19,8 +19,10 @@ server {
 
     # CSP
     set $csp "default-src 'none'";
+    set $csp "$csp; base-uri 'none'";
     set $csp "$csp; connect-src 'self'";
     set $csp "$csp; font-src 'self'";
+    set $csp "$csp; form-action 'none'";
     set $csp "$csp; frame-ancestors 'none'";
     set $csp "$csp; frame-src https://www.youtube.com";
     set $csp "$csp; img-src 'self'";
