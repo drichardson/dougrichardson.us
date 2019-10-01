@@ -14,7 +14,11 @@ server {
     #
     listen 443 ssl default_server;
     listen [::]:443 ssl default_server;
+
     add_header Strict-Transport-Security "max-age=31536000;";
+    add_header Content-Security-Policy "default-src 'none'; script-src 'self' 'unsafe-inline'; connect-src 'self'; img-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; frame-src https://www.youtube.com; frame-ancestors 'none'";
+    add_header X-Content-Type-Options "nosniff";
+
     expires 5m;
 
     root /var/www/dougrichardson.org;

@@ -21,6 +21,7 @@ server {
     server_name rekt.email;
 
     add_header Strict-Transport-Security "max-age=31536000;";
+    add_header Content-Security-Policy "default-src 'self'; block-all-mixed-content;";
     expires 5m;
 
     return 301 https://dougrichardson.org;

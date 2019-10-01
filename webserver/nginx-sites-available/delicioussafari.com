@@ -18,6 +18,8 @@ server {
     listen 443 ssl;
     listen [::]:443 ssl;
 
+    add_header Content-Security-Policy "default-src 'self'; block-all-mixed-content;";
+
     server_name delicioussafari.com;
 
     expires 5m;
