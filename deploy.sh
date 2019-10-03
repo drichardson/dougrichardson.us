@@ -46,11 +46,22 @@ validate_xml() {
 }
 
 validate_rss() {
-    echo Validating RSS...
+    echo Validating ATOM RSS...
+    xmllint --noout --schema schemas/atom.xsd site/_site/feed.rss
 }
 
 validate_html() {
     echo Validating HTML...
+
+    set +e
+    for file in $(find site/_site/ -name '*.html'); do
+        tidy -errors -quiet $file
+        if [[ $? != 0 ]]; then
+            echo HTML validation failure in $file
+            exit 1
+        fi
+    done
+    set -e
 }
 
 validate_jsonld() {
@@ -63,7 +74,8 @@ validate_css() {
 
 validate_all() {
     validate_xml
-    validate_rss
+    # RSS validation disabled due to error about not being deterministic.
+    # validate_rss
     validate_html
     validate_jsonld
     validate_css
@@ -100,9 +112,9 @@ google_request_reindex() {
 
 main() {
     echo DEBUG DISABLED
-    #assert_jekyll_not_running
-    #assert_muffet_installed
-    #build
+    assert_jekyll_not_running
+    assert_muffet_installed
+    build
     validate_all
     echo DEBUGGING STOP
     exit 1
