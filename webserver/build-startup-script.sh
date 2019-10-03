@@ -79,6 +79,21 @@ for SITE in $SITES; do
     addsite $SITE
 done
 
+# dhparams from https://ssl-config.mozilla.org/#server=nginx&server-version=1.17.0&config=intermediate
+# curl https://ssl-config.mozilla.org/ffdhe2048.txt > /path/to/dhparam.pem
+cat <<'EOF_OUTER'
+cat > /etc/nginx/mozilla-dhparam.pem <<'EOF'
+-----BEGIN DH PARAMETERS-----
+MIIBCAKCAQEA//////////+t+FRYortKmq/cViAnPTzx2LnFg84tNpWp4TZBFGQz
++8yTnc4kmz75fS/jY2MMddj2gbICrsRhetPfHtXV/WVhJDP1H18GbtCFY2VVPe0a
+87VXE15/V8k1mE8McODmi3fipona8+/och3xWKE2rec1MKzKT0g6eXq8CrGCsyT7
+YdEIqUuyyOP7uWrat2DX9GgdT0Kj3jlN9K5W7edjcrsZCwenyO4KbXCeAvzhzffi
+7MA0BM0oNC9hkXL+nOmFg/+OTxIy7vKBg8P+OxtMb61zO7X8vC7CIAXFjvGDfRaD
+ssbzSibBsu/6iGtCOGEoXJf//////////wIBAg==
+-----END DH PARAMETERS-----
+EOF
+EOF_OUTER
+
 cat <<'EOF'
 
 #
