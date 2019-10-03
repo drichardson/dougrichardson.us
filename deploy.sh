@@ -111,13 +111,10 @@ google_request_reindex() {
 }
 
 main() {
-    echo DEBUG DISABLED
     assert_jekyll_not_running
     assert_muffet_installed
     build
     validate_all
-    echo DEBUGGING STOP
-    exit 1
     deploy
     deadlink_check
     google_request_reindex
