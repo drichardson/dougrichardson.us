@@ -3,6 +3,14 @@
 set -euo pipefail
 shopt -s inherit_errexit
 
+set +e
+ps -a -o pid,cmd|grep jekyll|grep -v grep
+if [[ $? == 0 ]]; then
+    echo "A copy of jekyll is already running (possibly via ./serve.h). Stop it and then re-run this script."
+    exit 1
+fi
+set -e
+
 ./update-mathjax.sh
 
 set +e
@@ -21,7 +29,7 @@ echo "   ssh-add ~/.ssh/google_compute_engine_PERSONAL"
 
 pushd site
 bundle exec jekyll clean
-bundle exec jekyll build
+JEKYLL_ENV=production bundle exec jekyll build
 rsync -av --delete _site/ dougrichardson.org:/var/www/dougrichardson.org
 popd
 
