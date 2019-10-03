@@ -36,6 +36,21 @@ about using Houdini scattered primitives to create foliage in UE4.
 - [Doug's Houdini Landscape Test](https://github.com/drichardson/UE4Examples/tree/master/HoudiniLandscapeTest)
 
 
+# Houdini Digital Assets (HDAs)
+
+From [Houdini Digital Assets](https://www.sidefx.com/docs/houdini/assets/index.html):
+
+> Digital assets let you create reusable nodes and tools from existing networks.
+
+These tools can be reused in Houdini itself and also by HoudiniEngine,
+which has plugins for UE4, Maya, and other tools.
+
+## Embedding Assets
+You may need to reference external content (i.e., JPEGs, XML, JSON, FBX) in your HDA. However,
+if you distribute your HDA wihtout the external content, your tool will not work. To deal with this
+issue, you can embed the file in the Operator Type Properties window's [Extra Files](https://www.sidefx.com/docs/houdini/ref/windows/optype.html#extra_files) tab. You can then refer to these embedded files using [opdef:](https://www.sidefx.com/docs/houdini/assets/opdef.html).
+
+
 ## Installing from Source
 
 From PowerShell:
