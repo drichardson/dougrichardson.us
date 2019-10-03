@@ -1,49 +1,117 @@
 #!/bin/bash
-
 set -euo pipefail
 shopt -s inherit_errexit
 
-set +e
-ps -a -o pid,cmd|grep jekyll|grep -v grep
-if [[ $? == 0 ]]; then
-    echo "A copy of jekyll is already running (possibly via ./serve.h). Stop it and then re-run this script."
+HOSTNAME="dougrichardson.org"
+
+assert_jekyll_not_running()
+{
+    set +e
+    ps -a -o pid,cmd|grep jekyll|grep -v grep
+    if [[ $? == 0 ]]; then
+        echo "A copy of jekyll is already running (possibly via ./serve.h). Stop it and then re-run this script."
+        exit 1
+    fi
+    set -e
+}
+
+assert_muffet_installed() {
+    set +e
+    which muffet
+    if [[ $? != 0 ]]; then
+        echo "muffet not installed. Install with: go get github.com/raviqqe/muffet"
+        echo "muffet is used to check links"
+        exit 1
+    fi
+    set -e
+}
+
+build() {
+    echo Building...
+
+    pushd site
+    bundle exec jekyll clean
+    JEKYLL_ENV=production bundle exec jekyll build
+    popd
+
+    ./update-mathjax.sh
+}
+
+validate_xml() {
+    echo Validating XML Syntax...
+    find site/_site -name '*.xml' -print0 | xargs -0 xmllint --noout
+
+    echo "Validating sitemap against schema..."
+    xmllint --noout --schema schemas/sitemap.xsd site/_site/sitemap.xml
+}
+
+validate_rss() {
+    echo Validating RSS...
+}
+
+validate_html() {
+    echo Validating HTML...
+}
+
+validate_jsonld() {
+    echo Validating JSON-LD...
+}
+
+validate_css() {
+    echo Validating CSS...
+}
+
+validate_all() {
+    validate_xml
+    validate_rss
+    validate_html
+    validate_jsonld
+    validate_css
+}
+
+deploy() {
+    echo "Deploying..."
+    echo "Make sure your google compute SSH identity is added. If not, use:"
+    echo "   ssh-add ~/.ssh/google_compute_engine" 
+    echo "   ssh-add ~/.ssh/google_compute_engine_PERSONAL"
+    pushd site
+    rsync -av --delete _site/ $HOSTNAME:/var/www/$HOSTNAME
+    popd
+}
+
+deadlink_check() {
+    # Dead link checking has to happen after site is live.
+    echo "Dead link checking..."
+    SITE="https://$HOSTNAME"
+
+    set +e
+    ./deadlink_check.sh "$SITE"
+    if [[ $? != 0 ]]; then
+        echo Dead link check failed
+        exit 1
+    fi
+    set -e
+}
+
+google_request_reindex() {
+    echo "Telling Google to check out the sitemap again..."
+    curl "https://google.com/ping?sitemap=$SITE/sitemap.xml"
+}
+
+main() {
+    echo DEBUG DISABLED
+    #assert_jekyll_not_running
+    #assert_muffet_installed
+    #build
+    validate_all
+    echo DEBUGGING STOP
     exit 1
-fi
-set -e
+    deploy
+    deadlink_check
+    google_request_reindex
 
-./update-mathjax.sh
+    echo "OK"
+}
 
-set +e
-which muffet
-if [[ $? != 0 ]]; then
-  echo "muffet not installed. Install with: go get github.com/raviqqe/muffet"
-  echo "muffet is used to check links"
-  exit 1
-fi
-set -e
+main
 
-echo "Deploying..."
-echo "Make sure your google compute SSH identity is added. If not, use:"
-echo "   ssh-add ~/.ssh/google_compute_engine" 
-echo "   ssh-add ~/.ssh/google_compute_engine_PERSONAL"
-
-pushd site
-bundle exec jekyll clean
-JEKYLL_ENV=production bundle exec jekyll build
-rsync -av --delete _site/ dougrichardson.org:/var/www/dougrichardson.org
-popd
-
-SITE="https://dougrichardson.org"
-
-set +e
-./deadlink_check.sh "$SITE"
-if [[ $? != 0 ]]; then
-  echo Dead link check failed
-  exit 1
-fi
-set -e
-
-echo "Telling Google to check out the sitemap again..."
-curl "https://google.com/ping?sitemap=$SITE/sitemap.xml"
-
-echo "OK"
