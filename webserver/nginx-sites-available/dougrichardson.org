@@ -26,8 +26,31 @@ server {
     set $csp "$csp; img-src 'self'";
     set $csp "$csp; script-src 'self' 'unsafe-inline'";
     set $csp "$csp; style-src 'self' 'unsafe-inline'";
-
     add_header Content-Security-Policy $csp;
+
+    # Feature Policy
+    set $fp "accelerometer 'none'";
+    set $fp "$fp; ambient-light-sensor 'none'";
+    set $fp "$fp; autoplay 'none'";
+    set $fp "$fp; camera 'none'";
+    set $fp "$fp; display-capture 'none'";
+    set $fp "$fp; document-domain 'none'";
+    set $fp "$fp; encrypted-media 'none'";
+    set $fp "$fp; focus-without-user-activation 'none'";
+    set $fp "$fp; fullscreen 'none'";
+    set $fp "$fp; geolocation 'none'";
+    set $fp "$fp; gyroscope 'none'";
+    set $fp "$fp; magnetometer 'none'";
+    set $fp "$fp; microphone 'none'";
+    set $fp "$fp; midi 'none'";
+    set $fp "$fp; payment 'none'";
+    set $fp "$fp; picture-in-picture 'none'";
+    set $fp "$fp; sync-xhr 'none'";
+    set $fp "$fp; usb 'none'";
+    set $fp "$fp; vr 'none'";
+    set $fp "$fp; wake-lock 'none'";
+    set $fp "$fp; webauthn 'none'";
+    add_header Feature-Policy $fp;
 
     add_header X-Content-Type-Options "nosniff";
     add_header Referrer-Policy "no-referrer";
