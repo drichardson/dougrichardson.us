@@ -25,7 +25,6 @@ your personal data private will help hinder these abuses, especially those invol
 
   - [Freedom in the World 2018 Report](https://freedomhouse.org/report/freedom-world/freedom-world-2018) - shows a decade long deterioration of freedoms globally.
   - [Facebook's 5 billion fine for Privacy Violations](https://www.cnbc.com/2019/07/24/facebook-to-pay-5-billion-for-privacy-lapses-ftc-announces.html)
-  - 
 
 First, I'm going to discuss some of the technical details required to better understand
 the mechanisms corporations and and governments use to collection information about you.
@@ -192,7 +191,7 @@ Jeff Bezos (Founder, Chairman, and CEO of Amazon) also owns The Washington Post.
 - [Signal](https://www.signal.org/) - [Signal Terms & Privacy Policy](https://www.signal.org/legal/)
 - [1Password](https://1password.com)
 - [2-factor/multi-factor authentication](https://en.wikipedia.org/wiki/Multi-factor_authentication) tools
-  - [Google Authenticator]()
+  - [Google Authenticator](https://google-authenticator.com/)
   - [Microsoft Authenticator](https://www.microsoft.com/en-us/account/authenticator)
   - [Yubikey](https://www.yubico.com/products/yubikey-hardware/)
 
