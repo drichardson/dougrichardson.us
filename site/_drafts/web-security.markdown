@@ -1,11 +1,12 @@
 ---
 layout: post
 title: "Web Security"
+date: 2019-10-02 20:13:01 -0700
 ---
 
+WORK IN PROGRESS
+
 List of some web security tools, technologies, and techniques. 
-
-
 
 
 # Browser Controls
@@ -52,11 +53,40 @@ nginx configuration:
 add_header X-Content-Type-Options "nosniff";
 ```
 
+# Let's Encrypt 
+
+[Let's Encrypt](https://letsencrypt.org/) is a free, automated, and open
+[Certificate Authority](https://en.wikipedia.org/wiki/Certificate_authority).
+Use can use it to get a free TLS certificate for your website.
+
+Let's Encrypt issues short lived certificates that are intended to be automatically
+renewed. One of the methods for automating this is via [certbot](https://certbot.eff.org/).
+
+- [Certbot Documentation](https://certbot.eff.org/docs/intro.html)
+- [Where are my certificates?](https://certbot.eff.org/docs/using.html#where-are-my-certificates)
+
 # Tools
 
 - [Mozilla Observatory](https://observatory.mozilla.org) - scan your web site and get a security rating with feedback on what you can do to improve.
+- [Mozilla SSL Configuration Generator](https://ssl-config.mozilla.org)
+
+## `openssl s_client`
+
+[OpenSSL's s_client](https://www.openssl.org/docs/manmaster/man1/openssl-s_client.html) command can be
+used to inspect the TLS configuration of a server from a clients point of view.
+
+Connect to a server, optionally specifying the version of the TLS protocol you'd like to use:
+
+```bash
+openssl s_client -connect dougrichardson.org:443
+openssl s_client -connect dougrichardson.org:443 -tls1
+openssl s_client -connect dougrichardson.org:443 -tls1_1
+openssl s_client -connect dougrichardson.org:443 -tls1_2
+openssl s_client -connect dougrichardson.org:443 -tls1_3
+```
 
 # References
 
 - [Mozilla Web Security Guidelines](https://infosec.mozilla.org/guidelines/web_security)
 - [nginx add_header directive](https://nginx.org/en/docs/http/ngx_http_headers_module.html#add_header)
+
