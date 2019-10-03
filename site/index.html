@@ -31,35 +31,32 @@ layout: default
 }
 </script>
 
-<div>
+<h1>Notes</h1>
 
-    <h1>Notes</h1>
-
-    <ul class="note-list">
-        {% for note in site.notes %}
-        {% unless jekyll.environment == "production" and note.draft %}
-        <li>
-            {% if note.draft %}(DRAFT){% endif %}
-            <a class="link"><a href="{{ note.url }}">{{ note.title }}</a>
+<ul class="note-list">
+    {% for note in site.notes %}
+    {% unless jekyll.environment == "production" and note.draft %}
+    <li>
+        {% if note.draft %}(DRAFT){% endif %}
+        <a class="link"><a href="{{ note.url }}">{{ note.title }}</a>
             <p class="description">{{ note.excerpt | strip_html }}</p>
-        </li>
-        {% endunless %}
-        {% endfor %}
-    </ul>
-    
-    <h1>Blog Posts</h1>
+    </li>
+    {% endunless %}
+    {% endfor %}
+</ul>
 
-    <ul class="post-list">
-        {% for post in site.posts %}
-        <li>
-          <div class="meta">{{ post.date | date: "%Y-%m-%d" }}</div>
-          <h1 class="link"><a href="{{ post.url }}">{{ post.title }}</a></h1>
-          <p>
-          {{ post.excerpt | strip_html }}
-          <a href="{{ post.url }}">Read more&hellip;</a>
-          </p>
-        </li>
-        {% endfor %}
-    </ul>
+<h1>Blog Posts</h1>
 
-</div>
+<ul class="post-list">
+    {% for post in site.posts %}
+    <li>
+        <div class="meta">{{ post.date | date: "%Y-%m-%d" }}</div>
+        <h1 class="link"><a href="{{ post.url }}">{{ post.title }}</a></h1>
+        <p>
+        {{ post.excerpt | strip_html }}
+        <a href="{{ post.url }}">Read more&hellip;</a>
+        </p>
+    </li>
+    {% endfor %}
+</ul>
+
