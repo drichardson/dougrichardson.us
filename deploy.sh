@@ -46,8 +46,8 @@ validate_xml() {
 }
 
 validate_rss() {
-    echo Validating ATOM RSS...
-    xmllint --noout --schema schemas/atom.xsd site/_site/feed.rss
+    echo TODO Validating ATOM RSS...
+    # xmllint --noout --schema schemas/atom.xsd site/_site/feed.rss
 }
 
 validate_html() {
@@ -65,17 +65,17 @@ validate_html() {
 }
 
 validate_jsonld() {
-    echo Validating JSON-LD...
+    echo TODO: Validating JSON-LD...
 }
 
 validate_css() {
-    echo Validating CSS...
+    echo TODO: Validating CSS...
 }
 
 validate_all() {
     validate_xml
     # RSS validation disabled due to error about not being deterministic.
-    # validate_rss
+    validate_rss
     validate_html
     validate_jsonld
     validate_css
