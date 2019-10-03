@@ -26,11 +26,14 @@ Houdini Digital Assets in Houdini, and then use those assets inside of UE4.
 - [Forum](https://www.sidefx.com/forum/51/)
 - [Doug's HoudiniEngine Example](https://github.com/drichardson/UE4Examples/tree/master/HoudiniEngine)
 
-
-I posted a [video tutorial]({{page.youtubeURL}})
-about using Houdini scattered primitives to create foliage in UE4.
-
 ## Landscapes
+
+Houdini [Heightfields](https://www.sidefx.com/docs/houdini/nodes/sop/heightfield.html) can be used to
+generate UE4 [Landscapes](https://docs.unrealengine.com/en-US/Engine/Landscape/Creation/index.html). Generating terrain in Houdini is similar to [World Machine](https://www.world-machine.com/) since they are both node based.
+
+One nice thing about Houdini is the ability to insert Python nodes and VEX Attribute Wrangler nodes to
+write custom programs that modify the height field.
+
 - [Houdini Heightfields to Unreal Engine 4 Landscapes](https://www.youtube.com/watch?v=iUGRAbTHynE)
 - [Houdini Scattered Primitives to Unreal Engine 4 Foliage](https://www.youtube.com/watch?v=0PjZ9awgdFY)
 - [Doug's Houdini Landscape Test](https://github.com/drichardson/UE4Examples/tree/master/HoudiniLandscapeTest)
