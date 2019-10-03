@@ -25,3 +25,9 @@ markdown: kramdown
 
 plugins:
   - jekyll-sitemap
+
+collections:
+    notes:
+        output: true
+
+

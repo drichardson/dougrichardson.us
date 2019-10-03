@@ -1,0 +1,19 @@
+---
+layout: default
+---
+  
+<article class="note" itemscope itemtype="http://schema.org/Article">
+
+  <p class="meta">Last Updated:
+    <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="dateModified">{{ page.date | date: "%B %-d %Y" }} </time>
+  </p>
+
+  <header class="header">
+    <h1 class="title" itemprop="name headline">{{ page.title }}</h1>
+  </header>
+
+  <div class="content" itemprop="articleBody">
+    {{ content }}
+  </div>
+
+</article>

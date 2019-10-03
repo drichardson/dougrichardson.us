@@ -2,14 +2,20 @@
 
   <div class="wrapper">
     <div class="header-col-wrapper">
-      <div class="header-col header-col-1">
-        <a class="site-title" href="{{ site.baseurl }}/">{{ site.title }}</a>
+      <div class="col col-1">
+        <span class="site-title">
+            {% if page.title %}
+            {{ page.title }} | <a href="{{ site.baseurl }}/">{{ site.title}}</a>
+            {% else %}
+            {{ site.title}}
+            {% endif %}
+        </span>
       </div>
 
-      <div class="header-col header-col-2">
-        <a href="{{ "/feed.rss" | prepend: site.baseurl }}"><img class="rss-icon" src="/assets/rss-icon.svg" alt="RSS feed"></a>
+      <div class="col col-2">
       </div>
 
     </div>
+  </div>
 
 </header>

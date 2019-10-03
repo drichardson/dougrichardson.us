@@ -3,7 +3,7 @@
   <div class="wrapper">
 
     <div class="footer-col-wrapper">
-      <div class="footer-col footer-col-1">
+      <div class="col col-1">
         <ul class="contact-list">
           <li>{{ site.realname }}</li>
           <li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
@@ -12,7 +12,7 @@
         <img class="headshot" src="/assets/doug.jpg" alt="Doug Richardson's Face">
       </div>
 
-      <div class="footer-col footer-col-2">
+      <div class="col col-2">
         <ul class="contact-list">
           {% if site.github_username %}
           <li>
@@ -58,7 +58,17 @@
 
         </ul>
       </div>
+    </div>
+
+
+    <div class="footer-col-wrapper">
+      <div class="col col-1">
+        <a href="{{ "/feed.rss" | prepend: site.baseurl }}"><img class="rss-icon" src="/assets/rss-icon.svg" alt="RSS feed"></a>
+      </div>
+
+      <div class="col col-2">
+      </div>
+    </div>
 
   </div>
-
 </footer>
