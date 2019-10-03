@@ -1,7 +1,11 @@
 ---
-layout: post
-title: "Privacy Tutorial"
+layout: note
+title: Privacy
+date: 2019-10-02 20:54:18 -0700
 ---
+
+# WORK IN PROGRESS
+
 This is an attempt to share knowledge and tips on how to keep your personal data
 private. After reading this, you will know:
 
@@ -186,7 +190,6 @@ Jeff Bezos (Founder, Chairman, and CEO of Amazon) also owns The Washington Post.
 - [Firefox](https://www.mozilla.org/en-US/firefox/) - [Firefox Privacy Notice](https://www.mozilla.org/en-US/privacy/firefox/)
 - [DuckDuckGo](https://duckduckgo.com/) - [DuckDuckGo Privacy Policy](https://duckduckgo.com/privacy)
 - [Privacy Badger](https://www.eff.org/privacybadger)
-- [DuckDuckGo Privacy Essentials](https://addons.mozilla.org/en-US/firefox/addon/duckduckgo-for-firefox/)
 - [Signal](https://www.signal.org/) - [Signal Terms & Privacy Policy](https://www.signal.org/legal/)
 - [1Password](https://1password.com)
 - [2-factor/multi-factor authentication](https://en.wikipedia.org/wiki/Multi-factor_authentication) tools
@@ -205,7 +208,7 @@ Jeff Bezos (Founder, Chairman, and CEO of Amazon) also owns The Washington Post.
 ## Privacy Laws
 
 ### Europe
-- [EU GDRP | European Union General Data Protection Regulation](https://eugdpr.org/)
+- [EU GDRP \| European Union General Data Protection Regulation](https://eugdpr.org/)
 
 ### United States
 - [Privacy Act of 1974](https://www.justice.gov/opcl/privacy-act-1974)

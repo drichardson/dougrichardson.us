@@ -1,10 +1,10 @@
 ---
-layout: post
-title: "Web Security"
+layout: note
+title: Web Security
 date: 2019-10-02 20:13:01 -0700
 ---
 
-WORK IN PROGRESS
+# WORK IN PROGRESS
 
 List of some web security tools, technologies, and techniques. 
 
