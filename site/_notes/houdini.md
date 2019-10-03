@@ -51,7 +51,7 @@ which has plugins for UE4, Maya, and other tools.
 ## Embedding Assets
 You may need to reference external content (i.e., JPEGs, XML, JSON, FBX) in your HDA. However,
 if you distribute your HDA wihtout the external content, your tool will not work. To deal with this
-issue, you can embed the file in the Operator Type Properties window's [Extra Files](https://www.sidefx.com/docs/houdini/ref/windows/optype.html#extra_files) tab. You can then refer to these embedded files using [opdef:](https://www.sidefx.com/docs/houdini/assets/opdef.html).
+issue, you can embed the file in the Operator Type Properties window's [Extra Files](https://www.sidefx.com/docs/houdini/ref/windows/optype.html#extra_files) tab. You can then refer to these embedded files using [opdef:](https://www.sidefx.com/docs/houdini/assets/opdef.html) (also see [Specifying files inside an asset using opdef:](https://www.sidefx.com/docs/houdini/assets/create.html#sections)).
 
 
 ## Installing from Source
