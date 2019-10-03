@@ -10,43 +10,34 @@
           <li>Developing <a href="https://playbotg.com">Boots on the Ground</a> at <a href="https://recklesscowboys.com">Reckless Cowboys</a></li>
         </ul>
         <img class="headshot" src="/assets/doug.jpg" alt="Doug Richardson's Face">
+        <a href="{{ "/feed.rss" | prepend: site.baseurl }}"><img class="rss-icon" src="/assets/rss-icon.svg" alt="RSS feed"></a>
       </div>
 
       <div class="col col-2">
         <ul class="contact-list">
-          {% if site.github_username %}
           <li>
-            {% include icon-github.html username=site.github_username %}
+            {% include icon-github.html username="drichardson" %}
           </li>
-          {% endif %}
 
-          {% if site.stackoverflow_username %}
           <li>
-            {% include icon-stackoverflow.html username=site.stackoverflow_username userid=site.stackoverflow_userid %}
+            {% include icon-stackoverflow.html username="doug-richardson" userid="196964" %}
           </li>
-          {% endif %}
 
-          {% if site.twitter_username %}
           <li>
-            {% include icon-twitter.html username=site.twitter_username %}
+            {% include icon-twitter.html username="dougrichardson_" %}
           </li>
-          {% endif %}
 
-          {% if site.linkedin_username %}
           <li>
-            {% include icon-linkedin.html username=site.linkedin_username %}
+            {% include icon-linkedin.html username="douglasrichardson" %}
           </li>
-          {% endif %}
 
           <li>
             {% include icon-unrealengine.html %}
           </li>
 
-          {% if site.artstation_username %}
           <li>
-            {% include icon-artstation.html username=site.artstation_username %}
+            {% include icon-artstation.html username="drichardson" %}
           </li>
-          {% endif %}
 
           <li>
             {% include icon-shadertoy.html %}

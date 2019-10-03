@@ -13,12 +13,6 @@ description: Doug Richardson's notes and blog posts on various topics.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://dougrichardson.org" # the base hostname & protocol for your site
 realname: Doug Richardson
-github_username:  drichardson
-stackoverflow_userid: 196964
-stackoverflow_username: doug-richardson
-linkedin_username: douglasrichardson
-twitter_username: dougrichardson_
-artstation_username: drichardson
 
 # Build settings
 markdown: kramdown
