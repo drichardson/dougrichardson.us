@@ -38,10 +38,13 @@ layout: default
 
     <ul class="note-list">
         {% for note in site.notes %}
+        {% unless jekyll.environment == "production" and note.draft %}
         <li>
-          <a class="link"><a href="{{ note.url }}">{{ note.title }}</a>
-          <p class="description">{{ note.excerpt | strip_html }}</p>
+            {% if note.draft %}(DRAFT){% endif %}
+            <a class="link"><a href="{{ note.url }}">{{ note.title }}</a>
+            <p class="description">{{ note.excerpt | strip_html }}</p>
         </li>
+        {% endunless %}
         {% endfor %}
     </ul>
     

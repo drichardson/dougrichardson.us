@@ -9,7 +9,7 @@ layout: default
   </p>
 
   <header class="header">
-    <h1 class="title" itemprop="name headline">{{ page.title }}</h1>
+      <h1 class="title" itemprop="name headline">{% if page.draft %}(DRAFT){% endif %} {{ page.title }}</h1>
   </header>
 
   <div class="content" itemprop="articleBody">

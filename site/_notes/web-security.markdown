@@ -2,11 +2,10 @@
 layout: note
 title: Web Security
 date: 2019-10-02 20:13:01 -0700
+draft: true
 ---
 
-# WORK IN PROGRESS
-
-List of some web security tools, technologies, and techniques. 
+List of browser and server security tools, technologies, and techniques. 
 
 
 # Browser Controls
