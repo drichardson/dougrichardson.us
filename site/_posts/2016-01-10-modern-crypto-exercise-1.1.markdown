@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Introduction to Modern Cryptography: Exercise 1.1"
+mathjax: true
 ---
 Exercise 1.1 from [Introduction to Modern Cryptography, 2nd Edition](https://www.cs.umd.edu/~jkatz/imc.html):
 

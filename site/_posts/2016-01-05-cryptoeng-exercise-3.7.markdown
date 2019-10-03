@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Cryptography Engineering: Exercise 3.7"
+mathjax: true
 ---
 Exercise 3.7 from [Cryptography Engineering](https://www.schneier.com/books/cryptography_engineering/):
 
