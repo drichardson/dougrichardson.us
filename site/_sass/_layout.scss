@@ -8,15 +8,6 @@
     background-color: white;
 }
 
-.site-title {
-    font-size: 2em;
-
-    &,
-    &:visited {
-        color: $grey-color-dark;
-    }
-}
-
 .rss-icon {
   height: 2em;
 }
@@ -115,7 +106,7 @@
     }
 }
 
-.post-list, .note-list {
+.list {
     margin-left: 0;
     list-style: none;
 
@@ -131,14 +122,26 @@
     .link {
         font-size: 1.2em;
     }
-}
 
-.note-list {
     .description {
         font-style: italic;
         color: $grey-color;
     }
+
 }
+
+.title {
+    padding: 0;
+    font-size: 3vmax;
+    text-transform: uppercase;
+    background-color: $grey-color-light;
+
+    @include media-query($on-laptop) {
+        font-size: 2em;
+    }
+}
+
+
 
 /**
  * Posts
@@ -153,17 +156,6 @@
         color: $grey-color;
     }
 
-    .title {
-        padding: 0.2em;
-        font-size: 4vw;
-        text-transform: uppercase;
-        background-color: $grey-color-light;
-
-        @include media-query($on-laptop) {
-            font-size: 2em;
-        }
-    }
-
     .content {
 
         p, ul, ol, pre {
@@ -172,7 +164,6 @@
 
         h1 {
             font-size: 1.6em;
-            text-transform: uppercase;
 
             @include media-query($on-laptop) {
                 font-size: 28px;
@@ -181,8 +172,6 @@
 
         h2 {
             font-size: 1.3em;
-            text-transform: uppercase;
-            color: lighten($grey-color-dark, 20%);
 
             @include media-query($on-laptop) {
                 font-size: 22px;

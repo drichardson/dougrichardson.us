@@ -5,10 +5,12 @@ layout: default
 <article class="note" itemscope itemtype="http://schema.org/Article">
 
   <header class="header">
-      <h1 class="title" itemprop="name headline">
-          {% if page.draft %}(DRAFT){% endif %} {{ page.title }}
-      </h1>
-      <p class="meta">
+      <div class="title" itemprop="name headline">
+        <div class="wrapper">
+            {{page.title}}{% if page.draft %}(draft){% endif %}
+        </div>
+      </div>
+      <p class="meta wrapper">
       Last Updated:
       <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="dateModified">
           {{ page.date | date: "%B %-d %Y" }}
@@ -16,8 +18,8 @@ layout: default
       </p>
   </header>
 
-  <div class="content" itemprop="articleBody">
+  <main class="content wrapper" itemprop="articleBody">
     {{ content }}
-  </div>
+  </main>
 
 </article>

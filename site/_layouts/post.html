@@ -1,15 +1,20 @@
 ---
 layout: default
 ---
+
 <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="header">
-    <h1 class="title" itemprop="name headline">{{ page.title }}</h1>
-    <p class="meta"><time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%B %-d %Y" }}</time></p>
+    <div class="title" itemprop="name headline">
+      <div class="wrapper">
+        {{ page.title }}
+      </div>
+    </div>
+    <p class="meta wrapper"><time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%B %-d %Y" }}</time></p>
   </header>
 
-  <div class="content" itemprop="articleBody">
+  <main class="content wrapper" itemprop="articleBody">
     {{ content }}
-  </div>
+  </main>
 
 </article>
