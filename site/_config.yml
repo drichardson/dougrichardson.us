@@ -8,7 +8,7 @@
 # Site settings
 title: Doug's Notes and Blog
 email: doug@rekt.email
-description: Doug Richardson's notes and blog posts on various topics.
+description: Doug Richardson's notes and blog on programming and game development.
 
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://dougrichardson.org" # the base hostname & protocol for your site
