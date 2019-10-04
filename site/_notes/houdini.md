@@ -53,6 +53,19 @@ You may need to reference external content (i.e., JPEGs, XML, JSON, FBX) in your
 if you distribute your HDA wihtout the external content, your tool will not work. To deal with this
 issue, you can embed the file in the Operator Type Properties window's [Extra Files](https://www.sidefx.com/docs/houdini/ref/windows/optype.html#extra_files) tab. You can then refer to these embedded files using [opdef:](https://www.sidefx.com/docs/houdini/assets/opdef.html) (also see [Specifying files inside an asset using opdef:](https://www.sidefx.com/docs/houdini/assets/create.html#sections)).
 
+In this example jpeg, json, xml, and text are embedded from the *Extra Files* section of the *Operator Type Properties* window:
+
+![Embedded Assets in Extra Files](/assets/notes/houdini/extra-files.png)
+
+Scripts are added to more easily access the data:
+
+![Embedded Scripts](/assets/notes/houdini/scripts.png)
+
+Finally, the data is accessed from a font node:
+
+![Accessing Scripts from Font Node](/assets/notes/houdini/font.png)
+
+For full example, see [embedded_asset_file.hiplc](https://github.com/drichardson/HoudiniExamples/blob/master/embedded_asset_file.hiplc) (authored in Houdini Indie).
 
 ## Installing from Source
 
