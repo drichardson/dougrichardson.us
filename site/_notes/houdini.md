@@ -53,6 +53,30 @@ You may need to reference external content (i.e., JPEGs, XML, JSON, FBX) in your
 if you distribute your HDA wihtout the external content, your tool will not work. To deal with this
 issue, you can embed the file in the Operator Type Properties window's [Extra Files](https://www.sidefx.com/docs/houdini/ref/windows/optype.html#extra_files) tab. You can then refer to these embedded files using [opdef:](https://www.sidefx.com/docs/houdini/assets/opdef.html) (also see [Specifying files inside an asset using opdef:](https://www.sidefx.com/docs/houdini/assets/create.html#sections)).
 
+The Python documentation has a good description of this in [hou.HDASection class](https://www.sidefx.com/docs/houdini/hom/hou/HDASection.html), which you can also view in the Python Shell with `help(hou.HDASection)`:
+
+> # `hou.HDASection`
+>
+> Represents a *section* of data stored along with a digital asset.
+>
+> A digital asset stores its contents in a number of different pieces of
+> data called sections. Each section is named and contains an arbitrarily
+> sized piece of data, often textual. Each section is like a file embedded
+> inside the definition, and Houdini uses specially named sections to
+> store the node contents, list of parameters, etc. You can embed your own
+> data into a digital asset by putting it inside a section.
+>
+> Any parameter in Houdini that references a file can also reference a
+> section inside a digital asset. For example, if car is an object-level
+> digital asset and the section is named "texture.jpg", you can reference
+> that texture with `opdef:/Object/car?texture.jpg`. Note that hou.readFile
+> also supports this opdef: syntax.
+>
+> By moving files into digital asset sections, you can build self-
+> contained digital assets that can be distributed via a single hda file.
+>
+> Note that section names may contain `/`.
+
 In this example jpeg, json, xml, and text are embedded from the *Extra Files* section of the *Operator Type Properties* window:
 
 ![Embedded Assets in Extra Files](/assets/notes/houdini/extra-files.png)

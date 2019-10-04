@@ -43,6 +43,11 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: $base-font-weight;
 }
 
+h1 { font-size: 180%; margin-top: 0.7em; }
+h2 { font-size: 160%; }
+h3 { font-size: 140%; }
+h4 { font-size: 120%; }
+
 
 // Posts
 article {
@@ -73,12 +78,11 @@ article {
    }    
   
    blockquote {
-     color: $grey-color;
-     border-left: 4px solid $grey-color-light;
+     font-size: 90%;
+     xcolor: $grey-color-dark;
+     background-color: lighten(orange, 40%);
+     border-left: 4px solid orange;
      padding-left: $spacing-unit / 2;
-     font-size: 18px;
-     letter-spacing: -1px;
-     font-style: italic;
 
      > :last-child {
        margin-bottom: 1em;
@@ -88,10 +92,11 @@ article {
    // Code formatting
    pre,
    code {
-     font-size: 15px;
+     font-size: 100%;
      border: 1px solid $grey-color-light;
      border-radius: 3px;
      background-color: #eef;
+     font-family: $base-mono-font-family;
    }
 
    code {
