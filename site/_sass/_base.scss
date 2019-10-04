@@ -39,7 +39,11 @@ a {
     }
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1 {
+  font-weight: $thick-font-weight;
+}
+
+h2, h3, h4, h5, h6 {
   font-weight: $base-font-weight;
 }
 
@@ -79,7 +83,6 @@ article {
   
    blockquote {
      font-size: 90%;
-     xcolor: $grey-color-dark;
      background-color: lighten(orange, 40%);
      border-left: 4px solid orange;
      padding-left: $spacing-unit / 2;
@@ -95,7 +98,6 @@ article {
      font-size: 100%;
      border: 1px solid $grey-color-light;
      border-radius: 3px;
-     background-color: #eef;
      font-family: $base-mono-font-family;
    }
 

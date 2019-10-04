@@ -108,12 +108,17 @@ main {
         font-style: italic;
         color: $grey-color;
     }
+
+    a {
+        font-weight: $thick-font-weight;
+    }
 }
 
 .title {
     padding: 0;
     font-size: 3vmax;
     background-color: $grey-color-light;
+    font-weight: $thick-font-weight;
 
     @include media-query($on-laptop) {
         font-size: 2em;
