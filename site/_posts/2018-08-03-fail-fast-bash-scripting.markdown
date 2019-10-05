@@ -11,10 +11,11 @@ has a few options to help you write fail-fast scripts.
 
 Put this at the top of your fail-fast Bash scripts:
 
-    #!/bin/bash
-    set -euo pipefail
-    shopt -s inherit_errexit
-
+```bash
+#!/bin/bash
+set -euo pipefail
+shopt -s inherit_errexit
+```
 
 Use `[[ $# -gt 0 ]]` to test existence of positional parameters.
 
@@ -27,16 +28,20 @@ To understand why, read on.
 before `cut`, since `ls` returns a non-zero status when given an invalid directory argument.
 
 
-    #!/bin/bash
-    # example1.sh
-    set -e
-    ls /invalidDirectory  > out.txt
-    cut -c 1 out.txt
+```bash
+#!/bin/bash
+# example1.sh
+set -e
+ls /invalidDirectory  > out.txt
+cut -c 1 out.txt
+```
 
 Output:
 
-    $ ./example1.sh
-    ls: cannot access '/invalidDirectory': No such file or directory
+```bash
+$ ./example1.sh
+ls: cannot access '/invalidDirectory': No such file or directory
+```
 
 However, `set -e` is complicated[^1]. The next sections will try to deal with some of the gotchas.
 
@@ -46,35 +51,42 @@ However, `set -e` is complicated[^1]. The next sections will try to deal with so
 In a [pipeline](https://www.gnu.org/software/bash/manual/html_node/Pipelines.html), `set -e` might not
 behave as you expect.
 
-    #!/bin/bash
-    # pipeline1.sh - runs to completion
-    set -e
-    ls /invalidDirectory | cut -c 1
-    echo COMPLETE
+```bash
+#!/bin/bash
+# pipeline1.sh - runs to completion
+set -e
+ls /invalidDirectory | cut -c 1
+echo COMPLETE
+```
 
 Output:
 
-    $ ./pipeline1.sh
-    ls: cannot access '/invalidDirectory': No such file or directory
-    COMPLETE
+```bash
+$ ./pipeline1.sh
+ls: cannot access '/invalidDirectory': No such file or directory
+COMPLETE
+```
 
 Why does pipeline1.sh run to completion? After all, `ls` returned a non-zero status. The answer is that Bash uses the status of the *last* command in the pipeline as the status for the entire pipeline. In this case, the last command in the pipeline is `cut`, which returns status zero.
 
 Each individual pipeline command's status is stored [PIPESTATUS](https://www.gnu.org/software/bash/manual/html_node/Bash-Variables.html). Changing pipeline1.sh to print out the
 PIPESTATUS:
 
-    #!/bin/bash
-    # pipeline1-with-status.sh - runs to completion, print statuses
-    set -e
-    ls /invalidDirectory | cut -c 1
-    echo COMPLETE pipeline_status=$? ls_status=${PIPESTATUS[0]} cut_status=${PIPESTATUS[1]}
+```bash
+#!/bin/bash
+# pipeline1-with-status.sh - runs to completion, print statuses
+set -e
+ls /invalidDirectory | cut -c 1
+echo COMPLETE pipeline_status=$? ls_status=${PIPESTATUS[0]} cut_status=${PIPESTATUS[1]}
+```
 
 Output:
 
-    $ ./pipeline1-with-status.sh
-    ls: cannot access '/invalidDirectory': No such file or directory
-    COMPLETE pipeline_status=0 ls_status=2 cut_status=0
-
+```bash
+$ ./pipeline1-with-status.sh
+ls: cannot access '/invalidDirectory': No such file or directory
+COMPLETE pipeline_status=0 ls_status=2 cut_status=0
+```
 
 ### Gotcha: Command Substitution
 
@@ -84,34 +96,40 @@ Output:
 
 This rule means that the following script will run to completion, in spite of INVALIDCOMMAND.
 
-    #!/bin/bash
-    # command-substitution.sh
-    set -e
-    MYVAR=$(echo -n Start; INVALIDCOMMAND; echo -n End)
-    echo "MYVAR is $MYVAR"
+```bash
+#!/bin/bash
+# command-substitution.sh
+set -e
+MYVAR=$(echo -n Start; INVALIDCOMMAND; echo -n End)
+echo "MYVAR is $MYVAR"
+```
 
 Output:
 
-    ./command-substitution.sh: line 4: INVALIDCOMMAND: command not found
-    MYVAR is StartEnd
- 
+```bash
+./command-substitution.sh: line 4: INVALIDCOMMAND: command not found
+MYVAR is StartEnd
+```
 
 # set -o pipefail
 
 To change the default behavior of Bash so that it treats any non-zero status in a pipeline like a total pipeline failure, use `set -o pipefail`. Running a modified pipeline1.sh that uses `set -o pipefail`:
 
-    #!/bin/bash
-    # pipeline2.sh - exits due to ls failure
-    set -e
-    set -o pipefail
-    ls /invalidDirectory | cut -c 1
-    echo COMPLETE
+```bash
+#!/bin/bash
+# pipeline2.sh - exits due to ls failure
+set -e
+set -o pipefail
+ls /invalidDirectory | cut -c 1
+echo COMPLETE
+```
 
 Output:
 
-    $ ./pipeline2.sh
-    ls: cannot access '/invalidDirectory': No such file or directory
-
+```bash
+$ ./pipeline2.sh
+ls: cannot access '/invalidDirectory': No such file or directory
+```
 
 # shopt -s inherit_errexit
 
@@ -124,92 +142,104 @@ From the [Shopt Builtin documentation](https://www.gnu.org/software/bash/manual/
 
 So, modifying command-substitution.sh above, we get:
 
-
-    #!/bin/bash
-    # command-substitution-inherit_errexit.sh
-    set -e
-    shopt -s inherit_errexit
-    MYVAR=$(echo -n Start; INVALIDCOMMAND; echo -n End)
-    echo "MYVAR is $MYVAR"
+```bash
+#!/bin/bash
+# command-substitution-inherit_errexit.sh
+set -e
+shopt -s inherit_errexit
+MYVAR=$(echo -n Start; INVALIDCOMMAND; echo -n End)
+echo "MYVAR is $MYVAR"
+```
 
 Output:
 
-    ./command-substitution-inherit_errexit.sh: line 5: INVALIDCOMMAND: command not found
-
+```bash
+./command-substitution-inherit_errexit.sh: line 5: INVALIDCOMMAND: command not found
+```
 
 # set -u
 Using `set -u` causes Bash to exit if you use an unbound variable. For example, the following script:
 
-    #!/bin/bash
-    # unbound.sh - causes unbound variable error
-    set -u
-    echo Print Unbound $MYUNBOUNDVARIABLE
-    echo COMPLETE
+```bash
+#!/bin/bash
+# unbound.sh - causes unbound variable error
+set -u
+echo Print Unbound $MYUNBOUNDVARIABLE
+echo COMPLETE
+```
 
 Output:
 
-    $ ./unbound.sh
-    ./unbound.sh: line 4: MYUNBOUNDVARIABLE: unbound variable
+```bash
+$ ./unbound.sh
+./unbound.sh: line 4: MYUNBOUNDVARIABLE: unbound variable
+```
 
 ### Gotcha: Testing Positional Parameters
 
 While useful, terminating on unbound variables does cause some headaches, most notably when testing positional parameters. For example, in positional-unbound1.sh below, I'd like to provide a useful error message to the script user if they forget to supply a positional parameter:
 
+```bash
+#!/bin/bash
+# positional-unbound.sh - unbound variable terminates script before message printed
+set -u
 
-    #!/bin/bash
-    # positional-unbound.sh - unbound variable terminates script before message printed
-    set -u
-    
-    ARG1=$1
-    shift
-    
-    if [[ -z $ARG1 ]]; then
-        echo "Missing arugment."
-        exit 1
-    fi
-    
-    echo "COMPLETE ARG1=$ARG1"
+ARG1=$1
+shift
+
+if [[ -z $ARG1 ]]; then
+    echo "Missing arugment."
+    exit 1
+fi
+
+echo "COMPLETE ARG1=$ARG1"
+```
 
 Output:
 
-    $ ./positional-unbound.sh
-    ./positional-unbound.sh: line 5: $1: unbound variable
+```bash
+$ ./positional-unbound.sh
+./positional-unbound.sh: line 5: $1: unbound variable
+```
 
 
 To get around this, you can temporarily disable `set -u` with `set +u` or you can change your code to test the number of
 remaining positional parameters, like so:
 
 
-    #!/bin/bash
-    # positional-unbound-fixed.sh
-    set -u
-    
-    usage() {
-        echo "Usage: command <ARG1> <ARG2>"
-    }
-    
-    missingPositional() {
-        echo Missing $1
-        usage
-        exit 1
-    }
-    
-    [[ $# -gt 0 ]] || missingPositional ARG1
-    ARG1=$1
-    shift
-    
-    [[ $# -gt 0 ]] || missingPositional ARG2
-    ARG2=$1
-    shift
-    
-    echo "COMPLETE ARG1=$ARG1 ARG2=$ARG2"
+```bash
+#!/bin/bash
+# positional-unbound-fixed.sh
+set -u
+
+usage() {
+    echo "Usage: command <ARG1> <ARG2>"
+}
+
+missingPositional() {
+    echo Missing $1
+    usage
+    exit 1
+}
+
+[[ $# -gt 0 ]] || missingPositional ARG1
+ARG1=$1
+shift
+
+[[ $# -gt 0 ]] || missingPositional ARG2
+ARG2=$1
+shift
+
+echo "COMPLETE ARG1=$ARG1 ARG2=$ARG2"
+```
 
 Output:
 
-    $ ./positional-unbound-fixed.sh
-    Missing ARG1
-    Usage: command <ARG1> <ARG2>
-
+```bash
+$ ./positional-unbound-fixed.sh
+Missing ARG1
+Usage: command <ARG1> <ARG2>
+```
 
 # References
 - [Bash Reference Manual: Special Parameters](https://www.gnu.org/software/bash/manual/html_node/Special-Parameters.html)

@@ -68,12 +68,14 @@ an item can be allocated on the stack. It determines if an item created in a fun
 can escape out of that function or to other goroutines. For example, in the following function, x escapes from
 the function that defines it:
 
-     package escapeanalysis
-     
-     func Foo() *int {
-         var x int
-         return &x
-     }
+```go
+package escapeanalysis
+
+func Foo() *int {
+    var x int
+    return &x
+}
+```
 
 Items that escape must be allocated on the heap. Thus *x* would be allocated on the heap.[^1]
 

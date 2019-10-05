@@ -55,7 +55,7 @@ issue, you can embed the file in the Operator Type Properties window's [Extra Fi
 
 The Python documentation has a good description of this in [hou.HDASection class](https://www.sidefx.com/docs/houdini/hom/hou/HDASection.html), which you can also view in the Python Shell with `help(hou.HDASection)`:
 
-> # `hou.HDASection`
+> # hou.HDASection
 >
 > Represents a *section* of data stored along with a digital asset.
 >
