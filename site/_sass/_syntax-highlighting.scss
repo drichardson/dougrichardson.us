@@ -6,7 +6,7 @@ div.highlighter-rouge {
     padding: 10px;
     border: 2px solid darken($syntax-highlight-background, 6%);
     margin: 15px 0;
-    overflow: scroll;
+    overflow: auto;
 }
 
 code.highlighter-rouge {
