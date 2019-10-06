@@ -131,7 +131,7 @@ h4 { font-size: 1.2em; }
 
 article {
 
-    .header {
+    header {
         margin-bottom: $spacing-unit;
     }
 
@@ -269,15 +269,9 @@ article {
   vertical-align: middle;
 }
 
-.site-footer {
-  .headshot {
-    width: 6em;
-  }
-}
-
-/**
- * Site header
- */
+//
+// Site header
+//
 .site-header {
     border-bottom: 1px solid $grey-color-light;
     width: 100%;
@@ -289,12 +283,16 @@ article {
   height: 2em;
 }
 
-/**
- * Site footer
- */
-.site-footer {
+//
+// Site footer
+//
+footer {
     border-top: 1px solid $grey-color-light;
     padding: $spacing-unit 0;
+
+    .headshot {
+        width: 6em;
+    }
 }
 
 .contact-list {
@@ -355,9 +353,9 @@ article {
     }
 }
 
-/**
- * Page content
- */
+//
+// Page content
+//
 main {
     .heading {
         display: flex;
@@ -391,12 +389,15 @@ main {
 }
 
 .title {
-    padding: 0;
-    font-size: 2em;
+    font-size: 1.2em;
     background-color: $grey-color-light;
     font-weight: $thick-font-weight;
 
     @include media-query($on-laptop) {
+    }
+
+    h1 {
+        margin: 0;
     }
 }
 

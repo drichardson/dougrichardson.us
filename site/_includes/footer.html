@@ -1,54 +1,30 @@
-<footer class="site-footer">
+<footer>
+<div class="wrapper">
+<div class="footer-col-wrapper">
 
-  <div class="wrapper">
+<div class="col col-1">
+<ul class="contact-list">
+<li>{{ site.realname }}</li>
+<li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
+<li>Developing <a href="https://playbotg.com">Boots on the Ground</a> at <a href="https://recklesscowboys.com">Reckless Cowboys</a></li>
+<li><img class="headshot" src="/assets/doug.jpg" alt="Doug Richardson's Face"></li>
+<li><a href="{{ "/feed.rss" | prepend: site.baseurl }}"><img class="rss-icon" src="/assets/rss-icon.svg" alt="RSS feed"></a></li>
+</ul>
+</div>
 
-    <div class="footer-col-wrapper">
-      <div class="col col-1">
-        <ul class="contact-list">
-          <li>{{ site.realname }}</li>
-          <li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
-          <li>Developing <a href="https://playbotg.com">Boots on the Ground</a> at <a href="https://recklesscowboys.com">Reckless Cowboys</a></li>
-          <li><img class="headshot" src="/assets/doug.jpg" alt="Doug Richardson's Face"></li>
-          <li><a href="{{ "/feed.rss" | prepend: site.baseurl }}"><img class="rss-icon" src="/assets/rss-icon.svg" alt="RSS feed"></a></li>
-        </ul>
-      </div>
+<div class="col col-2">
+<ul class="contact-list">
+<li>{% include icon-github.html username="drichardson" %}</li>
+<li>{% include icon-stackoverflow.html username="doug-richardson" userid="196964" %}</li>
+<li>{% include icon-twitter.html username="dougrichardson_" %}</li>
+<li>{% include icon-linkedin.html username="douglasrichardson" %}</li>
+<li>{% include icon-unrealengine.html %}</li> 
+<li>{% include icon-artstation.html username="drichardson" %}</li>
+<li>{% include icon-shadertoy.html %}</li>
+<li>{% include icon-sidefx.html %}</li>
+</ul>
+</div>
 
-      <div class="col col-2">
-        <ul class="contact-list">
-          <li>
-            {% include icon-github.html username="drichardson" %}
-          </li>
-
-          <li>
-            {% include icon-stackoverflow.html username="doug-richardson" userid="196964" %}
-          </li>
-
-          <li>
-            {% include icon-twitter.html username="dougrichardson_" %}
-          </li>
-
-          <li>
-            {% include icon-linkedin.html username="douglasrichardson" %}
-          </li>
-
-          <li>
-            {% include icon-unrealengine.html %}
-          </li>
-
-          <li>
-            {% include icon-artstation.html username="drichardson" %}
-          </li>
-
-          <li>
-            {% include icon-shadertoy.html %}
-          </li>
-
-          <li>
-            {% include icon-sidefx.html %}
-          </li>
-
-        </ul>
-      </div>
-    </div>
-  </div>
+</div>
+</div>
 </footer>

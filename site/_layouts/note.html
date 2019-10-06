@@ -4,22 +4,20 @@ layout: default
   
 <article itemscope itemtype="http://schema.org/Article">
 
-  <header class="header">
-      <div class="title" itemprop="name headline">
-        <div class="wrapper">
-            {{page.title}}{% if page.draft %}(draft){% endif %}
-        </div>
-      </div>
-      <p class="meta wrapper">
-      Last Updated:
-      <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="dateModified">
-          {{ page.date | date: "%B %-d %Y" }}
-        </time>
-      </p>
-  </header>
+<header>
+<div class="title">
+<div class="wrapper">
+<h1 itemprop="name headline">{{page.title}}{% if page.draft %}(draft){% endif %}</h1>
+</div>
+</div>
+<p class="meta wrapper">
+Last Updated:
+<time datetime="{{ page.date | date_to_xmlschema }}" itemprop="dateModified">{{ page.date | date: "%B %-d %Y" }}</time>
+</p>
+</header>
 
-  <div class="content wrapper" itemprop="articleBody">
-    {{ content }}
-  </div>
+<main class="content wrapper" itemprop="articleBody">
+{{ content }}
+</main>
 
 </article>

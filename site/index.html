@@ -31,34 +31,43 @@ layout: default
 }
 </script>
 
-<div class="title">
-    <div class="wrapper">{{site.title}}</div>
+<header class="title">
+<div class="wrapper">
+<h1 itemprop="name headline">{{ site.title }}</h1>
 </div>
+</header>
 
 <div class="wrapper">
-<h1>Notes</h1>
 
+<main>
+<section>
+<header>
+<h2>Notes</h2>
+</header>
 <ul class="list">
-    {% for note in site.notes %}
-    {% unless jekyll.environment == "production" and note.draft %}
-    <li>
-        <a href="{{ note.url }}">{{ note.title }} {% if note.draft %}(draft){% endif %}</a>
-        <p class="description">{{ note.excerpt | strip_html }}</p>
-    </li>
-    {% endunless %}
-    {% endfor %}
+{%- for note in site.notes %}
+    {%- unless jekyll.environment == "production" and note.draft %}
+<li>
+<a href="{{ note.url }}">{{ note.title }} {% if note.draft %}(draft){% endif %}</a>
+<p class="description">{{ note.excerpt | strip_html }}</p>
+</li>
+    {%- endunless %}
+{%- endfor %}
 </ul>
+</section>
 
-<h1>Blog</h1>
-
+<section>
+<header><h2>Blog</h2></header>
 <ul class="list">
-    {% for post in site.posts %}
-    <li>
-        <div class="meta">{{ post.date | date: "%Y-%m-%d" }}</div>
-        <a href="{{ post.url }}">{{ post.title }}</a>
-        <p class="description">{{ post.excerpt | strip_html }}</p>
-    </li>
-    {% endfor %}
+{%- for post in site.posts %}
+<li>
+<div class="meta">{{ post.date | date: "%Y-%m-%d" }}</div>
+<a href="{{ post.url }}">{{ post.title }}</a>
+<p class="description">{{ post.excerpt | strip_html }}</p>
+</li>
+{%- endfor %}
 </ul>
+</section>
+</main>
 
 </div>
