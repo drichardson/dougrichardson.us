@@ -1,11 +1,20 @@
-<div id="breadcrumbs">
-{% assign crumbs = page.url | remove:'/index.html' | split: '/' %}
-<a href="/">Home</a>
-{% for crumb in crumbs offset: 1 %}
-  {% if forloop.last %}
-    / {{ crumb | replace:'-',' ' | remove:'.html' | capitalize }}
-  {% else %}
-    / {{ crumb | replace:'-',' ' | remove:'.html' | capitalize }}
-  {% endif %}
-{% endfor %}
-</div>
+{% comment %}
+Taken from https://jekyllcodex.org/without-plugin/breadcrumbs/
+{% endcomment %}
+{%- assign crumbs = page.url | split: '/' %}
+{%- capture list_items %}
+<li><a href="/">home</a></li>
+{%- assign url = "" %}
+{%- for crumb in crumbs offset: 1 %}
+  {%- assign url = url | append: '/' | append: crumb %}
+  {%- assign crumb_text = crumb | replace:'-',' ' | remove:'.html' %}
+  {%- if forloop.last %}
+<li><a href="{{ url }}">{{ crumb_text }}</a></li>
+  {%- else %}
+<li>{{ crumb_text }}</li>
+  {%- endif %}
+{%- endfor %}
+{%- endcapture %}
+<nav><ol>
+{{ list_items | strip_newlines }}
+</ol></nav>

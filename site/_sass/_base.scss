@@ -195,7 +195,6 @@ article {
    }
 
    li {
-     xpadding-left: $spacing-unit;
      margin-top: $spacing-unit / 4;
    }
    
@@ -401,10 +400,6 @@ main {
     }
 }
 
-#breadcrumbs {
-    text-transform: lowercase;
-}
-
 .youtube-container {
 	position: relative;
 	padding-bottom: 56.25%;
@@ -421,4 +416,14 @@ main {
     }
 }
 
+nav {
+   ol {
+     li {
+         display: inline;
+     }
+     li + li::before {
+         content: "/";
+     }
+   }
+}
 
