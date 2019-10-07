@@ -17,6 +17,26 @@ A collection of Houdini tools developed by SideFX for game development.
 - [Source Code](https://github.com/sideeffects/GameDevelopmentToolset)
 - [Houdini Tools with SideFX](https://www.youtube.com/watch?v=gL_-JY7wryI&t=271s)
 
+## Installing from Github Sources
+The Game Development Toolset is released frequently (usually at least once a week), but if you want to
+have the very latest version, or you want to make changes yourself, you will want to install from
+[Github sources](https://github.com/sideeffects/GameDevelopmentToolset)
+rather than use the updater tool (in the Game Development Toolbar in the Games shelf).
+
+To install from Github sources:
+
+1. Uninstall the Game Dev Tools, if you have already installed them.
+1. Checkout the sources: 
+```bash
+git clone https://github.com/sideeffects/GameDevelopmentToolset.git
+```
+1. Add the full path to the checked out sources to the `HOUDINI_PATH` variable in
+[houdini.env](https://www.sidefx.com/docs/houdini/basics/config_env#setting-environment-variables). For example:
+```ini
+HOUDINI_PATH = E:\code\GameDevelopmentToolset;$HOUDINI_PATH;&
+```
+1. Restart Houdini. You should now be able to access the tools in the Game Dev Toolset.
+
 # Houdini Engine for Unreal
 Unreal Engine 4 plugin for Houdini. Let's you create
 Houdini Digital Assets in Houdini, and then use those assets inside of UE4.
