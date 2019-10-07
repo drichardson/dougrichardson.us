@@ -33,7 +33,7 @@ git clone https://github.com/sideeffects/GameDevelopmentToolset.git
 1. Add the full path to the checked out sources to the `HOUDINI_PATH` variable in
 [houdini.env](https://www.sidefx.com/docs/houdini/basics/config_env#setting-environment-variables). For example:
 ```ini
-HOUDINI_PATH = E:\code\GameDevelopmentToolset;$HOUDINI_PATH;&
+HOUDINI_PATH = E:\code\GameDevelopmentToolset;&
 ```
 1. Restart Houdini. You should now be able to access the tools in the Game Dev Toolset.
 

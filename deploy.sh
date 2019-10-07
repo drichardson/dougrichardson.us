@@ -82,6 +82,7 @@ validate_all() {
 }
 
 deploy() {
+    ssh-add ~/.ssh/google_compute_engine_PERSONAL
     echo "Deploying..."
     echo "Make sure your google compute SSH identity is added. If not, use:"
     echo "   ssh-add ~/.ssh/google_compute_engine" 
