@@ -1,7 +1,7 @@
 ---
 layout: note
 title: Houdini
-date: 2019-10-04 21:14:50 -0700
+date: 2019-10-07 14:19:42 -0700
 ---
 
 Notes on SideFX Houdini, HoudiniEngine, and HoudiniEngine for Unreal Engine 4.
