@@ -254,19 +254,14 @@ article {
 .icon {
     > svg {
         display: inline-block;
-        width: 16px;
-        height: 16px;
+        width: 40px;
+        height: 40px;
         vertical-align: middle;
 
         path {
             fill: $grey-color;
         }
     }
-}
-
-.rss-icon {
-  max-width: 100%;
-  vertical-align: middle;
 }
 
 //
@@ -277,10 +272,6 @@ article {
     width: 100%;
     background-color: white;
     padding: .4em 0;
-}
-
-.rss-icon {
-  height: 2em;
 }
 
 //
@@ -295,16 +286,35 @@ footer {
     }
 }
 
+.rss-icon {
+  height: 2em;
+}
+.rss-icon {
+  max-width: 100%;
+  vertical-align: middle;
+}
+
 .contact-list {
     list-style: none;
     margin-left: 0;
 
-    a {
-        text-decoration: none;
+    .col-2 {
+        background-color: red;
+    }
+}
 
-        &:hover span.username {
-            text-decoration: underline;
-        }
+.icon-contact-list {
+    ul {
+        list-style: none;
+        margin-left: 0;
+    }
+
+    li {
+        display: inline;
+    }
+
+    img {
+        width: 2em;
     }
 }
 
