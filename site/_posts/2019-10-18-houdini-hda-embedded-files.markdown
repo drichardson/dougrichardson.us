@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Houdini HDA Embedded Asset Files"
-youtubeURL: https://www.youtube.com/watch?v=dh7ilfgtOdg
+youtubeURL: https://www.youtube.com/watch?v=DqWRxRGe5gw
 ---
 
 I posted a [video tutorial]({{page.youtubeURL}}) that shows you how to embed
