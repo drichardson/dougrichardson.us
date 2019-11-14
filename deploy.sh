@@ -2,7 +2,7 @@
 set -euo pipefail
 shopt -s inherit_errexit
 
-HOSTNAME="dougrichardson.org"
+HOSTNAME="dougrichardson.us"
 
 assert_jekyll_not_running()
 {

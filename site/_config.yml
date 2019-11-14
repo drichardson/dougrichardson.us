@@ -11,7 +11,7 @@ email: doug@rekt.email
 description: Doug Richardson's notes on game development, programming, Unreal Engine, Houdini, and other sometimes related topics.
 
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://dougrichardson.org" # the base hostname & protocol for your site
+url: "https://dougrichardson.us" # the base hostname & protocol for your site
 realname: Doug Richardson
 
 # Build settings
