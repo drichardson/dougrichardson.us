@@ -10,7 +10,7 @@ server {
 
 server {
     # for debugging only
-    # error_log	/var/log/nginx/delicioussafari.com.error.log debug;
+    # error_log	/var/log/nginx/dougrichardson.org.error.log debug;
 
     #
     # SSL configuration
@@ -20,13 +20,14 @@ server {
 
     add_header Content-Security-Policy "default-src 'self'; block-all-mixed-content;";
 
-    server_name dougrichardson.us;
+    server_name dougrichardson.org;
 
     expires 5m;
 
     return 301 https://dougrichardson.us;
 
-    ssl_certificate /etc/letsencrypt/live/dougrichardson.us/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/dougrichardson.us/privkey.pem;
+    ssl_certificate /etc/letsencrypt/live/$server_name/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/dougrichardson.org/privkey.pem;
+    ssl_trusted_certificate /etc/letsencrypt/live/dougrichardson.org/chain.pem;
 }
 

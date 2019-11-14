@@ -8,12 +8,12 @@ server {
 
 server {
     # for debugging only
-    # error_log	/var/log/nginx/$server_name.error.log debug;
+    # error_log	/var/log/nginx/dougrichardson.us.error.log debug;
 
     listen 443 ssl http2 default_server;
     listen [::]:443 ssl http2 default_server;
 
-	add_header Strict-Transport-Security "max-age=63072000" always;
+    add_header Strict-Transport-Security "max-age=63072000" always;
 
     # CSP
     set $csp "default-src 'none'";

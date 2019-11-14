@@ -28,5 +28,6 @@ server {
 
     ssl_certificate /etc/letsencrypt/live/delicioussafari.com/fullchain.pem;
     ssl_certificate_key /etc/letsencrypt/live/delicioussafari.com/privkey.pem;
+    ssl_trusted_certificate /etc/letsencrypt/live/delicioussafari.com/chain.pem;
 }
 
