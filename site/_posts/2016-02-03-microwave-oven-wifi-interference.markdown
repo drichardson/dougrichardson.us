@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Measuring Microwave Oven Wi-Fi Interference"
+mathjax: true
 ---
 When my microwave oven is turned on my Wi-Fi performance sometimes suffers.
 

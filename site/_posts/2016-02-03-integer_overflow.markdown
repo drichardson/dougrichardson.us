@@ -1,12 +1,14 @@
 ---
 layout: post
 title: "Integer Overflows"
+mathjax: true
 ---
 The behavior of integer overflow for arithmetic operations varies across languages and, in the case of C,
 between C compilers.
 
 # Go
-Unsigned n-bit integer arithmetic is is modulo $$2^n$$. Signed n-bit integer arithmetic, if I'm reading this right, means
+
+Unsigned n-bit integer arithmetic is modulo $$2^n$$. Signed n-bit integer arithmetic, if I'm reading this right, means
 you do the arithmetic as you would if you weren't limited to n-bits and then chop off the part that doesn't fit into n-bits.
 
 From [Integer overflow](https://golang.org/ref/spec#Integer_overflow):
