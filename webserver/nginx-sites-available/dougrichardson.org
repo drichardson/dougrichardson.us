@@ -5,7 +5,7 @@ server {
     listen 80;
     listen [::]:80;
     server_name dougrichardson.org;
-    return 301 https://dougrichardson.us;
+    return 301 https://dougrichardson.us$request_uri;
 }
 
 server {
@@ -24,7 +24,7 @@ server {
 
     expires 5m;
 
-    return 301 https://dougrichardson.us;
+    return 301 https://dougrichardson.us$request_uri;
 
     ssl_certificate /etc/letsencrypt/live/dougrichardson.org/fullchain.pem;
     ssl_certificate_key /etc/letsencrypt/live/dougrichardson.org/privkey.pem;
