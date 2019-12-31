@@ -2,11 +2,11 @@
 set -euo pipefail
 shopt -s inherit_errexit
 
-SITES="dougrichardson.us dougrichardson.org delicioussafari.com rekt.email"
+SITES="dougrichardson.us dougrichardson.org delicioussafari.com"
 
 cat <<'EOF'
 #!/bin/bash
-set -euo pipefail
+set -xeuo pipefail
 shopt -s inherit_errexit
 
 echo Entering build-startup-script.sh
@@ -17,12 +17,9 @@ echo Setup /var/www
 mkdir -p /var/www
 chmod 777 /var/www
 
-echo Installing packages
 apt-get update
-apt-get upgrade -y
-
-echo Install nginx
-apt-get install -y nginx rsync
+apt-get -y install nginx rsync
+apt-get -y install certbot python-certbot-nginx
 
 echo Stopping nginx so certbot can run, if necessary.
 systemctl stop nginx
@@ -30,13 +27,6 @@ systemctl stop nginx
 if [[ -f /etc/nginx/sites-enabled/default ]]; then
     rm /etc/nginx/sites-enabled/default
 fi
-
-echo Install Certbot packages
-apt-get -y install software-properties-common
-add-apt-repository universe
-add-apt-repository ppa:certbot/certbot
-apt-get -y update
-apt-get -y install certbot python-certbot-nginx
 
 EOF
 
@@ -100,16 +90,6 @@ cat <<'EOF'
 # Remove anything unused
 #
 apt-get autoremove -y
-
-#
-# Check for reboot last, so that we make sure to reboot if anything 
-# installs that requires a reboot.
-#
-if [[ -f /var/run/reboot-required ]]; then
-    echo Reboot required. Rebooting now.
-    reboot
-    exit
-fi
 
 echo Starting nginx up again...
 systemctl start nginx

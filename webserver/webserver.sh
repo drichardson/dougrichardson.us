@@ -29,8 +29,7 @@ gcloud compute --project $PROJECT \
     --maintenance-policy MIGRATE \
     --no-service-account --no-scopes \
     --tags http-server,https-server,ssh-server \
-    --image-family ubuntu-1804-lts --image-project gce-uefi-images \
-    --shielded-secure-boot --shielded-vtpm --shielded-integrity-monitoring \
+    --image-family debian-10 --image-project debian-cloud \
     --boot-disk-size 10GB  --boot-disk-type pd-standard \
     --metadata-from-file startup-script="$STARTUP_SCRIPT" \
     --address $IP_ADDRESS
