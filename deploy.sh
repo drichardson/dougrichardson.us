@@ -1,8 +1,9 @@
 #!/bin/bash
-set -euo pipefail
+set -xeuo pipefail
 shopt -s inherit_errexit
 
-HOSTNAME="dougrichardson.us"
+SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
+source "$SCRIPTPATH/globals.sh"
 
 assert_jekyll_not_running()
 {
@@ -81,15 +82,47 @@ validate_all() {
     validate_css
 }
 
+executeScriptRemotely() {
+    local NAME=$1
+    shift
+    local USER=$1
+    shift
+    local SCRIPT=$1
+    shift
+
+    REMOTE_SCRIPT=/tmp/$(basename $SCRIPT)-$(uuidgen)
+
+    echo Copying $SCRIPT to $NAME:$REMOTE_SCRIPT
+    gcloud compute scp $SCRIPT $NAME:$REMOTE_SCRIPT
+
+    echo Running $REMOTE_SCRIPT on $NAME
+    gcloud compute ssh $NAME <<EOF
+set -euo pipefail
+shopt -s inherit_errexit
+sudo -u $USER bash $REMOTE_SCRIPT
+rm $REMOTE_SCRIPT
+EOF
+}
+
 deploy() {
-    ssh-add ~/.ssh/google_compute_engine_PERSONAL
-    echo "Deploying..."
-    echo "Make sure your google compute SSH identity is added. If not, use:"
-    echo "   ssh-add ~/.ssh/google_compute_engine" 
-    echo "   ssh-add ~/.ssh/google_compute_engine_PERSONAL"
-    pushd site
-    rsync -av --delete _site/ $HOSTNAME:/var/www/$HOSTNAME
-    popd
+    local TARGET="/var/www/$HOSTNAME"
+
+    local ID=$(uuidgen)
+    local NEW="$TARGET-$ID"
+    local OLD="$TARGET-OLD-$ID"
+
+    DEPLOYMENT_SCRIPT="/tmp/deployment-$ID"
+    cat > $DEPLOYMENT_SCRIPT <<EOF
+set -xeuo pipefail
+shopt -s inherit_errexit
+chown root:root -R $NEW
+[[ -e $TARGET ]] && mv $TARGET $OLD
+mv $NEW $TARGET
+[[ -e $OLD ]] && rm -r $OLD
+EOF
+
+    gcloud compute scp --recurse "$SCRIPTPATH/site/_site/" $INSTANCE_NAME:$NEW
+    executeScriptRemotely $INSTANCE_NAME root $DEPLOYMENT_SCRIPT
 }
 
 deadlink_check() {

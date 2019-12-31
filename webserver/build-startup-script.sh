@@ -18,8 +18,7 @@ mkdir -p /var/www
 chmod 777 /var/www
 
 apt-get update
-apt-get -y install nginx rsync
-apt-get -y install certbot python-certbot-nginx
+apt-get -y install nginx certbot python-certbot-nginx
 
 echo Stopping nginx so certbot can run, if necessary.
 systemctl stop nginx
