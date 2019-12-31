@@ -121,7 +121,7 @@ mv $NEW $TARGET
 [[ -e $OLD ]] && rm -r $OLD
 EOF
 
-    gcloud compute scp --recurse "$SCRIPTPATH/site/_site/" $INSTANCE_NAME:$NEW
+    gcloud compute scp --compress --recurse "$SCRIPTPATH/site/_site/" $INSTANCE_NAME:$NEW
     executeScriptRemotely $INSTANCE_NAME root $DEPLOYMENT_SCRIPT
 }
 
