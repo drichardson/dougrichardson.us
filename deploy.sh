@@ -90,18 +90,16 @@ executeScriptRemotely() {
     local SCRIPT=$1
     shift
 
-    REMOTE_SCRIPT=/tmp/$(basename $SCRIPT)-$(uuidgen)
+    local REMOTE_SCRIPT="/tmp/REMOTE_SCRIPT-$(uuidgen).sh"
 
     echo Copying $SCRIPT to $NAME:$REMOTE_SCRIPT
     gcloud compute scp $SCRIPT $NAME:$REMOTE_SCRIPT
 
     echo Running $REMOTE_SCRIPT on $NAME
-    gcloud compute ssh $NAME <<EOF
-set -euo pipefail
-shopt -s inherit_errexit
-sudo -u $USER bash $REMOTE_SCRIPT
-rm $REMOTE_SCRIPT
-EOF
+    gcloud compute ssh $NAME --command "sudo -u $USER /bin/bash $REMOTE_SCRIPT"
+
+    echo Removing $REMOTE_SCRIPT from $NAME
+    gcloud compute ssh $NAME --command "rm $REMOTE_SCRIPT"
 }
 
 deploy() {
@@ -116,13 +114,22 @@ deploy() {
     cat > $DEPLOYMENT_SCRIPT <<EOF
 set -euo pipefail
 shopt -s inherit_errexit
+
+umask 022
 mkdir $NEW
 cd $NEW
-tar xfz /tmp/deploy.tgz
-[[ -e $TARGET ]] && mv $TARGET $OLD
-mv $NEW $TARGET
-[[ -e $OLD ]] && rm -r $OLD
+tar xfz $TARBALL --no-same-owner --no-same-permissions
 rm $TARBALL
+
+if [[ -e $TARGET ]]; then
+    mv $TARGET $OLD
+fi
+
+mv $NEW $TARGET
+
+if [[ -e $OLD ]]; then
+    rm -r $OLD
+fi
 EOF
 
     # Put in a tarball because the scp command is much faster with a single large file than many small ones.
@@ -150,9 +157,28 @@ deadlink_check() {
 google_request_reindex() {
     echo "Telling Google to check out the sitemap again..."
     curl "https://google.com/ping?sitemap=$SITE/sitemap.xml"
+    # Make sure there's a new line after the curl.
+    echo ""
+}
+
+trapABRT() {
+    echo Trapped ABRT. SCRIPT DID NOT COMPLETE.
+}
+
+trapTERM() {
+    echo Trapped TERM. SCRIPT DID NOT COMPLETE.
+}
+
+trapEXIT() {
+    echo Trapped EXIT. SCRIPT DID NOT COMPLETE.
 }
 
 main() {
+    trap trapABRT ABRT
+    trap trapTERM TERM
+    trap trapEXIT EXIT
+
+
     assert_jekyll_not_running
     assert_muffet_installed
     build
@@ -161,7 +187,8 @@ main() {
     deadlink_check
     google_request_reindex
 
-    echo "OK"
+    trap - ABRT TERM EXIT
+    echo OK. deploy.sh script completed successfully.
 }
 
 main
