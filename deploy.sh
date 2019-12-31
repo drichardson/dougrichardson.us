@@ -1,5 +1,5 @@
 #!/bin/bash
-set -xeuo pipefail
+set -euo pipefail
 shopt -s inherit_errexit
 
 SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
@@ -110,18 +110,26 @@ deploy() {
     local ID=$(uuidgen)
     local NEW="$TARGET-$ID"
     local OLD="$TARGET-OLD-$ID"
+    local TARBALL=/tmp/deploy-$ID.tgz
+    local DEPLOYMENT_SCRIPT="/tmp/deployment-$ID"
 
-    DEPLOYMENT_SCRIPT="/tmp/deployment-$ID"
     cat > $DEPLOYMENT_SCRIPT <<EOF
-set -xeuo pipefail
+set -euo pipefail
 shopt -s inherit_errexit
-chown root:root -R $NEW
+mkdir $NEW
+cd $NEW
+tar xfz /tmp/deploy.tgz
 [[ -e $TARGET ]] && mv $TARGET $OLD
 mv $NEW $TARGET
 [[ -e $OLD ]] && rm -r $OLD
+rm $TARBALL
 EOF
 
-    gcloud compute scp --compress --recurse "$SCRIPTPATH/site/_site/" $INSTANCE_NAME:$NEW
+    # Put in a tarball because the scp command is much faster with a single large file than many small ones.
+    tar cfz $TARBALL -C "$SCRIPTPATH/site/_site/" .
+    gcloud compute scp $TARBALL $INSTANCE_NAME:$TARBALL
+    rm $TARBALL
+
     executeScriptRemotely $INSTANCE_NAME root $DEPLOYMENT_SCRIPT
 }
 
