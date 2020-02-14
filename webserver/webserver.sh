@@ -23,7 +23,7 @@ gcloud compute instances create $INSTANCE_NAME \
     --subnet $SUBNET \
     --maintenance-policy MIGRATE \
     --no-service-account --no-scopes \
-    --tags http-server,https-server,ssh-server \
+    --tags http,https,ssh,icmp \
     --image-family debian-10 --image-project debian-cloud \
     --boot-disk-size 10GB  --boot-disk-type pd-standard \
     --metadata-from-file startup-script="$STARTUP_SCRIPT" \
