@@ -1,6 +1,3 @@
-#
-# Redirect to github page to prepare for no longer owning delicioussafari.com.
-#
 server {
     listen 80;
     listen [::]:80;
