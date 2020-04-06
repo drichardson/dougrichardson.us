@@ -16,15 +16,10 @@ assert_jekyll_not_running()
     set -e
 }
 
-assert_muffet_installed() {
-    set +e
-    which muffet
-    if [[ $? != 0 ]]; then
-        echo "muffet not installed. Install with: go get github.com/raviqqe/muffet"
-        echo "muffet is used to check links"
-        exit 1
-    fi
-    set -e
+install_required() {
+	set +e
+	sudo apt-get -y install ruby-dev libxml2-utils tidy
+	set -e
 }
 
 build() {
@@ -178,9 +173,9 @@ main() {
     trap trapTERM TERM
     trap trapEXIT EXIT
 
+	install_required
 
     assert_jekyll_not_running
-    assert_muffet_installed
     build
     validate_all
     deploy
