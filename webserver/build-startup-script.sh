@@ -9,24 +9,18 @@ cat <<'EOF'
 set -xeuo pipefail
 shopt -s inherit_errexit
 
-echo Entering build-startup-script.sh
-
 # Give everyone permission to /var/www so the deploy.sh script can run
 # as any user.
 echo Setup /var/www
 mkdir -p /var/www
 chmod 777 /var/www
 
-apt-get update
+apt-get -y update
 apt-get -y install nginx certbot python-certbot-nginx
 
-echo Stopping nginx so certbot can run, if necessary.
-systemctl stop nginx
-
-if [[ -f /etc/nginx/sites-enabled/default ]]; then
-    rm /etc/nginx/sites-enabled/default
-fi
-
+echo Disable certbot default timer and service, using our own.
+systemctl stop certbot.service
+systemctl stop certbot.timer
 EOF
 
 #
@@ -38,39 +32,42 @@ cd $SCRIPTDIR
 # Add the nginx configurations
 
 addsite() {
-    local SITE=$1
-    echo
-    echo echo BEGIN: Install nginx configuration for $SITE
-    # Use quoted here document delimiters to prevent any variable expansion in
-    # nginx config files in the built script.
-    local HEREDOCDELIM=$(uuidgen)
-    echo mkdir -p /etc/nginx/sites-available /etc/nginx/sites-enabled
-    echo "cat > /etc/nginx/sites-available/$SITE <<'$HEREDOCDELIM'"
-    cat ./nginx-sites-available/$SITE
-    echo $HEREDOCDELIM
+	local SITE=$1
+	echo
+	echo echo BEGIN: Install nginx configuration for $SITE
+	# Use quoted here document delimiters to prevent any variable expansion in
+	# nginx config files in the built script.
+	local HEREDOCDELIM=$(uuidgen)
+	echo mkdir -p /etc/nginx/sites-available /etc/nginx/sites-enabled
+	echo "cat > /etc/nginx/sites-available/$SITE <<'$HEREDOCDELIM'"
+	cat ./nginx-sites-available/$SITE
+	echo $HEREDOCDELIM
 
-    cat <<EOF
+	cat <<-EOF_OUTER
+	cat > /usr/bin/renew-certificate-$SITE.sh <<EOF
+	#!/bin/bash
+	echo Renewing certificate for $SITE
+	certbot certonly -n --standalone -m doug@rekt.email --agree-tos -d $SITE
+	EOF
+	chmod 755 /usr/bin/renew-certificate-$SITE.sh
 
-ln -sf /etc/nginx/sites-available/$SITE /etc/nginx/sites-enabled/$SITE
-echo DONE: Install nginx configuration for $SITE
-
-if [[ ! -f /etc/letsencrypt/live/$SITE/fullchain.pem ]]; then
-    echo "Missing let's encrypt certificate for $SITE. Need to run certbot."
-    certbot certonly -n --standalone -m doug@rekt.email --agree-tos -d $SITE
-fi
-
-EOF
-
+	ln -sf /etc/nginx/sites-available/$SITE /etc/nginx/sites-enabled/$SITE
+	echo DONE: Install nginx configuration for $SITE
+	EOF_OUTER
 }
 
 
 for SITE in $SITES; do
-    addsite $SITE
+	addsite $SITE
 done
+
+cat <<'EOF_OUTER'
+if [[ -f /etc/nginx/sites-enabled/default ]]; then
+	rm /etc/nginx/sites-enabled/default
+fi
 
 # dhparams from https://ssl-config.mozilla.org/#server=nginx&server-version=1.17.0&config=intermediate
 # curl https://ssl-config.mozilla.org/ffdhe2048.txt > /path/to/dhparam.pem
-cat <<'EOF_OUTER'
 cat > /etc/nginx/mozilla-dhparam.pem <<'EOF'
 -----BEGIN DH PARAMETERS-----
 MIIBCAKCAQEA//////////+t+FRYortKmq/cViAnPTzx2LnFg84tNpWp4TZBFGQz
@@ -81,18 +78,51 @@ YdEIqUuyyOP7uWrat2DX9GgdT0Kj3jlN9K5W7edjcrsZCwenyO4KbXCeAvzhzffi
 ssbzSibBsu/6iGtCOGEoXJf//////////wIBAg==
 -----END DH PARAMETERS-----
 EOF
-EOF_OUTER
 
-cat <<'EOF'
+cat > /usr/bin/renew-all-certificates.sh <<'EOF'
+#!/bin/bash
 
-#
-# Remove anything unused
-#
-apt-get autoremove -y
+systemctl stop nginx
 
-echo Starting nginx up again...
+for script in /usr/bin/renew-certificate-*.sh; do
+	bash $script
+done
+
 systemctl start nginx
 
-echo website startup script completed successfully
 EOF
+chmod 755 /usr/bin/renew-all-certificates.sh
+
+cat > /etc/systemd/system/renew-all-certificates.service <<'EOF'
+[Unit]
+Description=Renew Site Certificates
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/renew-all-certificates.sh
+EOF
+
+cat > /etc/systemd/system/renew-all-certificates.timer <<'EOF'
+[Unit]
+Description=Run certbot renewal twice daily
+
+[Timer]
+OnCalendar=*-*-* 00,12:00:00
+RandomizedDelaySec=43200
+Persistent=true
+
+[Install]
+WantedBy=timers.target
+EOF
+
+echo Renewing/installing certificates...
+/usr/bin/renew-all-certificates.sh
+
+echo Starting certificate renewal timers...
+systemctl daemon-reload
+systemctl start renew-all-certificates.timer
+
+apt-get autoremove -y
+
+echo website startup script completed successfully
+EOF_OUTER
 
