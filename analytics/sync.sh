@@ -1,2 +1,2 @@
 #!/bin/bash
-rsync -av doug@dougrichardson.org:/var/log/nginx/ logs
+rsync -av doug@dougrichardson.us:/var/log/nginx/ logs

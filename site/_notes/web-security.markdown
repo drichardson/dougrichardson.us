@@ -77,11 +77,11 @@ used to inspect the TLS configuration of a server from a clients point of view.
 Connect to a server, optionally specifying the version of the TLS protocol you'd like to use:
 
 ```bash
-openssl s_client -connect dougrichardson.org:443
-openssl s_client -connect dougrichardson.org:443 -tls1
-openssl s_client -connect dougrichardson.org:443 -tls1_1
-openssl s_client -connect dougrichardson.org:443 -tls1_2
-openssl s_client -connect dougrichardson.org:443 -tls1_3
+openssl s_client -connect dougrichardson.us:443
+openssl s_client -connect dougrichardson.us:443 -tls1
+openssl s_client -connect dougrichardson.us:443 -tls1_1
+openssl s_client -connect dougrichardson.us:443 -tls1_2
+openssl s_client -connect dougrichardson.us:443 -tls1_3
 ```
 
 # References

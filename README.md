@@ -1,4 +1,4 @@
-# dougrichardson.org
+# dougrichardson.us
 
 Personal web site built using [jekyll](https://jekyllrb.com/).
 
