@@ -2,7 +2,6 @@
 layout: note
 title: Privacy
 date: 2019-10-02 20:54:18 -0700
-draft: true
 ---
 
 This is an attempt to share knowledge and tips on how to keep your personal data
