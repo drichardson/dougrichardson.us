@@ -28,23 +28,11 @@ sudo apt-get install -y libxml2-utils tidy
 go get github.com/raviqqe/muffet
 ```
 
-## To deploy
+## Deploy
 
     ./deploy.sh
 
-## Development
-
-To serve locally:
+## Run Development Server
 
     ./serve.sh
-
-or if you're running from a VM and viewing from a browser on another computer:
-
-    cd site
-    bundle exec jekyll serve -H 0.0.0.0
-
-If you're working on a draft (in the _drafts directory):
-
-    cd site
-    bundle exec jekyll serve --drafts
 
