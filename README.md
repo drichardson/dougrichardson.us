@@ -13,7 +13,6 @@ See webserver/README.md for information on instance setup.
 - [jekyll](https://jekyllrb.com/) - static site generator
 - [bundler](https://bundler.io/) - ruby application gem manager
 - [tidy](https://www.html-tidy.org/) - HTML validator
-- [xmllint](http://xmlsoft.org/xmllint.html) - XML validator
 - RSS validator? - Try the W3C's [FeedValidator](https://sourceforge.net/projects/feedvalidator/)
 - JSON-LD validator? - See [Google Structured Data Testing Tool](https://search.google.com/structured-data/testing-tool).
 - [Muffet](https://github.com/raviqqe/muffet) - dead link checker. Requires [Go](https://golang.org/doc/install).

@@ -41,11 +41,6 @@ validate_xml() {
 	xmllint --noout --schema schemas/sitemap.xsd site/_site/sitemap.xml
 }
 
-validate_rss() {
-	echo TODO Validating ATOM RSS...
-	# xmllint --noout --schema schemas/atom.xsd site/_site/feed.rss
-}
-
 validate_html() {
 	echo Validating HTML...
 
@@ -60,21 +55,9 @@ validate_html() {
 	set -e
 }
 
-validate_jsonld() {
-	echo TODO: Validating JSON-LD...
-}
-
-validate_css() {
-	echo TODO: Validating CSS...
-}
-
 validate_all() {
 	validate_xml
-	# RSS validation disabled due to error about not being deterministic.
-	validate_rss
 	validate_html
-	validate_jsonld
-	validate_css
 }
 
 executeScriptRemotely() {
