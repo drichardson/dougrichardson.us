@@ -6,9 +6,9 @@
 # 'jekyll serve'. If you change this file, please restart the server process.
 
 # Site settings
-title: "Doug Richardson: Game Development Notes"
+title: Notes
 email: doug@rekt.email
-description: Doug Richardson's notes on game development, programming, Unreal Engine, Houdini, and other sometimes related topics.
+description: Random notes.
 
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://dougrichardson.us" # the base hostname & protocol for your site

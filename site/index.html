@@ -12,9 +12,6 @@ layout: default
 
 <main>
 <section>
-<header>
-<h2>Notes</h2>
-</header>
 <ul class="list">
 {%- for note in site.notes %}
     {%- unless jekyll.environment == "production" and note.draft %}
@@ -24,15 +21,8 @@ layout: default
 </li>
     {%- endunless %}
 {%- endfor %}
-</ul>
-</section>
-
-<section>
-<header><h2>Blog</h2></header>
-<ul class="list">
 {%- for post in site.posts %}
 <li>
-<div class="meta">{{ post.date | date: "%Y-%m-%d" }}</div>
 <a href="{{ post.url }}">{{ post.title }}</a>
 <p class="description">{{ post.excerpt | strip_html }}</p>
 </li>
