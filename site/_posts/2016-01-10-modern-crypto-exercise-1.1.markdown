@@ -47,7 +47,7 @@ I have a [corrected frequency table on github](https://github.com/drichardson/cr
 
 ### The Attack
 Once I had the correct English language frequency table, I also made use of the [tools I developed](https://github.com/drichardson/crypto_exercises/tree/master/intro-modern-crypto/1.1)
-for the problem and also a list of [2 character frequencies](http://www.math.cornell.edu/~mec/2003-2004/cryptography/subs/digraphs.html) to help me
+for the problem and also a list of [2 character frequencies](http://pi.math.cornell.edu/~mec/2003-2004/cryptography/subs/digraphs.html) to help me
 narrow in on the key.
 
 **Step 1** Produce a frequency table of the ciphertext characters, sorted by count. Put this next
@@ -104,7 +104,7 @@ Where the 3 *?*s stand for the 3 characters that don't appear in the ciphertext.
 
 If you're some sort of savant, perhaps you can pattern recognize that in your head, but I got nowhere with it.
 
-**Step 4: Digraph Frequencies** According to [this digraph frequency table](http://www.math.cornell.edu/~mec/2003-2004/cryptography/subs/digraphs.html),
+**Step 4: Digraph Frequencies** According to [this digraph frequency table](http://pi.math.cornell.edu/~mec/2003-2004/cryptography/subs/digraphs.html),
 the 10 most common digraphs in English are:
 
 |--------------------
@@ -357,6 +357,6 @@ Broken up:
 Tada!
 
 ### References
-* [Digraph Frequency](http://www.math.cornell.edu/~mec/2003-2004/cryptography/subs/digraphs.html)
+* [Digraph Frequency](http://pi.math.cornell.edu/~mec/2003-2004/cryptography/subs/digraphs.html)
 * [Probablem Specific Tools](https://github.com/drichardson/crypto_exercises/tree/master/intro-modern-crypto/1.1)
 * [More Generic Tools](https://github.com/drichardson/crypto_exercises/tree/master/tools)
