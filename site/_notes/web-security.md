@@ -57,7 +57,7 @@ add_header Referrer-Policy "no-referrer";
 The
 [X-Content-Type-Options](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Content-Type-Options)
 response header can be used to tell the browser to opt out of [MIME
-sniffing](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types#MIME_sniffing),
+sniffing](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types#mime_sniffing),
 a technique that is unnecessary if content types are configured properly.
 
 nginx configuration:
