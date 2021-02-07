@@ -1,7 +1,7 @@
 ---
 layout: note
 title: Web Security
-date: 2021-02-07 11:51:55 -0800
+date: 2021-02-01 11:51:55 -0800
 ---
 
 List of HTTP client and server security tools, technologies, and techniques. 
