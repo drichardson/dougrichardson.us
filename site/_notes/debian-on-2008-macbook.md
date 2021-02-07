@@ -87,7 +87,7 @@ After doing this, I was able to purge all the *nvidia* packages.
 
     sudo apt-get purge '^nvidia-.*'
 
-You may want to autoremove after this as well:
+You may want to autoremove after this to cleanup unused packages:
 
     sudo apt-get autoremove
 
