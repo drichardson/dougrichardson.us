@@ -1,13 +1,10 @@
 ---
 layout: note
 title: Web Security
-date: 2019-10-02 20:13:01 -0700
+date: 2021-02-07 11:51:55 -0800
 ---
 
-List of browser and server security tools, technologies, and techniques. 
-
-
-# Browser Controls
+List of HTTP client and server security tools, technologies, and techniques. 
 
 # Content-Security-Policy
 
@@ -16,11 +13,21 @@ From Mozilla's [Content-Security-Policy Response Header](https://developer.mozil
 
 > The HTTP Content-Security-Policy response header allows web site administrators to control resources the user agent is allowed to load for a given page. With a few exceptions, policies mostly involve specifying server origins and script endpoints. This helps guard against cross-site scripting attacks (XSS).
 
-the following policy for this website:
-nginx configuration:
+nginx configuration I have used for this site. Note this is very site specific.
 
 ```
-add_header Content-Security-Policy "default-src 'none'; script-src 'self' 'unsafe-inline'; connect-src 'self'; img-src 'self'; style-src 'self' 'unsa    fe-inline'; font-src 'self'; form-action 'none'; frame-src https://www.youtube.com; frame-ancestors 'none'"; base-uri 'none';
+# Content Security Policy
+set $csp "default-src 'none'";
+set $csp "$csp; base-uri 'none'";
+set $csp "$csp; connect-src 'self'";
+set $csp "$csp; font-src 'self'";
+set $csp "$csp; form-action 'none'";
+set $csp "$csp; frame-ancestors 'none'";
+set $csp "$csp; frame-src https://www.youtube.com";
+set $csp "$csp; img-src 'self'";
+set $csp "$csp; script-src 'self' 'unsafe-inline'";
+set $csp "$csp; style-src 'self' 'unsafe-inline'";
+add_header Content-Security-Policy $csp;
 ```
 
 # Referrer-Policy
@@ -29,7 +36,6 @@ The [Referrer Policy](https://infosec.mozilla.org/guidelines/web_security#referr
 send the [Referer](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referer) request header to other sites. This
 tells the other site the the person visiting that site has just come from your site. You can improve privacy by telling
 the browser not to do this.
-
 
 nginx configuration:
 
