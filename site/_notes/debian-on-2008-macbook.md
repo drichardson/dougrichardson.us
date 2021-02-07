@@ -16,7 +16,7 @@ The MacBook had a HDD which is pretty slow. I swapped it out for a 25 USD SSD dr
 The SSD I got was a [Kingston 120GB A400 SATA 3 2.5" Internal SSD
 SA400S37](https://www.kingston.com/us/ssd/a400-solid-state-drive).
 
-# Note on sub-par Wireless Performance
+# Poor Wifi Throughput
 
 For some reason, even though the wireless is capable of 802.11n, I'm only
 getting around 14Mbps up and down in my iperf3 tests. Wired networking is much
