@@ -71,6 +71,12 @@ server {
 		try_files $uri $uri/ =404;
 	}
 
+	location ~ ^/(2016|2017|2018|2019|2020)/\d\d/\d\d/(.*) {
+		# Redirect old blog posts to notes. Only do old posts and not
+		# all posts, so that you can use posts in future if you want.
+		return 301 /notes/$2;
+	}
+
 	# SSL Parameters taken from
 	# https://ssl-config.mozilla.org/#server=nginx&server-version=1.17.0&config=intermediate
 
