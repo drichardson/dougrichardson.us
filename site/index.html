@@ -13,7 +13,7 @@ layout: default
 <main>
 <section>
 <ul class="list">
-{%- assign everything = site.posts | concat: site.notes | sort: "date" | reverse %}
+{%- assign everything = site.notes | sort: "date" | reverse %}
 {% for note in everything %}
     {%- unless jekyll.environment == "production" and note.draft %}
 <li>
