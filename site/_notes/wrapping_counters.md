@@ -1,6 +1,7 @@
 ---
 layout: note
 title: "Wrapping Counters"
+date: 2016-04-18
 ---
 I recently was using wrapping counters to implement a [circular buffer](https://en.wikipedia.org/wiki/Circular_buffer).
 While doing this, I found

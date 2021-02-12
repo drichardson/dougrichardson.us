@@ -2,6 +2,7 @@
 layout: note
 title: "Cryptography Engineering: Exercise 3.7"
 mathjax: true
+date: 2016-01-05
 ---
 Exercise 3.7 from [Cryptography Engineering](https://www.schneier.com/books/cryptography_engineering/):
 

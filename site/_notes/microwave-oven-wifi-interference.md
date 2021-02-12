@@ -2,6 +2,7 @@
 layout: note
 title: "Measuring Microwave Oven Wi-Fi Interference"
 mathjax: true
+date: 2016-02-03
 ---
 When my microwave oven is turned on my Wi-Fi performance sometimes suffers.
 

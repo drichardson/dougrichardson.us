@@ -2,6 +2,7 @@
 layout: note
 title: "Integer Overflows"
 mathjax: true
+date: 2016-02-03
 ---
 The behavior of integer overflow for arithmetic operations varies across languages and, in the case of C,
 between C compilers.

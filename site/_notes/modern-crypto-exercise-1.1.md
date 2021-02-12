@@ -2,6 +2,7 @@
 layout: note
 title: "Introduction to Modern Cryptography: Exercise 1.1"
 mathjax: true
+date: 2016-01-10
 ---
 Exercise 1.1 from [Introduction to Modern Cryptography, 2nd Edition](https://www.cs.umd.edu/~jkatz/imc.html):
 

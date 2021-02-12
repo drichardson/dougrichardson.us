@@ -2,6 +2,7 @@
 layout: note
 title: Custom Primitive Data in UE4 Materials
 youtubeURL: https://www.youtube.com/watch?v=z-rKLmr6WGE
+date: 2019-10-23
 ---
 
 This [video tutorial]({{page.youtubeURL}}) explains how you can use

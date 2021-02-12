@@ -2,6 +2,7 @@
 layout: note
 title: "Houdini Scattered Primitives to Unreal Engine 4 Foliage"
 youtubeURL: https://www.youtube.com/watch?v=0PjZ9awgdFY
+date: 2019-08-11
 ---
 
 I posted a [video tutorial]({{page.youtubeURL}})

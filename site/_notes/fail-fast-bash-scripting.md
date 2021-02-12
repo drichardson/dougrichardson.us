@@ -1,6 +1,7 @@
 ---
 layout: note
 title: "Fail Fast Bash Scripting"
+date: 2018-08-03
 ---
 
 [Fail-fast](https://en.wikipedia.org/wiki/Fail-fast) code makes errors apparent and therefore easier to fix.

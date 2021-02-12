@@ -2,6 +2,7 @@
 layout: note
 title: "Houdini Heightfield to Unreal Engine 4 Landscape"
 youtubeURL: https://www.youtube.com/watch?v=iUGRAbTHynE
+date: 2019-03-05
 ---
 
 I posted a [video tutorial]({{page.youtubeURL}})
