@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: note
 title: "Unreal Build Tool Notes"
 ---
 This post contains information about [Unreal Build Tool](https://docs.unrealengine.com/en-US/Programming/BuildTools/UnrealBuildTool), the Unreal Engine 4 build system. Most of the information you need to know

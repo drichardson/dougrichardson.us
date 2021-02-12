@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: note
 title: "Houdini Heightfield to Unreal Engine 4 Landscape"
 youtubeURL: https://www.youtube.com/watch?v=iUGRAbTHynE
 ---

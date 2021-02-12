@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: note
 title: "Panasonic VP-5740P 100 MHz Digital Oscilloscope Tutorial"
 youtubeURL: https://www.youtube.com/watch?v=lHFi748IhM0
 ---

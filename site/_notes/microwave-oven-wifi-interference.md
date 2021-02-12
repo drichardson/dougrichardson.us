@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: note
 title: "Measuring Microwave Oven Wi-Fi Interference"
 mathjax: true
 ---

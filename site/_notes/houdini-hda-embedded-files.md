@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: note
 title: "Houdini HDA Embedded Asset Files"
 youtubeURL: https://www.youtube.com/watch?v=DqWRxRGe5gw
 ---

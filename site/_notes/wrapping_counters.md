@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: note
 title: "Wrapping Counters"
 ---
 I recently was using wrapping counters to implement a [circular buffer](https://en.wikipedia.org/wiki/Circular_buffer).

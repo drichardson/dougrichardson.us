@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: note
 title: Custom Primitive Data in UE4 Materials
 youtubeURL: https://www.youtube.com/watch?v=z-rKLmr6WGE
 ---

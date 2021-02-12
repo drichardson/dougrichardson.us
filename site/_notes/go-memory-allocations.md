@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: note
 title: "Go Memory Management"
 ---
 All computing environments must deal with [memory management](https://en.wikipedia.org/wiki/Memory_management).

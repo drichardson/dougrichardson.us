@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: note
 title: "Introduction to Modern Cryptography: Exercise 1.1"
 mathjax: true
 ---

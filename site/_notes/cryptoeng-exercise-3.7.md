@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: note
 title: "Cryptography Engineering: Exercise 3.7"
 mathjax: true
 ---
