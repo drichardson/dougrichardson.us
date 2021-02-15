@@ -13,7 +13,7 @@ run up to date Firefox and Chrome.
 
 The MacBook had an HDD which is pretty slow. I swapped it out for a
 [Kingston 120GB A400 SATA 3 2.5" Internal SSD SA400S37](https://www.kingston.com/us/ssd/a400-solid-state-drive)
-(~25 USD) and got much better overall performance, most notibly at boot.
+(~25 USD) and got much better overall performance, most notably at boot.
 
 # Poor Wifi Throughput
 
