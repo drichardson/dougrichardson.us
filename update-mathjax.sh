@@ -9,16 +9,16 @@ set -euo pipefail
 shopt -s inherit_errexit
 
 if [[ ! -f update-mathjax.sh ]]; then
-    echo This script must be run from the top level directory that contains update-mathjax.sh
-    exit 1
+	echo This script must be run from the top level directory that contains update-mathjax.sh
+	exit 1
 fi
 
 echo "Updating MathJax repository"
 git submodule update --init --recursive
 
 if [[ -e "$MATHJAX_OUTPUT_DIR" ]]; then
-    echo Deleting $MATHJAX_OUTPUT_DIR
-    rm -r "$MATHJAX_OUTPUT_DIR"
+	echo Deleting $MATHJAX_OUTPUT_DIR
+	rm -r "$MATHJAX_OUTPUT_DIR"
 fi
 
 
