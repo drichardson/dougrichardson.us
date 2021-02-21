@@ -1,77 +1,77 @@
 
 // latin-ext
 @font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: local('Roboto'), local('Roboto-Regular'), url(/assets/fonts/RobotoRegular-latin-ext.woff2) format('woff2');
-  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+	font-family: 'Roboto';
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src: local('Roboto'), local('Roboto-Regular'), url(/assets/fonts/RobotoRegular-latin-ext.woff2) format('woff2');
+	unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 
 // latin 
 @font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: local('Roboto'), local('Roboto-Regular'), url(/assets/fonts/RobotoRegular-latin.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+	font-family: 'Roboto';
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src: local('Roboto'), local('Roboto-Regular'), url(/assets/fonts/RobotoRegular-latin.woff2) format('woff2');
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
 // latin-ext
 @font-face {
-  font-family: 'Roboto Mono';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: local('Roboto Mono'), local('RobotoMono-Regular'), url(/assets/fonts/RobotoMono-latin-ext.woff2) format('woff2');
-  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+	font-family: 'Roboto Mono';
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src: local('Roboto Mono'), local('RobotoMono-Regular'), url(/assets/fonts/RobotoMono-latin-ext.woff2) format('woff2');
+	unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 
 // latin
 @font-face {
-  font-family: 'Roboto Mono';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: local('Roboto Mono'), local('RobotoMono-Regular'), url(/assets/fonts/RobotoMono-latin.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+	font-family: 'Roboto Mono';
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src: local('Roboto Mono'), local('RobotoMono-Regular'), url(/assets/fonts/RobotoMono-latin.woff2) format('woff2');
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
 // latin-ext
 @font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: local('Roboto Bold'), local('Roboto-Bold'), url(/assets/fonts/RobotoBold-latin-ext.woff2) format('woff2');
-  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+	font-family: 'Roboto';
+	font-style: normal;
+	font-weight: 700;
+	font-display: swap;
+	src: local('Roboto Bold'), local('Roboto-Bold'), url(/assets/fonts/RobotoBold-latin-ext.woff2) format('woff2');
+	unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 
 // latin 
 @font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: local('Roboto Bold'), local('Roboto-Bold'), url(/assets/fonts/RobotoBold-latin.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+	font-family: 'Roboto';
+	font-style: normal;
+	font-weight: 700;
+	font-display: swap;
+	src: local('Roboto Bold'), local('Roboto-Bold'), url(/assets/fonts/RobotoBold-latin.woff2) format('woff2');
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
 
 
 // Use media queries like this:
 // @include media-query($on-palm) {
-//     .wrapper {
-//         padding-right: $spacing-unit / 2;
-//         padding-left: $spacing-unit / 2;
-//     }
+//		 .wrapper {
+//			 padding-right: $spacing-unit / 2;
+//			 padding-left: $spacing-unit / 2;
+//		 }
 // }
 @mixin media-query($device) {
-    @media screen and (max-width: $device) {
-        @content;
-    }
+	@media screen and (max-width: $device) {
+		@content;
+	}
 }
 
 //
@@ -81,8 +81,8 @@ body, h1, h2, h3, h4, h5, h6,
 p, blockquote, pre, hr,
 dl, dd, ol, ul, figure,
 code, pre {
-    margin: 0;
-    padding: 0;
+	margin: 0;
+	padding: 0;
 }
 
 
@@ -91,32 +91,32 @@ code, pre {
 // Basic styling
 //
 body {
-    font-weight: $base-font-weight;
-    font-family: $base-font-family;
-    font-size: $base-font-size;
-    line-height: 1.4;
-    color: $text-color;
-    background-color: $background-color;
-    font-feature-settings: "kern" 1;
-    font-kerning: normal;
+	font-weight: $base-font-weight;
+	font-family: $base-font-family;
+	font-size: $base-font-size;
+	line-height: 1.4;
+	color: $text-color;
+	background-color: $background-color;
+	font-feature-settings: "kern" 1;
+	font-kerning: normal;
 }
 
 a {
-    color: $brand-color;
-    text-decoration: none;
+	color: $brand-color;
+	text-decoration: none;
 
-    &:hover {
-        text-decoration: underline;
-    }
+	&:hover {
+		text-decoration: underline;
+	}
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-weight: $base-font-weight;
-  margin-top: $spacing-unit;
+	font-weight: $base-font-weight;
+	margin-top: $spacing-unit;
 }
 
 h1 {
-  font-weight: $thick-font-weight;
+	font-weight: $thick-font-weight;
 }
 
 h1 { font-size: 1.8em; }
@@ -126,284 +126,284 @@ h4 { font-size: 1.2em; }
 
 article {
 
-    header {
-        margin-bottom: $spacing-unit;
-    }
+	header {
+		margin-bottom: $spacing-unit;
+	}
 
-    .meta {
-        font-size: $small-font-size;
-        color: $grey-color;
-    }
+	.meta {
+		font-size: $small-font-size;
+		color: $grey-color;
+	}
 
-    .content {
+	.content {
 
-        p, ul, ol {
-            margin-top: $spacing-unit / 2;
-            margin-bottom: $spacing-unit / 2;
-        }
+		p, ul, ol {
+			margin-top: $spacing-unit / 2;
+			margin-bottom: $spacing-unit / 2;
+		}
 
-        :first-child {
-            margin-top: 0;
-        }
+		:first-child {
+			margin-top: 0;
+		}
 
-        :last-child {
-        }
-    }
+		:last-child {
+		}
+	}
 
 
-   img {
-     max-width: 100%;
-     vertical-align: middle;
-   }
-   
-   figure > img {
-     display: block;
-   }
-   
-   figcaption {
-     font-size: $small-font-size;
-   }
-   
-   
-   ul, ol {
-     margin-top: $spacing-unit / 2;
+	 img {
+	 max-width: 100%;
+	 vertical-align: middle;
+	 }
+	 
+	 figure > img {
+	 display: block;
+	 }
+	 
+	 figcaption {
+	 font-size: $small-font-size;
+	 }
+	 
+	 
+	 ul, ol {
+	 margin-top: $spacing-unit / 2;
 
-     p {
-         display: inline;
-     }
-   }
+	 p {
+		 display: inline;
+	 }
+	 }
 
-   li::marker {
-       color: $grey-color-dark;
-   }
+	 li::marker {
+		 color: $grey-color-dark;
+	 }
 
-   ul {
-     list-style: square inside;
-   }
-   
-   ol {
-     list-style: decimal inside;
+	 ul {
+	 list-style: square inside;
+	 }
+	 
+	 ol {
+	 list-style: decimal inside;
 
-     li::marker {
-         font-weight: bold;
-     }
-   }
+	 li::marker {
+		 font-weight: bold;
+	 }
+	 }
 
-   li {
-     margin-top: $spacing-unit / 4;
-   }
-   
-   li {
-     > ul,
-     > ol {
-       margin-bottom: 0;
-     }
-   }    
-  
-   blockquote {
-     font-size: 90%;
-     background-color: lighten(orange, 40%);
-     border-left: 4px solid orange;
-     padding: $spacing-unit;
+	 li {
+	 margin-top: $spacing-unit / 4;
+	 }
+	 
+	 li {
+	 > ul,
+	 > ol {
+		 margin-bottom: 0;
+	 }
+	 }	
+	
+	 blockquote {
+	 font-size: 90%;
+	 background-color: lighten(orange, 40%);
+	 border-left: 4px solid orange;
+	 padding: $spacing-unit;
 
-     :last-child {
-         margin-bottom: 0;
-     }
-   }
+	 :last-child {
+		 margin-bottom: 0;
+	 }
+	 }
 
-   // Code formatting
-   pre,
-   code {
-     font-family: $base-mono-font-family;
-   }
+	 // Code formatting
+	 pre,
+	 code {
+	 font-family: $base-mono-font-family;
+	 }
 }
 
 .wrapper {
-    max-width: -webkit-calc(#{$content-width} - (#{$spacing-unit} * 2));
-    max-width:         calc(#{$content-width} - (#{$spacing-unit} * 2));
-    margin-right: auto;
-    margin-left: auto;
-    padding-right: $spacing-unit;
-    padding-left: $spacing-unit;
-    @extend %clearfix;
+	max-width: -webkit-calc(#{$content-width} - (#{$spacing-unit} * 2));
+	max-width:			 calc(#{$content-width} - (#{$spacing-unit} * 2));
+	margin-right: auto;
+	margin-left: auto;
+	padding-right: $spacing-unit;
+	padding-left: $spacing-unit;
+	@extend %clearfix;
 
-    @include media-query($on-laptop) {
-        max-width: -webkit-calc(#{$content-width} - (#{$spacing-unit}));
-        max-width:         calc(#{$content-width} - (#{$spacing-unit}));
-        padding-right: $spacing-unit / 2;
-        padding-left: $spacing-unit / 2;
-    }
+	@include media-query($on-laptop) {
+		max-width: -webkit-calc(#{$content-width} - (#{$spacing-unit}));
+		max-width:			 calc(#{$content-width} - (#{$spacing-unit}));
+		padding-right: $spacing-unit / 2;
+		padding-left: $spacing-unit / 2;
+	}
 }
 
 
 %clearfix {
 
-    &:after {
-        content: "";
-        display: table;
-        clear: both;
-    }
+	&:after {
+		content: "";
+		display: table;
+		clear: both;
+	}
 }
 
 
 .icon {
-    > svg {
-        display: inline-block;
-        width: 40px;
-        height: 40px;
-        vertical-align: middle;
+	> svg {
+		display: inline-block;
+		width: 40px;
+		height: 40px;
+		vertical-align: middle;
 
-        path {
-            fill: $grey-color;
-        }
-    }
+		path {
+			fill: $grey-color;
+		}
+	}
 }
 
 //
 // Site header
 //
 .site-header {
-    border-bottom: 1px solid $grey-color-light;
-    width: 100%;
-    background-color: white;
-    padding: .4em 0;
+	border-bottom: 1px solid $grey-color-light;
+	width: 100%;
+	background-color: white;
+	padding: .4em 0;
 }
 
 //
 // Site footer
 //
 footer {
-    border-top: 1px solid $grey-color-light;
-    padding: $spacing-unit 0;
+	border-top: 1px solid $grey-color-light;
+	padding: $spacing-unit 0;
 
-    .headshot {
-        width: 6em;
-    }
+	.headshot {
+		width: 6em;
+	}
 }
 
 .rss-icon {
-  height: 2em;
+	height: 2em;
 }
 .rss-icon {
-  max-width: 100%;
-  vertical-align: middle;
+	max-width: 100%;
+	vertical-align: middle;
 }
 
 .contact-list {
-    list-style: none;
-    margin-left: 0;
+	list-style: none;
+	margin-left: 0;
 
-    .col-2 {
-        background-color: red;
-    }
+	.col-2 {
+		background-color: red;
+	}
 }
 
 .text-contact-list {
-    ul {
-        list-style: none;
-        margin-left: 0;
-    }
+	ul {
+		list-style: none;
+		margin-left: 0;
+	}
 
-    li {
-        display: inline;
-    }
+	li {
+		display: inline;
+	}
 
-    li + li::before {
-	    content: " | ";
-    }
+	li + li::before {
+		content: " | ";
+	}
 }
 
 
 .header-col-wrapper {
-    display: flex;
-    white-space: nowrap;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    color: $grey-color;
-    margin-left: -$spacing-unit / 2;
+	display: flex;
+	white-space: nowrap;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: center;
+	color: $grey-color;
+	margin-left: -$spacing-unit / 2;
 
-    .col {
-        flex: 0 1 auto;
-        padding-left: $spacing-unit / 2;
-    }
+	.col {
+		flex: 0 1 auto;
+		padding-left: $spacing-unit / 2;
+	}
 
-    .col-1 {
-    }
+	.col-1 {
+	}
 
-    .col-2 {
-    }
+	.col-2 {
+	}
 }
 
 
 .footer-col-wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    color: $grey-color-dark;
-    margin-left: -$spacing-unit / 2;
-    font-size: 0.8em;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	color: $grey-color-dark;
+	margin-left: -$spacing-unit / 2;
+	font-size: 0.8em;
 
-    .col {
-        flex: 0 1 auto;
-        margin-bottom: $spacing-unit / 2;
-        padding-left: $spacing-unit / 2;
-    }
+	.col {
+		flex: 0 1 auto;
+		margin-bottom: $spacing-unit / 2;
+		padding-left: $spacing-unit / 2;
+	}
 
-    .col-1 {
-    }
+	.col-1 {
+	}
 
-    .col-2 {
-    }
+	.col-2 {
+	}
 
-    .col-3 {
-    }
+	.col-3 {
+	}
 }
 
 //
 // Page content
 //
 main {
-    .heading {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        margin-bottom: $spacing-unit;
-    }
+	.heading {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		margin-bottom: $spacing-unit;
+	}
 }
 
 .list {
-    margin-left: 0;
-    list-style: none;
+	margin-left: 0;
+	list-style: none;
 
-    > li {
-        margin-bottom: $spacing-unit;
-    }
+	> li {
+		margin-bottom: $spacing-unit;
+	}
 
-    .meta {
-        font-size: $small-font-size;
-        color: $grey-color;
-    }
+	.meta {
+		font-size: $small-font-size;
+		color: $grey-color;
+	}
 
-    .description {
-    }
+	.description {
+	}
 
-    a {
-        font-weight: $thick-font-weight;
-    }
+	a {
+		font-weight: $thick-font-weight;
+	}
 }
 
 .title {
-    font-size: 1.2em;
-    background-color: $grey-color-light;
-    font-weight: $thick-font-weight;
+	font-size: 1.2em;
+	background-color: $grey-color-light;
+	font-weight: $thick-font-weight;
 
-    @include media-query($on-laptop) {
-    }
+	@include media-query($on-laptop) {
+	}
 
-    h1 {
-        margin: 0;
-    }
+	h1 {
+		margin: 0;
+	}
 }
 
 .youtube-container {
@@ -413,23 +413,23 @@ main {
 	overflow: hidden;
 	max-width: 100%;
 
-    iframe, object, embed {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-    }
+	iframe, object, embed {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
 }
 
 nav {
-   ol {
-     li {
-         display: inline;
-     }
-     li + li::before {
-         content: "/";
-     }
-   }
+	ol {
+		li {
+			display: inline;
+		}
+		li + li::before {
+			content: "/";
+		}
+	}
 }
 
