@@ -298,7 +298,7 @@ footer {
     }
 }
 
-.icon-contact-list {
+.text-contact-list {
     ul {
         list-style: none;
         margin-left: 0;
@@ -308,10 +308,11 @@ footer {
         display: inline;
     }
 
-    img {
-        width: 2em;
+    li + li::before {
+	    content: " | ";
     }
 }
+
 
 .header-col-wrapper {
     display: flex;
@@ -339,8 +340,9 @@ footer {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    color: $grey-color;
+    color: $grey-color-dark;
     margin-left: -$spacing-unit / 2;
+    font-size: 0.8em;
 
     .col {
         flex: 0 1 auto;
@@ -384,8 +386,6 @@ main {
     }
 
     .description {
-        font-style: italic;
-        color: $grey-color;
     }
 
     a {
