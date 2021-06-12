@@ -1,0 +1,37 @@
+- github_repos:
+  - BenPyton/ProceduralDungeon
+  - BraceYourselfGames/UE4-BYGLocalization
+  - BraceYourselfGames/UE4-BYGRichText
+  - CesiumGS/cesium-unreal
+  - Deema35/Climbing-Movement-Component
+  - HiIAmMoot/RuntimeBPs
+  - NotYetGames/DlgSystem
+  - ProjectBorealis/PBCharacterMovement
+  - PushkinStudio/PsIronSource
+  - PushkinStudio/PsRealVehicle
+  - TriAxis-Games/RuntimeMeshComponent
+  - alexhajdu/FixThis_Project-management-plugin-for-UE4
+  - andyrst/ue4_metaballs
+  - benui-dev/UE4-BUIValidator
+  - darbycostello/Nav3D
+  - dyanikoglu/ALS-Community
+  - eyupalemdar/InteractionSystem
+  - iwer/GeoReference
+  - iwer/GeotiffLandscape
+  - keru1264/StreetMap
+  - modio/modio-ue4-legacy
+  - mrbandler/TwitchAuth
+  - mrkriv/QaDS
+  - sideeffects/HoudiniEngineForUnreal
+  - sideeffects/HoudiniEngineForUnreal-v2
+  - trdwll/SteamBridge
+  - truong-bui/AsyncLoadingScreen
+  - ue4plugins/LoadingScreen
+  - ufna/VaFogOfWar
+  - ufna/VaOcean
+  - ufna/VaRest
+  - ufna/VaTexAtlas
+  - xsolla/login-ue4-sdk
+
+- gitlab_repos:
+  - NotYetGames/DlgSystem
