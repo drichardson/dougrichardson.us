@@ -1,3 +1,19 @@
+:root {
+	/*
+	--color-text: #0D0D0D;
+	--color-background: #F2F2F2;
+	--color-accent1: #AF9379;
+	--color-accent2: #3E9379;
+	--color-accent3: #5CB095;
+	*/
+
+	--color-background: #F2F2F2;
+	--color-accent1: #69513B;
+	--color-accent2: #0E543B;
+	--color-accent3: #404040;
+	--color-text: #0D0D0D;
+}
+
 @font-face {
 	font-family: 'PatuaOne-Regular';
 	font-style: normal;
@@ -101,14 +117,14 @@ body {
 	font-family: $base-font-family;
 	font-size: $base-font-size;
 	line-height: 1.4;
-	color: $color-text;
-	background-color: $color-background;
+	color: var(--color-text);
+	background-color: var(--color-background);
 	font-feature-settings: "kern" 1;
 	font-kerning: normal;
 }
 
 a {
-	color: $color-accent1;
+	color: var(--color-accent2);
 	text-decoration: none;
 
 	&:hover {
@@ -138,7 +154,7 @@ article {
 
 	.meta {
 		font-size: $small-font-size;
-		color: $color-accent1;
+		color: var(--color-accent1);
 	}
 
 	.content {
@@ -180,7 +196,7 @@ article {
 	 }
 
 	 li::marker {
-		 color: $color-accent2;
+		 color: var(--color-accent1);
 	 }
 
 	 ul {
@@ -208,9 +224,9 @@ article {
 	
 	 blockquote {
 	 font-size: 80%;
-	 background-color: $color-text;
-	 color: $color-background;
-	 border-left: 4px solid $color-accent1;
+	 background-color: var(--color-accent3);
+	 color: var(--color-background);
+	 border-left: 0.4em solid var(--color-accent2);
 	 padding: $spacing-unit;
 
 	 :last-child {
@@ -222,8 +238,8 @@ article {
 	 pre,
 	 code {
 	 font-family: $base-mono-font-family;
-	 color: $color-text;
-	 background-color: $color-background;
+	 color: var(--color-text);
+	 background-color: var(--color-background);
 	 }
 }
 
@@ -263,7 +279,7 @@ article {
 		vertical-align: middle;
 
 		path {
-			fill: $color-accent2;
+			fill: var(--color-accent2);
 		}
 	}
 }
@@ -272,7 +288,7 @@ article {
 // Site header
 //
 .site-header {
-	border-bottom: 1px solid $color-accent3;
+	border-bottom: 1px solid var(--color-accent3);
 	width: 100%;
 	background-color: white;
 	padding: .4em 0;
@@ -282,7 +298,7 @@ article {
 // Site footer
 //
 footer {
-	border-top: 1px solid $color-accent1;
+	border-top: 1px solid var(--color-accent3);
 	padding: $spacing-unit 0;
 
 	.headshot {
@@ -329,7 +345,7 @@ footer {
 	flex-wrap: wrap;
 	justify-content: space-between;
 	align-items: center;
-	color: $color-accent2;
+	color: var(--color-accent2);
 	margin-left: -$spacing-unit / 2;
 
 	.col {
@@ -349,7 +365,7 @@ footer {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
-	color: $color-text;
+	color: var(--color-text);
 	margin-left: -$spacing-unit / 2;
 	font-size: 0.8em;
 
@@ -391,7 +407,7 @@ main {
 
 	.meta {
 		font-size: $small-font-size;
-		color: $color-accent2;
+		color: var(--color-accent2);
 	}
 
 	.description {
@@ -405,8 +421,8 @@ main {
 .title {
 	font-family: $display-font-family;
 	font-size: 1.2em;
-	color: $color-background;
-	background-color: $color-text;
+	color: var(--color-background);
+	background-color: var(--color-accent3);
 	font-weight: $thick-font-weight;
 
 	@include media-query($on-laptop) {
@@ -447,12 +463,13 @@ nav {
 table {
 	th {
 		font-family: $display-font-family;
-		background-color: $color-accent3;
+		background-color: var(--color-accent3);
+		color: var(--color-background);
 		padding: 0.2em;
 	}
 
 	td {
-		background-color: $color-background;
+		background-color: var(--color-background);
 		padding: 0.5em;
 	}
 }

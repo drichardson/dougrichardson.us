@@ -19,14 +19,43 @@ $spacing-unit:     18px;
 //
 $syntax-highlight-background: #f5f5f5;
 
+/*
 $color-text:				#101E26;
 $color-background:	#E9ECF2;
 $color-accent1:			#A6583C;
 $color-accent2:			#A66151;
 $color-accent3:			#BF8C80;
+*/
+
+// black and white scheme
+$color-text: #0D0D0D;
+$color-background: #F2F2F2;
+//$color-accent1: #BFBFBF;
+//$color-accent2: #8C8C8C;
+//$color-accent3: #404040;
+$color-accent1: #404040;
+$color-accent2: #404040;
+$color-accent3: #404040;
+
+/*
+$color-accent2: #F20530;
+$color-accent3: #401201;
+$color-accent1: #730202;
+$color-background: #D9D9D9;
+$color-text: #0D0D0D;
+*/
+
+/*
+// $color-accent2: #F20530;
+$color-accent3: #401201;
+$color-accent1: #730202;
+$color-accent2: lighten($color-accent1, 10%);
+$color-background: #D9D9D9;
+$color-text: #0D0D0D;
+*/
 
 // Width of the content area
-$content-width:    1200px;
+$content-width:    900px;
 
 $on-palm:          600px;
 $on-laptop:        800px;
