@@ -85,7 +85,7 @@ automatically renewed. One of the methods for automating this is via
   and get a security rating with feedback on what you can do to improve.
 - [Mozilla SSL Configuration Generator](https://ssl-config.mozilla.org)
 
-## `openssl s_client`
+## openssl s_client
 
 [OpenSSL's s_client](https://www.openssl.org/docs/manmaster/man1/openssl-s_client.html)
 command can be used to inspect the TLS configuration of a server from a clients
