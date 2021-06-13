@@ -4,6 +4,7 @@
 @charset "utf-8";
 
 // Our variables
+$display-font-family: PatuaOne-Regular, serif;
 $base-font-family: Roboto, sans-serif;
 $base-mono-font-family: 'Roboto Mono', monospace;
 $base-font-size:   20px;
@@ -13,14 +14,16 @@ $small-font-size:  0.875em;
 
 $spacing-unit:     18px;
 
-$text-color:       #111;
-$background-color: #fdfdfd;
-$brand-color:      #2a7ae2;
-
-$grey-color:       #828282;
-$grey-color-light: lighten($grey-color, 40%);
-$grey-color-dark:  darken($grey-color, 25%);
+//
+// Color
+//
 $syntax-highlight-background: #f5f5f5;
+
+$color-text:				#101E26;
+$color-background:	#E9ECF2;
+$color-accent1:			#A6583C;
+$color-accent2:			#A66151;
+$color-accent3:			#BF8C80;
 
 // Width of the content area
 $content-width:    1200px;

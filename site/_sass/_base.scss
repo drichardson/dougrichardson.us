@@ -1,3 +1,9 @@
+@font-face {
+	font-family: 'PatuaOne-Regular';
+	font-style: normal;
+	src: url(/assets/fonts/PatuaOne-Regular.woff2) format('woff2');
+	font-display: swap;
+}
 
 // latin-ext
 @font-face {
@@ -95,14 +101,14 @@ body {
 	font-family: $base-font-family;
 	font-size: $base-font-size;
 	line-height: 1.4;
-	color: $text-color;
-	background-color: $background-color;
+	color: $color-text;
+	background-color: $color-background;
 	font-feature-settings: "kern" 1;
 	font-kerning: normal;
 }
 
 a {
-	color: $brand-color;
+	color: $color-accent1;
 	text-decoration: none;
 
 	&:hover {
@@ -115,8 +121,8 @@ h1, h2, h3, h4, h5, h6 {
 	margin-top: $spacing-unit;
 }
 
-h1 {
-	font-weight: $thick-font-weight;
+h1, h2 {
+	font-family: $display-font-family;
 }
 
 h1 { font-size: 1.8em; }
@@ -132,7 +138,7 @@ article {
 
 	.meta {
 		font-size: $small-font-size;
-		color: $grey-color;
+		color: $color-accent1;
 	}
 
 	.content {
@@ -174,7 +180,7 @@ article {
 	 }
 
 	 li::marker {
-		 color: $grey-color-dark;
+		 color: $color-accent2;
 	 }
 
 	 ul {
@@ -201,9 +207,10 @@ article {
 	 }	
 	
 	 blockquote {
-	 font-size: 90%;
-	 background-color: lighten(orange, 40%);
-	 border-left: 4px solid orange;
+	 font-size: 80%;
+	 background-color: $color-text;
+	 color: $color-background;
+	 border-left: 4px solid $color-accent1;
 	 padding: $spacing-unit;
 
 	 :last-child {
@@ -215,6 +222,8 @@ article {
 	 pre,
 	 code {
 	 font-family: $base-mono-font-family;
+	 color: $color-text;
+	 background-color: $color-background;
 	 }
 }
 
@@ -254,7 +263,7 @@ article {
 		vertical-align: middle;
 
 		path {
-			fill: $grey-color;
+			fill: $color-accent2;
 		}
 	}
 }
@@ -263,7 +272,7 @@ article {
 // Site header
 //
 .site-header {
-	border-bottom: 1px solid $grey-color-light;
+	border-bottom: 1px solid $color-accent3;
 	width: 100%;
 	background-color: white;
 	padding: .4em 0;
@@ -273,7 +282,7 @@ article {
 // Site footer
 //
 footer {
-	border-top: 1px solid $grey-color-light;
+	border-top: 1px solid $color-accent1;
 	padding: $spacing-unit 0;
 
 	.headshot {
@@ -320,7 +329,7 @@ footer {
 	flex-wrap: wrap;
 	justify-content: space-between;
 	align-items: center;
-	color: $grey-color;
+	color: $color-accent2;
 	margin-left: -$spacing-unit / 2;
 
 	.col {
@@ -340,7 +349,7 @@ footer {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
-	color: $grey-color-dark;
+	color: $color-text;
 	margin-left: -$spacing-unit / 2;
 	font-size: 0.8em;
 
@@ -382,7 +391,7 @@ main {
 
 	.meta {
 		font-size: $small-font-size;
-		color: $grey-color;
+		color: $color-accent2;
 	}
 
 	.description {
@@ -394,8 +403,10 @@ main {
 }
 
 .title {
+	font-family: $display-font-family;
 	font-size: 1.2em;
-	background-color: $grey-color-light;
+	color: $color-background;
+	background-color: $color-text;
 	font-weight: $thick-font-weight;
 
 	@include media-query($on-laptop) {
@@ -434,8 +445,14 @@ nav {
 }
 
 table {
+	th {
+		font-family: $display-font-family;
+		background-color: $color-accent3;
+		padding: 0.2em;
+	}
+
 	td {
-		background-color: $grey-color-light;
-		padding: 1em;
+		background-color: $color-background;
+		padding: 0.5em;
 	}
 }
