@@ -36,4 +36,4 @@ ueplugins:
     - ufna/VaTexAtlas
     - xsolla/login-ue4-sdk
   gitlab:
-    - NotYetGames/DlgSystem
+    - 5168163 # NotYetGames/DlgSystem

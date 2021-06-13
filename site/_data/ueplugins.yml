@@ -106,3 +106,7 @@
 - name: login-ue4-sdk
   description: Xsolla Login plugin for Unreal Engine 4
   url: https://github.com/xsolla/login-ue4-sdk
+- name: DialoguePluginSystem
+  description: "Dialogue Plugin System for Unreal Engine - https://bit.ly/DlgMarketplace\
+    \ |\r\n\U0001FA9E Github Mirror - https://bit.ly/NYDlgSystemSource"
+  url: https://gitlab.com/NotYetGames/DlgSystem

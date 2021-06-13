@@ -1,9 +1,10 @@
-#!/usr/bin/python3
+#!/usr/bin/env python
 
-import yaml
-import time
+import github
+import gitlab
 import os
-from github import Github
+import time
+import yaml
 
 
 def make_ueplugin_entry(name, description, url):
@@ -13,32 +14,37 @@ def make_ueplugin_entry(name, description, url):
             'url' : url
             }
 
+def required_env(name):
+    val = os.environ[name]
+    if val is None:
+        raise Exception(f'Environment variable {name} is not set')
+    return val
+
 def update_ueplugins():
     UEPLUGINS_INPUT = 'data.yml'
     UEPLUGINS_OUTPUT = 'site/_data/ueplugins.yml'
 
-    print(f"Loading {UEPLUGINS_INPUT}")
-    data = yaml.load(open(UEPLUGINS_INPUT, 'r'))
+    GITHUB_TOKEN = required_env('GITHUB_TOKEN')
+    GITLAB_TOKEN = required_env('GITLAB_TOKEN')
+
+    print(f'Loading {UEPLUGINS_INPUT}')
+    data = yaml.load(open(UEPLUGINS_INPUT, 'r'), Loader=yaml.FullLoader)
     ueplugins = []
 
-    github_username = os.environ['GITHUB_USERNAME']
-    github_token = os.environ['GITHUB_TOKEN']
-
-    if github_username is None:
-        raise Exception("GITHUB_USERNAME environment variable unset.")
-
-    if github_token is None:
-        raise Exception("GITHUB_TOKEN environment variable unset")
-
-    gh = Github(github_token)
-
-    print("Processing github repos")
+    print('Processing github repos')
+    gh = github.Github(GITHUB_TOKEN)
     for repo_name in data['ueplugins']['github']:
-        print(f"Fetching github repo {repo_name}")
+        print(f'Fetching github repo {repo_name}')
         repo = gh.get_repo(repo_name)
-        print(f"repo is {repo}")
-        print(f"Repo is {repo_name}, url={repo.html_url}")
         entry = make_ueplugin_entry(repo.name, repo.description, repo.html_url)
+        ueplugins.append(entry)
+
+    print('Processing gitlab repos')
+    gl = gitlab.Gitlab('https://gitlab.com', private_token=GITLAB_TOKEN)
+    for repo_id in data['ueplugins']['gitlab']:
+        print(f'Fetching gitlab repo {repo_id}')
+        p = gl.projects.get(repo_id)
+        entry = make_ueplugin_entry(p.name, p.description, p.web_url)
         ueplugins.append(entry)
 
     print(f'Writing to {UEPLUGINS_OUTPUT}')
