@@ -9,8 +9,9 @@ A list of open source Unreal Engine Plugins.
 
 | Name | Description | 
 |------|-------------|
-{% for plugin in site.data.ueplugins-%}
-| [{{ plugin.name }}]({{ plugin.url }}) | {{ plugin.description | replace: "\r\n", " " | replace: "\n", " " | replace: "|", "H" }} |
+{% assign plugins = site.data.ueplugins | sort_natural: "name" -%}
+{% for plugin in plugins -%}
+| [{{ plugin.name }}]({{ plugin.url }}) | {{ plugin.description | replace: "\r\n", " " | replace: "\n", " " | strip_newlines | replace: "|", " " }} |
 {% endfor -%}
 
 
