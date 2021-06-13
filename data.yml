@@ -9,7 +9,6 @@ ueplugins:
     - CesiumGS/cesium-unreal
     - Deema35/Climbing-Movement-Component
     - HiIAmMoot/RuntimeBPs
-    - NotYetGames/DlgSystem
     - ProjectBorealis/PBCharacterMovement
     - PushkinStudio/PsIronSource
     - PushkinStudio/PsRealVehicle

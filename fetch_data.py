@@ -1,82 +1,51 @@
 #!/usr/bin/python3
 
-import json
-import urllib.request
 import yaml
 import time
+import os
+from github import Github
 
-data = yaml.load(open('data.yml', 'r'))
-ueplugins = []
-github_user = 'drichardson'
-github_access_token = None
 
-def github_authenticate():
-    print("Authenticating with github")
-    # https://docs.github.com/en/developers/apps/building-oauth-apps/authorizing-oauth-apps#device-flow
-    post_data = json.dumps({
-        'client_id': github_user,
-        # https://docs.github.com/en/developers/apps/building-oauth-apps/scopes-for-oauth-apps
-        'scope': 'public_repo'
-        }).encode('utf-8')
-    print('posting: ' + str(post_data))
-    r = urllib.request.Request('https://github.com/login/device/code', data=post_data)
-    with urllib.request.urlopen(r) as f:
-        res=json.load(f.read().decode('utf-8'))
-        print('Goto URL and enter verification code')
-        print('    URL: ' + res['verification_uri'])
-        print('   code: ' + res['verification_code'])
-        interval=res['interval']
+def make_ueplugin_entry(name, description, url):
+    return {
+            'name': name,
+            'description' : description,
+            'url' : url
+            }
 
-        # Poll for result
-        access_token = None
-        while access_token is None:
-            print('sleeping for {} seconds before checking...'.format(interval))
-            time.sleep(interval)
-            poll_data = json.dump({
-                'client_id': github_user,
-                'device_code': res['verification_code'],
-                'grant_type': 'urn:ietf:params:oauth:grant-type:device_code'
-                }).encode('utf-8')
-            r = urllib.request.Request('https://github.com/login/oauth/access_token', data=poll_data)
-            print('checking for token')
-            with urllib.request.urlopen(r) as f:
-                token=json.load(f.read().decode('utf-8'))
-                access_token=token['access_token']
+def update_ueplugins():
+    UEPLUGINS_INPUT = 'data.yml'
+    UEPLUGINS_OUTPUT = 'site/_data/ueplugins.yml'
 
-        print('Got access token {}'.format(access_token))
-        return access_token
+    print(f"Loading {UEPLUGINS_INPUT}")
+    data = yaml.load(open(UEPLUGINS_INPUT, 'r'))
+    ueplugins = []
 
-def add_ueplugin(name, description, url):
-    entry = {
-        'name': name,
-        'description' : description,
-        'url' : url }
-    print('Adding plugin ' + name)
-    ueplugins.append(entry)
+    github_username = os.environ['GITHUB_USERNAME']
+    github_token = os.environ['GITHUB_TOKEN']
 
-def fetch_github_repos():
+    if github_username is None:
+        raise Exception("GITHUB_USERNAME environment variable unset.")
+
+    if github_token is None:
+        raise Exception("GITHUB_TOKEN environment variable unset")
+
+    gh = Github(github_token)
+
+    print("Processing github repos")
     for repo_name in data['ueplugins']['github']:
-        url = 'https://api.github.com/repos/' + repo_name
-        print("Repo is {}, url={}".format(repo_name, url))
-        req = urllib.request.Request(url)
-        req.add_header('Accept', 'application/vnd.github.v3+json')
-        req.add_header('Authorization', github_access_token)
-        with urllib.request.urlopen(req) as f:
-            body = f.read()
-            repo = json.loads(body.decode('utf-8'))
-            if repo['fork']:
-                raise Exception('Repository is a fork. Only use sources. ' + repo_name)
-            add_ueplugin(repo['name'], repo['description'], repo['html_url'])
+        print(f"Fetching github repo {repo_name}")
+        repo = gh.get_repo(repo_name)
+        print(f"repo is {repo}")
+        print(f"Repo is {repo_name}, url={repo.html_url}")
+        entry = make_ueplugin_entry(repo.name, repo.description, repo.html_url)
+        ueplugins.append(entry)
 
-def fetch_gitlab_repos():
-    print('gitlab not implemented')
+    print(f'Writing to {UEPLUGINS_OUTPUT}')
+    with open(UEPLUGINS_OUTPUT, 'w') as f:
+        f.write(yaml.dump(data=ueplugins, default_flow_style=False, sort_keys=False))
 
-def update_ueplugin_data_file():
-    with open('site/_data/ueplugins.yml', 'w') as f:
-        f.write(yaml.dump(ueplugins))
+    print('Finished')
 
 
-github_access_token = github_authenticate()
-fetch_github_repos()
-fetch_gitlab_repos()
-update_ueplugin_data_file()
+update_ueplugins()
