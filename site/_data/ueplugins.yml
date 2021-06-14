@@ -1,33 +1,60 @@
 - name: ProceduralDungeon
   description: This is an Unreal Engine 4 plugin to generate procedural dungeon.
   url: https://github.com/BenPyton/ProceduralDungeon
+  license:
+    name: MIT
+    url: http://choosealicense.com/licenses/mit/
 - name: UE4-BYGLocalization
   description: Simple CSV localization system for Unreal Engine 4
   url: https://github.com/BraceYourselfGames/UE4-BYGLocalization
+  license:
+    name: BSD-3-Clause
+    url: http://choosealicense.com/licenses/bsd-3-clause/
 - name: UE4-BYGRichText
   description: Rich text library supporting customizable Markdown formatting
   url: https://github.com/BraceYourselfGames/UE4-BYGRichText
+  license:
+    name: BSD-3-Clause
+    url: http://choosealicense.com/licenses/bsd-3-clause/
 - name: cesium-unreal
   description: Bringing the 3D geospatial ecosystem to Unreal Engine
   url: https://github.com/CesiumGS/cesium-unreal
+  license:
+    name: Apache-2.0
+    url: http://choosealicense.com/licenses/apache-2.0/
 - name: Climbing-Movement-Component
   description: Climbing Movement Component  for Unreal Engine.
   url: https://github.com/Deema35/Climbing-Movement-Component
+  license:
+    name: MIT
+    url: http://choosealicense.com/licenses/mit/
 - name: RuntimeBPs
   description: This project allows for visual scripting in UE4 similar to Blueprints,
     but at runtime. The way this is set up does not make use of any UE4 boilerplate
     and could with a few adjustments be used in another engine.
   url: https://github.com/HiIAmMoot/RuntimeBPs
+  license:
+    name: MIT
+    url: http://choosealicense.com/licenses/mit/
 - name: PBCharacterMovement
   description: HL2-style, classic FPS movement for Unreal Engine 4 implemented in
     C++
   url: https://github.com/ProjectBorealis/PBCharacterMovement
+  license:
+    name: MIT
+    url: http://choosealicense.com/licenses/mit/
 - name: PsIronSource
   description: ironSource SDK Unreal Engine plugin
   url: https://github.com/PushkinStudio/PsIronSource
+  license:
+    name: MIT
+    url: http://choosealicense.com/licenses/mit/
 - name: PsRealVehicle
   description: Plugin for Unreal Engine 4 with simple force-driven vehicle simulation
   url: https://github.com/PushkinStudio/PsRealVehicle
+  license:
+    name: MIT
+    url: http://choosealicense.com/licenses/mit/
 - name: RuntimeMeshComponent
   description: Unreal Engine 4 plugin component for rendering runtime generated content.
   url: https://github.com/TriAxis-Games/RuntimeMeshComponent
@@ -51,23 +78,41 @@
 - name: InteractionSystem
   description: Fully network replicated Interaction System component for Unreal Engine
   url: https://github.com/eyupalemdar/InteractionSystem
+  license:
+    name: MIT
+    url: http://choosealicense.com/licenses/mit/
 - name: GeoReference
   description: UE4 Plugin to provide a spatial reference between geo-coordinates and
     game-coordinates
   url: https://github.com/iwer/GeoReference
+  license:
+    name: MIT
+    url: http://choosealicense.com/licenses/mit/
 - name: GeotiffLandscape
   description: UE4 Plugin to support geotiff as landscape file format
   url: https://github.com/iwer/GeotiffLandscape
+  license:
+    name: MIT
+    url: http://choosealicense.com/licenses/mit/
 - name: modio-ue4-legacy
   description: Unreal Engine 4 Plugin for integrating mod.io - a modding API for game
     developers
   url: https://github.com/modio/modio-ue4-legacy
+  license:
+    name: MIT
+    url: http://choosealicense.com/licenses/mit/
 - name: TwitchAuth
   description: Unreal Engine 4 Plugin for In-Game Twitch Authentication.
   url: https://github.com/mrbandler/TwitchAuth
+  license:
+    name: MIT
+    url: http://choosealicense.com/licenses/mit/
 - name: QaDS
   description: Dialog and quest system plugin for Unreal Engine 4
   url: https://github.com/mrkriv/QaDS
+  license:
+    name: Apache-2.0
+    url: http://choosealicense.com/licenses/apache-2.0/
 - name: HoudiniEngineForUnreal
   description: Houdini Engine Plugin for Unreal Engine 4
   url: https://github.com/sideeffects/HoudiniEngineForUnreal
@@ -77,36 +122,66 @@
 - name: SteamBridge
   description: 'A UE4 implementation of the Steamworks API. '
   url: https://github.com/trdwll/SteamBridge
+  license:
+    name: MIT
+    url: http://choosealicense.com/licenses/mit/
 - name: AsyncLoadingScreen
   description: Async Loading Screen is a free and open-source plugin for Unreal Engine.
     Async Loading Screen allows you to easily configure a Loading Screen System in
     the project settings, and automatically add a Loading Screen whenever you open
     a new level, without Level Streaming.
   url: https://github.com/truong-bui/AsyncLoadingScreen
+  license:
+    name: MIT
+    url: http://choosealicense.com/licenses/mit/
 - name: LoadingScreen
   description: A plugin for Unreal Engine 4 to expose simple controls for managing
     load screens.
   url: https://github.com/ue4plugins/LoadingScreen
+  license:
+    name: MIT
+    url: http://choosealicense.com/licenses/mit/
 - name: StreetMap
   description: Import OpenStreetMap data into Unreal Engine 4
   url: https://github.com/ue4plugins/StreetMap
+  license:
+    name: MIT
+    url: http://choosealicense.com/licenses/mit/
 - name: VaFogOfWar
   description: A clear and simple solution of Fog of War for Unreal Engine 4
   url: https://github.com/ufna/VaFogOfWar
+  license:
+    name: MIT
+    url: http://choosealicense.com/licenses/mit/
 - name: VaOcean
   description: '[DEPRECATED] Ocean Surface Simulation Plugin for Unreal Engine 4'
   url: https://github.com/ufna/VaOcean
+  license:
+    name: MIT
+    url: http://choosealicense.com/licenses/mit/
 - name: VaRest
   description: REST API plugin for Unreal Engine 4 - we love restfull backend and
     JSON communications!
   url: https://github.com/ufna/VaRest
+  license:
+    name: MIT
+    url: http://choosealicense.com/licenses/mit/
 - name: VaTexAtlas
   description: Simple way to use texture atlases for Unreal Engine 4 UMG
   url: https://github.com/ufna/VaTexAtlas
+  license:
+    name: MIT
+    url: http://choosealicense.com/licenses/mit/
 - name: login-ue4-sdk
   description: Xsolla Login plugin for Unreal Engine 4
   url: https://github.com/xsolla/login-ue4-sdk
+  license:
+    name: Apache-2.0
+    url: http://choosealicense.com/licenses/apache-2.0/
 - name: DialoguePluginSystem
   description: "Dialogue Plugin System for Unreal Engine - https://bit.ly/DlgMarketplace\
     \ |\r\n\U0001FA9E Github Mirror - https://bit.ly/NYDlgSystemSource"
   url: https://gitlab.com/NotYetGames/DlgSystem
+  license:
+    name: mit
+    url: http://choosealicense.com/licenses/mit/
