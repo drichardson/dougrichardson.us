@@ -101,7 +101,7 @@
 //
 body, h1, h2, h3, h4, h5, h6,
 p, blockquote, pre, hr,
-dl, dd, ol, ul, figure,
+dl, dd, ul, ol, figure,
 code, pre {
 	margin: 0;
 	padding: 0;
@@ -189,6 +189,7 @@ article {
 
 	ul, ol {
 		margin-top: $spacing-unit / 2;
+		xpadding-left: 0;
 
 		p {
 			display: inline;
@@ -199,12 +200,18 @@ article {
 		color: var(--color-accent1);
 	}
 
+	ul, ol {
+		list-style-position: inside;
+		padding: 0;
+		padding-left: 1em;
+	}
+
 	ul {
-		list-style: square inside;
+		list-style: square;
 	}
 
 	ol {
-		list-style: decimal inside;
+		list-style: decimal;
 
 		li::marker {
 			font-weight: bold;
